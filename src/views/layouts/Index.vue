@@ -32,7 +32,6 @@
           :clipped-left="primaryDrawer.clipped"
           app
           elevate-on-scroll
-
         >
 
             <v-app-bar-nav-icon
@@ -93,6 +92,7 @@ export default {
             deep: true
         }
     },
+
     components:{
         Avatar,LeftNavigation
     },
