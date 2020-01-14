@@ -22,21 +22,19 @@
 
         </v-navigation-drawer>
 
-        <!--
-        :permanent="primaryDrawer.type === 'permanent'"
-                :temporary="primaryDrawer.type === 'temporary'"
 
-        -->
 
         <v-app-bar
           :clipped-left="primaryDrawer.clipped"
           app
           elevate-on-scroll
         >
-
             <v-app-bar-nav-icon
+                v-if="primaryDrawer.model"
                 @click.stop="primaryDrawer.mini = !primaryDrawer.mini"
             />
+
+            <v-toolbar-title  v-if="!primaryDrawer.model">微人事</v-toolbar-title>
 
 
             <v-tabs
@@ -100,6 +98,7 @@ export default {
     methods:{
         layoutNavClipped(val){
             this.primaryDrawer.clipped = val
+            this.primaryDrawer.model = !val
         }
     }
 
