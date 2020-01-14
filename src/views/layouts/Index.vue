@@ -18,6 +18,7 @@
                     微人事
                 </v-toolbar-title>
             </v-toolbar>
+
             <LeftNavigation></LeftNavigation>
 
         </v-navigation-drawer>
@@ -34,8 +35,10 @@
                 @click.stop="primaryDrawer.mini = !primaryDrawer.mini"
             />
 
+
             <v-toolbar-title  v-if="!primaryDrawer.model">微人事</v-toolbar-title>
 
+            <v-spacer></v-spacer>
 
             <v-tabs
                     align-with-title
@@ -56,9 +59,13 @@
             </v-btn>
         </v-app-bar>
 
-        <v-container fluid>
-            <router-view />
-        </v-container>
+
+
+        <v-content>
+            <v-container fluid>
+                <router-view />
+            </v-container>
+        </v-content>
     </v-app>
 </template>
 

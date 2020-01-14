@@ -8,15 +8,19 @@
     >
         <!-- 头像 -->
         <template v-slot:activator="{ on }">
-            <v-avatar size="35" v-on="on" style="cursor: pointer">
-                <img src="https://randomuser.me/api/portraits/men/81.jpg" alt="John"/>
-            </v-avatar>
+            <v-btn icon>
+                <v-avatar v-on="on" :size="40">
+                    <img src="https://randomuser.me/api/portraits/men/81.jpg" alt="John"/>
+                </v-avatar>
+            </v-btn>
+
         </template>
 
 
         <v-card width="280"
                 class="mx-auto"
                 hover
+                elevation="12"
         >
             <v-list dense>
                 <v-list-item>
@@ -41,19 +45,16 @@
                                         offset-y="10"
                                 >
                                     <v-btn icon v-on="on">
-                                        <v-icon size="20" color="darken-2">mdi-bell-ring-outline</v-icon>
+                                        <v-icon size="18" color="darken-2">mdi-bell-ring-outline</v-icon>
                                     </v-btn>
                                 </v-badge>
                             </template>
                             <span>系统通知</span>
                         </v-tooltip>
-
-
                     </v-list-item-action>
                 </v-list-item>
             </v-list>
             <v-divider></v-divider>
-
             <v-list dense>
                 <v-subheader>导航布局</v-subheader>
                 <v-list-item>
