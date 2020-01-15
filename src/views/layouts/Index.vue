@@ -35,19 +35,18 @@
                 @click.stop="primaryDrawer.mini = !primaryDrawer.mini"
             />
 
-
-            <v-toolbar-title  v-if="!primaryDrawer.model">微人事</v-toolbar-title>
+            <v-toolbar-title class="title mr-6 hidden-sm-and-down" v-if="!primaryDrawer.model">微人事</v-toolbar-title>
 
             <v-spacer></v-spacer>
 
-            <v-tabs
+           <!-- <v-tabs
                     align-with-title
                     background-color="transparent"
             >
                 <v-tab>工作台</v-tab>
                 <v-tab>系统管理</v-tab>
                 <v-tab>审核</v-tab>
-            </v-tabs>
+            </v-tabs>-->
 
             <v-spacer></v-spacer>
 
@@ -57,6 +56,13 @@
             <v-btn icon>
                 <v-icon>mdi-dots-vertical</v-icon>
             </v-btn>
+
+
+
+            <template v-slot:extension>
+                <HorizontalNavigation></HorizontalNavigation>
+            </template>
+
         </v-app-bar>
 
 
@@ -72,6 +78,7 @@
 <script>
 import Avatar from './Avatar.vue'
 import LeftNavigation from './LeftNavigation.vue'
+import HorizontalNavigation from './HorizontalNavigation.vue'
 export default {
     data: () => ({
         //  默认 permanent（不能隐藏或显示为true不能影藏）  Temporary（层叠模式）
@@ -99,7 +106,7 @@ export default {
     },
 
     components:{
-        Avatar,LeftNavigation
+        Avatar, LeftNavigation, HorizontalNavigation
     },
 
     methods:{
