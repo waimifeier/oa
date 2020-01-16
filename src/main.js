@@ -5,9 +5,10 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 import './plugins/NProgress'
 
-import MessageBox from 'vue-msgbox';
-require('vue-msgbox/lib/vue-msgbox.css');
-Vue.prototype.$Message = MessageBox
+
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
 
 Vue.config.productionTip = false
 
