@@ -1,5 +1,4 @@
 import VueProgressBar from 'vue-progressbar'
-const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 
 import Vue from 'vue';
 Vue.use(VueProgressBar, {
