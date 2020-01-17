@@ -3,8 +3,8 @@
         <v-tabs-slider></v-tabs-slider>
 
         <v-menu open-on-hover
-                bottom
-                :close-on-content-click="false"
+                eager
+                :close-on-content-click="true"
                 offset-y
                 origin="center center"
                 transition="scale-transition"
@@ -65,7 +65,14 @@ export default {
                 title: '系统管理',
                 icon:'' ,
                 to: '/home',
-                children:[]
+                children:[
+                    {
+                        id:2,
+                        title: '首页',
+                        icon:'' ,
+                        to: '/',
+                    },
+                ]
             },
             {
                 id:4,
