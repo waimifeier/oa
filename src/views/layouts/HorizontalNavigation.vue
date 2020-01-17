@@ -88,6 +88,6 @@ export default {
 }
 </script>
 
-<style rel="stylesheet/sass " lang="sass " scoped>
+<style rel="stylesheet/sass" lang="sass" scoped>
 
 </style>
