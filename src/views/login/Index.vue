@@ -14,6 +14,6 @@ export default {
 }
 </script>
 
-<style rel="stylesheet/scss" lang="scss" scoped>
+<style rel="stylesheet/sass " lang="sass " scoped>
 
 </style>

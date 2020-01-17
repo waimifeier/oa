@@ -174,8 +174,7 @@ export default {
 }
 </script>
 
-<style rel="stylesheet/scss" lang="scss" scoped>
-.layout-check{
-    position: absolute;
-}
+<style rel="stylesheet/sass " lang="sass" scoped>
+.layout-check
+    position: absolute
 </style>

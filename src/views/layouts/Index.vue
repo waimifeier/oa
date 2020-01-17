@@ -1,5 +1,6 @@
 <template>
     <v-app app>
+
         <v-navigation-drawer
                 app
                 width="200"
@@ -11,7 +12,7 @@
                 :temporary="primaryDrawer.type === 'temporary'"
                 overflow
         >
-
+            <el-scrollbar style="height:100%">
             <v-toolbar elevation="0"
             >
                 <v-toolbar-title >
@@ -20,6 +21,7 @@
             </v-toolbar>
 
             <LeftNavigation></LeftNavigation>
+            </el-scrollbar>
 
         </v-navigation-drawer>
 
