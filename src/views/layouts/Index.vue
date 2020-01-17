@@ -12,17 +12,15 @@
                 :temporary="primaryDrawer.type === 'temporary'"
                 overflow
         >
-            <el-scrollbar style="height:100%">
-            <v-toolbar elevation="0"
-            >
-                <v-toolbar-title >
-                    微人事
-                </v-toolbar-title>
-            </v-toolbar>
+            <el-scrollbar style="height: 100%;overflow-x: hidden;">
+                <v-toolbar elevation="0">
+                    <v-toolbar-title >
+                        微人事
+                    </v-toolbar-title>
+                </v-toolbar>
 
-            <LeftNavigation></LeftNavigation>
+                <LeftNavigation></LeftNavigation>
             </el-scrollbar>
-
         </v-navigation-drawer>
 
 
@@ -68,12 +66,12 @@
         </v-app-bar>
 
 
-
         <v-content>
             <v-container fluid>
                 <router-view />
             </v-container>
         </v-content>
+
     </v-app>
 </template>
 

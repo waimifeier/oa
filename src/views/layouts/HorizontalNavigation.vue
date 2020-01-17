@@ -1,41 +1,27 @@
 <template>
     <v-tabs v-model="currentItem" background-color="transparent"  show-arrows  align-with-title>
-      <!--  <v-tab  v-for="item in items"
-                :key="item.id"
-                :to="item.to"
-        >
-            {{ item.title }}
-
-            <v-menu v-if="item.children.length" bottom left>
-                <template v-slot:activator="{ on }">
-                    <v-btn text class="align-self-center mr-4" v-on="on" >
-                        more
-                    <v-icon right>mdi-menu-down</v-icon>
-                    </v-btn>
-                </template>
-
-                <v-list class="grey lighten-3">
-                    <v-list-item
-                            v-for="item in more"
-                            :key="item"
-                    @click="addItem(item)"
-                    >
-                    {{ item }}
-                    </v-list-item>
-                </v-list>
-            </v-menu>
-        </v-tab>-->
-
         <v-tabs-slider></v-tabs-slider>
-        <v-tab  v-for="item in items"
-                :key="item.id"
-                :to="item.to"
-        >
 
-            {{ item.title }}
+        <v-menu open-on-hover
+                bottom
+                :close-on-content-click="false"
+                offset-y
+                origin="center center"
+                transition="scale-transition"
+                v-for="item in items" :key="item.id">
+            <template v-slot:activator="{ on }">
+                <v-tab  v-on="on">{{item.title}}</v-tab>
+            </template>
 
-        </v-tab>
-
+            <v-list dense v-if="item.children.length>0">
+                <v-list-item link
+                        v-for="subitem in item.children"
+                        :key="subitem.id"
+                >
+                {{ subitem.title }}
+            </v-list-item>
+        </v-list>
+    </v-menu>
     </v-tabs>
 </template>
 
@@ -57,6 +43,18 @@ export default {
                     {
                         id:2,
                         title: '首页',
+                        icon:'' ,
+                        to: '/',
+                    },
+                    {
+                        id:2,
+                        title: 'test01',
+                        icon:'' ,
+                        to: '/',
+                    },
+                    {
+                        id:2,
+                        title: 'test02',
                         icon:'' ,
                         to: '/',
                     }

@@ -1,10 +1,8 @@
 <template>
-    <div id="app">
-        <el-scrollbar style="height:100%">
-            <router-view />
-        </el-scrollbar>
-        <vue-progress-bar></vue-progress-bar>
-    </div>
+   <div id="app">
+       <router-view />
+       <vue-progress-bar></vue-progress-bar>
+   </div>
 </template>
 
 <script>
