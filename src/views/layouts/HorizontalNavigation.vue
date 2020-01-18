@@ -1,7 +1,13 @@
 <template>
-    <v-tabs v-model="currentItem" background-color="transparent"  show-arrows  align-with-title>
+    <v-tabs v-model="currentItem"
+            background-color="transparent"
+            show-arrows
+            align-with-title
+            center-active
+            centered
+            next-icon
+    >
         <v-tabs-slider></v-tabs-slider>
-
         <v-menu
                 transition="slide-y-reverse-transition"
                 allow-overflow
@@ -13,7 +19,7 @@
                 close-delay="200"
                 v-for="item in items" :key="item.id" >
             <template v-slot:activator="{ on }">
-                <v-tab v-on="on">
+                <v-tab v-on="on" >
                     {{item.title}}
                     <v-icon :size="12" class="ml-2" v-if="item.children.length>0">mdi-chevron-down</v-icon>
                 </v-tab>

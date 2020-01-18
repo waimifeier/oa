@@ -32,6 +32,7 @@
         <v-app-bar
           :clipped-left="primaryDrawer.clipped"
           app
+          short
           elevate-on-scroll
           hide-on-scroll
         >
@@ -40,7 +41,7 @@
                 @click.stop="primaryDrawer.mini = !primaryDrawer.mini"
             />
 
-            <v-toolbar-title class="title mr-6 hidden-sm-and-down" v-if="!primaryDrawer.model">微人事</v-toolbar-title>
+            <v-toolbar-title v-if="!primaryDrawer.model">微人事</v-toolbar-title>
 
             <v-spacer></v-spacer>
 
@@ -83,11 +84,11 @@ export default {
         //  默认 permanent（不能隐藏或显示为true不能影藏）  Temporary（层叠模式）
         drawers: ['Default (no property)', 'Permanent', 'Temporary'],
         primaryDrawer: {
-            model: true,  // 控制左侧菜单是否显示
+            model: false,  // 控制左侧菜单是否显示
             type: 'Permanent', //
-            clipped: false,  // 顶部导航是否是通航
+            clipped: true,  // 顶部导航是否是通航
             floating: true, // 是否影藏边框
-            mini: false,  // 是否用模拟模式
+            mini: true,  // 是否用模拟模式
         },
         footer: {
             inset: true,
