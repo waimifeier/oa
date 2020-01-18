@@ -8,7 +8,6 @@
                 nudge-bottom="3"
                 internal-activator
                 eager
-
                 :close-on-content-click="true"
                 offset-y
                 close-delay="200"
@@ -62,14 +61,14 @@ export default {
                         to: '/',
                     },
                     {
-                        id:2,
-                        title: 'test01',
+                        id:8,
+                        title: '我的日程',
                         icon:'' ,
                         to: '/',
                     },
                     {
-                        id:2,
-                        title: 'test02',
+                        id:9,
+                        title: '待办事项',
                         icon:'' ,
                         to: '/',
                     }
@@ -82,7 +81,7 @@ export default {
                 to: '/home',
                 children:[
                     {
-                        id:2,
+                        id:33,
                         title: '首页',
                         icon:'' ,
                         to: '/',

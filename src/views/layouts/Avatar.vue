@@ -112,7 +112,7 @@
                     </v-list-item-action>
                     <v-list-item-content>
                         <v-list-item-title>订阅通知</v-list-item-title>
-                        <v-list-item-subtitle> 系统将主动推送最新系统通知 </v-list-item-subtitle>
+                        <v-list-item-subtitle> 允许接受最新消息 </v-list-item-subtitle>
                     </v-list-item-content>
                 </v-list-item>
             </v-list>
