@@ -9,6 +9,11 @@
 export default {
   name: 'App',
   data: () => ({
-  })
+  }),
+    mounted(){
+        this.$message({
+            dark:true
+        })
+    }
 };
 </script>

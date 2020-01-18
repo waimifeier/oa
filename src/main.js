@@ -6,10 +6,14 @@ import vuetify from './plugins/vuetify'
 import './plugins/NProgress'
 import './css/app.sass'
 
+import Message from '@/components/message'
+Vue.use(Message)
+
+
 
 Vue.config.productionTip = false
 
-new Vue({
+export default new Vue({
   router,
   store,
   vuetify,

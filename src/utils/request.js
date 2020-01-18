@@ -1,4 +1,5 @@
 import axios from 'axios'
+import app from './main'
 import { getToken } from '@/utils/auth'
 
 axios.defaults.baseURL = "http://localhost:8081:/api/";
@@ -7,6 +8,7 @@ axios.defaults.timeout = 60000;
 // request拦截器
 axios.interceptors.request.use(
     config => {
+        app.$Progress.start()
         config.headers['authorization'] = getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
         return config
     },
@@ -18,6 +20,7 @@ axios.interceptors.request.use(
 // response 拦截器
 axios.interceptors.response.use(
     response => {
+        const res = response.data
         if (res.status === 200) {
             return Promise.resolve(res.content)
         } else {
