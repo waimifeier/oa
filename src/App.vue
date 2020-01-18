@@ -1,11 +1,13 @@
 <template>
    <div id="app">
-       <router-view />
+       <scroll><router-view /></scroll>
+
        <vue-progress-bar></vue-progress-bar>
    </div>
 </template>
 
 <script>
+import scroll from '@/components/scroll/scroll'
 export default {
   name: 'App',
   data: () => ({
@@ -14,6 +16,7 @@ export default {
         this.$message({
             dark:true
         })
-    }
+    },
+    components:{scroll}
 };
 </script>

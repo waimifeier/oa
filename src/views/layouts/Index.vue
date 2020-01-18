@@ -78,6 +78,7 @@
 import Avatar from './Avatar.vue'
 import LeftNavigation from './LeftNavigation.vue'
 import HorizontalNavigation from './HorizontalNavigation.vue'
+
 export default {
     data: () => ({
         //  默认 permanent（不能隐藏或显示为true不能影藏）  Temporary（层叠模式）
