@@ -12,15 +12,13 @@
                 :temporary="primaryDrawer.type === 'temporary'"
                 overflow
         >
-            <el-scrollbar style="height: 100%;overflow-x: hidden;">
-                <v-toolbar elevation="0">
-                    <v-toolbar-title >
-                        微人事
-                    </v-toolbar-title>
-                </v-toolbar>
+            <v-toolbar elevation="0">
+                <v-toolbar-title >
+                    微人事
+                </v-toolbar-title>
+            </v-toolbar>
 
-                <LeftNavigation></LeftNavigation>
-            </el-scrollbar>
+            <LeftNavigation></LeftNavigation>
         </v-navigation-drawer>
 
 
@@ -114,6 +112,9 @@ export default {
             this.primaryDrawer.clipped = val
             this.primaryDrawer.model = !val
         }
+    },
+    mounted () {
+        this.$Progress.start()
     }
 
 }

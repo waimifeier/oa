@@ -2,27 +2,42 @@
     <v-tabs v-model="currentItem" background-color="transparent"  show-arrows  align-with-title>
         <v-tabs-slider></v-tabs-slider>
 
-        <v-menu open-on-hover
+        <v-menu
+                open-on-hover
+                allow-overflow
+                nudge-bottom="3"
+                internal-activator
                 eager
+
                 :close-on-content-click="true"
                 offset-y
-                origin="center center"
-                transition="scale-transition"
-                v-for="item in items" :key="item.id">
+                close-delay="200"
+                v-for="item in items" :key="item.id" >
             <template v-slot:activator="{ on }">
                 <v-tab  v-on="on">{{item.title}}</v-tab>
             </template>
 
-            <v-list dense v-if="item.children.length>0">
+            <v-list dense
+                    min-width="120"
+                    v-if="item.children.length>0" >
+
                 <v-list-item link
                         v-for="subitem in item.children"
                         :key="subitem.id"
                 >
-                {{ subitem.title }}
+
+                    <v-list-item-icon class="mr-2">
+                        <v-icon :size="14">mdi-email-outline</v-icon>
+                    </v-list-item-icon>
+                    <v-list-item-content>
+
+                        <v-list-item-subtitle v-html="subitem.title"></v-list-item-subtitle>
+                    </v-list-item-content>
             </v-list-item>
         </v-list>
     </v-menu>
     </v-tabs>
+
 </template>
 
 <script>
