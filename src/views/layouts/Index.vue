@@ -3,6 +3,7 @@
 
         <v-navigation-drawer
                 app
+                fixed
                 width="200"
                 v-model="primaryDrawer.model"
                 :clipped="primaryDrawer.clipped"
@@ -14,6 +15,10 @@
         >
 
             <v-toolbar elevation="0">
+                <v-btn icon>
+                    <v-img contain src="https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png" width="32px" height="32"/>
+                </v-btn>
+
                 <v-toolbar-title >
                     微人事
                 </v-toolbar-title>
@@ -28,6 +33,7 @@
           :clipped-left="primaryDrawer.clipped"
           app
           elevate-on-scroll
+          hide-on-scroll
         >
             <v-app-bar-nav-icon
                 v-if="primaryDrawer.model"
@@ -38,16 +44,9 @@
 
             <v-spacer></v-spacer>
 
-           <!-- <v-tabs
-                    align-with-title
-                    background-color="transparent"
-            >
-                <v-tab>工作台</v-tab>
-                <v-tab>系统管理</v-tab>
-                <v-tab>审核</v-tab>
-            </v-tabs>-->
 
-            <v-spacer></v-spacer>
+<!--            <HorizontalNavigation v-if="this.primaryDrawer.clipped"></HorizontalNavigation>-->
+
 
             <!--头像-->
             <Avatar @layoutNavClipped="layoutNavClipped"/>
@@ -58,7 +57,7 @@
 
 
 
-            <template v-slot:extension>
+            <template v-slot:extension v-if="primaryDrawer.clipped">
                 <HorizontalNavigation></HorizontalNavigation>
             </template>
 

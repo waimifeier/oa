@@ -67,7 +67,7 @@
                                              src="https://gw.alipayobjects.com/zos/rmsportal/JopDzEhOqwOjeNTXkoje.svg"
                                              alt="John"
                                         >
-                                        <v-icon class="layout-check" color="red darken-1" v-if="active">mdi-fingerprint</v-icon>
+                                        <v-icon class="layout-check" color="red darken-1" v-if="active">mdi-checkbox-marked-circle-outline</v-icon>
                                     </v-avatar>
                                 </template>
                                 <span>左侧导航栏</span>
@@ -82,7 +82,7 @@
                                              src="https://gw.alipayobjects.com/zos/rmsportal/KDNDBbriJhLwuqMoxcAr.svg"
                                              alt="John"
                                         >
-                                        <v-icon class="layout-check" color="red darken-1" v-if="active">mdi-fingerprint</v-icon>
+                                        <v-icon class="layout-check" color="red darken-1" v-if="active">mdi-checkbox-marked-circle-outline</v-icon>
                                     </v-avatar>
                                 </template>
                                 <span>顶部导航栏</span>

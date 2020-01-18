@@ -3,7 +3,7 @@
         <v-tabs-slider></v-tabs-slider>
 
         <v-menu
-                open-on-hover
+                transition="slide-y-reverse-transition"
                 allow-overflow
                 nudge-bottom="3"
                 internal-activator
@@ -13,7 +13,11 @@
                 close-delay="200"
                 v-for="item in items" :key="item.id" >
             <template v-slot:activator="{ on }">
-                <v-tab  v-on="on">{{item.title}}</v-tab>
+                <v-tab v-on="on">
+                    {{item.title}}
+                    <v-icon :size="12" class="ml-2" v-if="item.children.length>0">mdi-chevron-down</v-icon>
+                </v-tab>
+
             </template>
 
             <v-list dense
