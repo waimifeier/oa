@@ -32,7 +32,6 @@
         <v-app-bar
           :clipped-left="primaryDrawer.clipped"
           app
-          short
           elevate-on-scroll
           hide-on-scroll
         >
