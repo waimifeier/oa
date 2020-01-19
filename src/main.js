@@ -4,7 +4,6 @@ import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
 import './plugins/NProgress'
-import './css/app.sass'
 
 import Message from '@/components/message'
 Vue.use(Message)
