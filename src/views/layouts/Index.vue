@@ -42,11 +42,23 @@
 
             <v-toolbar-title v-if="!primaryDrawer.model">微人事</v-toolbar-title>
 
-            <v-spacer></v-spacer>
+               <!--  class="hidden-xs-only" -->
+            <div class="ml-10" >
+                <v-text-field
+                        filled
+                        rounded
+                        dense
+                        clearable
 
-
+                        color="grey lighten-1"
+                        style="font-size: 14px"
+                        placeholder="搜索菜单"
+                        prepend-inner-icon="mdi-magnify"
+                        hide-details
+                ></v-text-field>
+            </div>
 <!--            <HorizontalNavigation v-if="this.primaryDrawer.clipped"></HorizontalNavigation>-->
-
+            <v-spacer></v-spacer>
 
             <!--头像-->
             <Avatar @layoutNavClipped="layoutNavClipped"/>
