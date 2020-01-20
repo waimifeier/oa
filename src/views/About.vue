@@ -59,14 +59,15 @@
 <!--    </v-col>-->
     <v-col cols="12" sm="12">
 
-      <div style="border-radius:36px; border: 1px solid #ddd; width: 270px;text-align: center;padding: 2px;">
-        <v-btn-toggle rounded dense borderless >
-          <v-btn color="primary" outlined rounded>全部</v-btn>
-          <v-btn color="primary" outlined rounded>已禁用</v-btn>
-          <v-btn color="primary" outlined rounded>待分配</v-btn>
-          <v-btn color="primary" outlined rounded>已删除</v-btn>
-        </v-btn-toggle>
-      </div>
+        <div style="border-radius:36px; border: 1px solid #ddd; width: 320px;text-align: center;padding: 2px;">
+            <v-btn-toggle rounded dense borderless color="teal" >
+                <v-btn outlined rounded  min-width="80">全部</v-btn>
+                <v-btn outlined rounded min-width="80"> 已禁用</v-btn>
+                <v-btn outlined rounded min-width="80">待分配</v-btn>
+                <v-btn outlined rounded min-width="80">已删除</v-btn>
+            </v-btn-toggle>
+        </div>
+
 
 
       <v-card-title>
