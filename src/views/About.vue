@@ -59,11 +59,12 @@
 <!--    </v-col>-->
     <v-col cols="12" sm="12">
 
-      <div style="border-radius:26px; border: 1px solid #000; width: 200px;text-align: center;padding: 2px;">
+      <div style="border-radius:36px; border: 1px solid #ddd; width: 270px;text-align: center;padding: 2px;">
         <v-btn-toggle rounded dense borderless >
-          <v-btn  outlined>已禁用</v-btn>
-          <v-btn  color="deep-purple lighten-3" outlined >待分配</v-btn>
-          <v-btn  color="deep-purple lighten-3" outlined>已删除</v-btn>
+          <v-btn color="primary" outlined rounded>全部</v-btn>
+          <v-btn color="primary" outlined rounded>已禁用</v-btn>
+          <v-btn color="primary" outlined rounded>待分配</v-btn>
+          <v-btn color="primary" outlined rounded>已删除</v-btn>
         </v-btn-toggle>
       </div>
 
@@ -97,16 +98,16 @@ export default {
     data: () => ({
       headers: [
         {
-          text: 'Dessert (100g serving)',
+          text: '账号 ',
           align: 'left',
           sortable: false,
           value: 'name',
         },
-        { text: 'Calories', value: 'calories' },
-        { text: 'Fat (g)', value: 'fat' },
-        { text: 'Carbs (g)', value: 'carbs' },
-        { text: 'Protein (g)', value: 'protein' },
-        { text: 'Iron (%)', value: 'iron' },
+        { text: '昵称', value: 'calories' },
+        { text: '手机号', value: 'fat' },
+        { text: '邮箱', value: 'carbs' },
+        { text: '时间', value: 'protein' },
+        { text: '图标', value: 'iron' },
       ],
       desserts: [
         {
