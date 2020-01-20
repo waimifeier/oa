@@ -42,16 +42,24 @@
 
             <v-toolbar-title v-if="!primaryDrawer.model">微人事</v-toolbar-title>
 
-               <!--  class="hidden-xs-only" -->
+               <!--  class="hidden-xs-only"
+
+                 theme--dark
+                  v-text-field
+                   v-text-field--single-line
+                    v-text-field--solo
+                     v-text-field--solo-inverted
+                     v-text-field--solo-flat
+                      v-text-field--is-booted
+                -->
             <div class="ml-10" >
                 <v-text-field
+                        single-line
                         filled
                         rounded
                         dense
                         clearable
-
                         color="grey lighten-1"
-                        style="font-size: 14px"
                         placeholder="搜索菜单"
                         prepend-inner-icon="mdi-magnify"
                         hide-details
