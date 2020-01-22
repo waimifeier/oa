@@ -1,0 +1,10 @@
+@charset "utf-8";
+@import '~vuetify/src/styles/styles.sass';
+
+html{
+  overflow-y: auto !important
+}
+
+.el-scrollbar__wrap{
+  overflow-x: hidden
+}

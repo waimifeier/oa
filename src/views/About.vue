@@ -68,8 +68,6 @@
             </v-btn-toggle>
         </div>
 
-
-
       <v-card-title>
         账号列表
         <v-spacer></v-spacer>
@@ -79,7 +77,6 @@
                 rounded
                 dense
                 clearable
-                color="grey lighten-1"
                 placeholder="搜索账号、昵称、手机号"
                 prepend-inner-icon="mdi-magnify"
                 hide-details
@@ -193,5 +190,7 @@ export default {
         },
       ],
     }),
+    mounted() {
+    }
 }
 </script>
