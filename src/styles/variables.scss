@@ -11,6 +11,7 @@ $text-field-filled-full-width-outlined-single-line-slot-min-height:38px !default
 $light-bg:#eff4f8;
 
 $material-light: (
-    'background':$light-bg
+    'background':$light-bg,
+    'bg-color':$light-bg
 );
 

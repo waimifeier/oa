@@ -85,7 +85,7 @@ export default {
         menuData: [
             {
                 id:1,
-                icon: 'mdi-email-outline',
+                icon: 'mdi-settings',
                 title: '系统管理',
                 active: true,
                 items: [

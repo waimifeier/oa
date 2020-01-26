@@ -1,63 +1,71 @@
 <template>
   <v-row>
-<!--    <v-col cols="12" sm="3">-->
-<!--      <v-card class="mx-auto" loading loader-height="1" flat width="230">-->
-<!--        <v-list rounded dense>-->
-<!--        <v-list-item three-line>-->
-<!--          <v-list-item-icon>-->
-<!--            <v-btn icon>-->
-<!--              <v-icon :size="24">mdi-home-analytics</v-icon>-->
-<!--            </v-btn>-->
-<!--          </v-list-item-icon>-->
-<!--          <v-list-item-content>-->
-<!--            <v-list-item-title>账号列表</v-list-item-title>-->
-<!--            <v-list-item-subtitle>当前在线人数2人</v-list-item-subtitle>-->
-<!--          </v-list-item-content>-->
-<!--        </v-list-item>-->
-<!--        <v-subheader> 账号状态 </v-subheader>-->
-<!--        <v-list-item-group color="primary">-->
-<!--          <v-list-item>-->
-<!--            <v-list-item-icon>-->
-<!--              <v-icon :size="16">mdi-home-analytics</v-icon>-->
-<!--            </v-list-item-icon>-->
-<!--            <v-list-item-content>-->
-<!--              <v-list-item-title>全部</v-list-item-title>-->
-<!--            </v-list-item-content>-->
-<!--          </v-list-item>-->
-<!--          <v-list-item>-->
-<!--            <v-list-item-icon>-->
-<!--              <v-icon :size="18">mdi-sign-text</v-icon>-->
-<!--            </v-list-item-icon>-->
-<!--            <v-list-item-title> 待分配 </v-list-item-title>-->
-<!--            <v-list-item-icon>-->
-<!--              <v-badge left dot color="teal" offset-x="10" offset-y="16"></v-badge>-->
-<!--            </v-list-item-icon>-->
-<!--          </v-list-item>-->
-<!--          <v-list-item>-->
-<!--            <v-list-item-icon>-->
-<!--              <v-icon :size="18">mdi-lightbulb-outline</v-icon>-->
-<!--            </v-list-item-icon>-->
-<!--            <v-list-item-title> 已禁用 </v-list-item-title>-->
-<!--            <v-list-item-icon>-->
-<!--              <v-badge left dot color="orange" offset-x="10" offset-y="16"></v-badge>-->
-<!--            </v-list-item-icon>-->
-<!--          </v-list-item>-->
+    <v-col cols="12" sm="3">
+      <v-card class="mx-auto" loader-height="1" flat  width="240" min-height="400">
+        <v-list rounded dense>
+        <v-list-item three-line>
+          <v-list-item-avatar>
+            <v-btn icon>
+              <v-icon :size="30" color="primary">mdi-account-multiple-plus</v-icon>
+            </v-btn>
+          </v-list-item-avatar>
+          <v-list-item-content>
+            <v-list-item-title>
+                新增账号
+            </v-list-item-title>
+            <v-list-item-subtitle>
+                系统当前在线 2 人
+            </v-list-item-subtitle>
 
-<!--          <v-subheader> 回收站 </v-subheader>-->
-<!--          <v-list-item>-->
-<!--            <v-list-item-icon>-->
-<!--              <v-icon :size="18">mdi-email-outline</v-icon>-->
-<!--            </v-list-item-icon>-->
-<!--            <v-list-item-title> 已删除 </v-list-item-title>-->
-<!--            <v-list-item-icon>-->
-<!--              <v-badge left dot color="error" offset-x="10" offset-y="16"></v-badge>-->
-<!--            </v-list-item-icon>-->
-<!--          </v-list-item>-->
-<!--        </v-list-item-group>-->
-<!--        </v-list>-->
-<!--      </v-card>-->
-<!--    </v-col>-->
-    <v-col cols="12" sm="12">
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-subheader> 账号状态  </v-subheader>
+        <v-list-item-group color="primary">
+          <v-list-item>
+            <v-list-item-icon>
+              <v-icon :size="20">mdi-account-supervisor</v-icon>
+            </v-list-item-icon>
+              <v-list-item-title>全部</v-list-item-title>
+              <v-list-item-icon>
+                  <v-badge left content="132" color="teal" offset-x="10" offset-y="20"></v-badge>
+              </v-list-item-icon>
+
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-icon>
+              <v-icon :size="20">mdi-account-arrow-right</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title> 待分配 </v-list-item-title>
+            <v-list-item-icon>
+              <v-badge left content="5" color="teal" offset-x="10" offset-y="20"></v-badge>
+            </v-list-item-icon>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-icon>
+              <v-icon :size="20">mdi-account-cancel</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title> 已禁用 </v-list-item-title>
+            <v-list-item-icon>
+              <v-badge left content="3" color="orange" offset-x="10" offset-y="20"></v-badge>
+            </v-list-item-icon>
+          </v-list-item>
+
+          <v-subheader> 回收站 </v-subheader>
+          <v-list-item>
+            <v-list-item-icon>
+              <v-icon :size="20">mdi-account-off</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title> 已删除 </v-list-item-title>
+            <v-list-item-icon>
+              <v-badge left content="0" color="error" offset-x="10" offset-y="20"></v-badge>
+            </v-list-item-icon>
+          </v-list-item>
+        </v-list-item-group>
+        </v-list>
+      </v-card>
+    </v-col>
+    <v-col cols="12" sm="9">
 
         <div style="border-radius:36px; border: 1px solid #ddd; width: 320px;text-align: center;padding: 2px;">
             <v-btn-toggle rounded dense borderless color="teal" >

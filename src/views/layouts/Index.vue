@@ -3,8 +3,7 @@
 
         <v-navigation-drawer
                 app
-                dark
-                width="200"
+                width="220"
                 v-model="primaryDrawer.model"
                 :clipped="primaryDrawer.clipped"
                 :floating="primaryDrawer.floating"
@@ -63,6 +62,8 @@
                         placeholder="搜索菜单"
                         prepend-inner-icon="mdi-magnify"
                         hide-details
+                        clear-icon="mdi-close-octagon-outline"
+                        class="test transition-swing"
                 ></v-text-field>
             </div>
 <!--            <HorizontalNavigation v-if="this.primaryDrawer.clipped"></HorizontalNavigation>-->
@@ -142,3 +143,9 @@ export default {
 
 }
 </script>
+
+<style>
+    .test:focus{
+        width: 300px;
+    }
+</style>
