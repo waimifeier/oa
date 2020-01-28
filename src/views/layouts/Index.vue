@@ -32,7 +32,6 @@
           :clipped-left="primaryDrawer.clipped"
           app
           elevate-on-scroll
-          hide-on-scroll
         >
             <v-app-bar-nav-icon
                 v-if="primaryDrawer.model"
@@ -51,22 +50,9 @@
                      v-text-field--solo-flat
                       v-text-field--is-booted
                 -->
-            <div class="ml-10" >
-                <v-text-field
-                        single-line
-                        filled
-                        rounded
-                        dense
-                        clearable
-                        color="grey lighten-1"
-                        placeholder="搜索菜单"
-                        prepend-inner-icon="mdi-magnify"
-                        hide-details
-                        clear-icon="mdi-close-octagon-outline"
-                        class="test transition-swing"
-                ></v-text-field>
-            </div>
-<!--            <HorizontalNavigation v-if="this.primaryDrawer.clipped"></HorizontalNavigation>-->
+            <v-breadcrumbs :items="items" v-if="!this.primaryDrawer.clipped"></v-breadcrumbs>
+
+            <HorizontalNavigation v-if="this.primaryDrawer.clipped"></HorizontalNavigation>
             <v-spacer></v-spacer>
 
             <!--头像-->
@@ -78,11 +64,11 @@
 
 
 
-            <template v-slot:extension v-if="primaryDrawer.clipped">
-                <v-container>
-                    <HorizontalNavigation></HorizontalNavigation>
-                </v-container>
-            </template>
+<!--            <template v-slot:extension v-if="primaryDrawer.clipped">-->
+<!--                <v-container>-->
+<!--                    <HorizontalNavigation></HorizontalNavigation>-->
+<!--                </v-container>-->
+<!--            </template>-->
 
         </v-app-bar>
 
@@ -115,6 +101,19 @@ export default {
         footer: {
             inset: true,
         },
+
+        items: [
+            {
+                text: '工作台',
+                disabled: false,
+                href: 'breadcrumbs_dashboard',
+            },
+            {
+                text: '待审核',
+                disabled: true,
+                href: 'breadcrumbs_link_1',
+            }
+        ],
     }),
 
     watch: {

@@ -67,14 +67,14 @@
     </v-col>
     <v-col cols="12" sm="9">
 
-        <div style="border-radius:36px; border: 1px solid #ddd; width: 320px;text-align: center;padding: 2px;">
-            <v-btn-toggle rounded dense borderless color="teal" >
-                <v-btn outlined rounded  min-width="80">全部</v-btn>
-                <v-btn outlined rounded min-width="80"> 已禁用</v-btn>
-                <v-btn outlined rounded min-width="80">待分配</v-btn>
-                <v-btn outlined rounded min-width="80">已删除</v-btn>
-            </v-btn-toggle>
-        </div>
+<!--        <div style="border-radius:36px; border: 1px solid #ddd; width: 320px;text-align: center;padding: 2px;">-->
+<!--            <v-btn-toggle rounded dense borderless color="teal" >-->
+<!--                <v-btn outlined rounded  min-width="80">全部</v-btn>-->
+<!--                <v-btn outlined rounded min-width="80"> 已禁用</v-btn>-->
+<!--                <v-btn outlined rounded min-width="80">待分配</v-btn>-->
+<!--                <v-btn outlined rounded min-width="80">已删除</v-btn>-->
+<!--            </v-btn-toggle>-->
+<!--        </div>-->
 
       <v-card-title>
         账号列表
@@ -88,6 +88,8 @@
                 placeholder="搜索账号、昵称、手机号"
                 prepend-inner-icon="mdi-magnify"
                 hide-details
+                color="grey darken-1"
+                clear-icon="mdi-close-octagon-outline"
         ></v-text-field>
       </v-card-title>
       <v-data-table

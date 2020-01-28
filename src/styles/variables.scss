@@ -12,6 +12,9 @@ $light-bg:#eff4f8;
 
 $material-light: (
     'background':$light-bg,
-    'bg-color':$light-bg
+    'bg-color':$light-bg,
+    'text': (
+      'primary':#242e42,
+    ),
 );
 
