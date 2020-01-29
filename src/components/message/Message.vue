@@ -1,30 +1,42 @@
 <template>
     <v-snackbar
-            dark
+            color="success"
+            :top="true"
             v-model="snackbar"
+            :multi-line="false"
     >
-        {{ text }}
+        保存成功
         <v-btn
-                color="pink"
-                text
-        @click="snackbar = false"
+                icon
+                @click="snackbar = false"
         >
-        close
-    </v-btn>
-</v-snackbar>
+            <v-icon small>mdi-close</v-icon>
+        </v-btn>
+    </v-snackbar>
 </template>
 
 
 <script>
 export default {
     name: 'Message',
+    props:{
+        text:{
+            type: String,
+            default: ''
+        },
+        color:{
+            type: String,
+            default: 'info'
+        },
+        snackbar:{
+            type:Boolean,
+            default:false
+        },
+    },
     data: () => ({
-        snackbar:true,
-        text:"",
-        color:"",
         location: {
             bottom:false,
-            top:false,
+            top:true,
             left:false,
             right:false
         }

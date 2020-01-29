@@ -4,16 +4,16 @@ import Vue from 'vue'
 const MessageInstance = Vue.extend(Message)
 
 const message = (options) => {
-    options = options || {}
-    options.snackbar = true
+    console.log(typeof options )
+    console.log(options)
+    options.snackbar=true
     const instance = new MessageInstance({
-        propsData: options
+        propsData:{
+            ...options
+        }
     })
-
     instance.vm = instance.$mount()
-
-    // document.body.appendChild(instance.vm.$el)
-
+    document.body.appendChild(instance.vm.$el)
     return instance.vm
 }
 

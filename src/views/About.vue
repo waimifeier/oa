@@ -28,7 +28,7 @@
             </v-list-item-icon>
               <v-list-item-title>全部</v-list-item-title>
               <v-list-item-icon>
-                  <v-badge left content="132" color="teal" offset-x="10" offset-y="20"></v-badge>
+                  <v-badge left content="132" color="success" offset-x="10" offset-y="20"></v-badge>
               </v-list-item-icon>
 
           </v-list-item>
@@ -75,6 +75,9 @@
 <!--                <v-btn outlined rounded min-width="80">已删除</v-btn>-->
 <!--            </v-btn-toggle>-->
 <!--        </div>-->
+        <v-btn color="info" @click="handlerClick">
+          click
+        </v-btn>
 
       <v-card-title>
         账号列表
@@ -201,6 +204,11 @@ export default {
       ],
     }),
     mounted() {
+    },
+    methods:{
+      handlerClick(){
+        this.$message({text:'测试0001 ',color:'info'})
+      }
     }
 }
 </script>

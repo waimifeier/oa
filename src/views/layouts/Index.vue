@@ -55,13 +55,16 @@
             <HorizontalNavigation v-if="this.primaryDrawer.clipped"></HorizontalNavigation>
             <v-spacer></v-spacer>
 
-            <!--头像-->
-            <Avatar @layoutNavClipped="layoutNavClipped"/>
+
+
 
             <v-btn icon>
-                <v-icon>mdi-dots-vertical</v-icon>
+<!--                <v-icon small>mdi-arrow-expand-all</v-icon>-->
+                <v-icon small>mdi-arrow-collapse-all</v-icon>
             </v-btn>
 
+            <!--头像-->
+            <Avatar @layoutNavClipped="layoutNavClipped"/>
 
 
 <!--            <template v-slot:extension v-if="primaryDrawer.clipped">-->
@@ -137,7 +140,6 @@ export default {
         }
     },
     mounted () {
-        this.$Progress.start()
     }
 
 }
