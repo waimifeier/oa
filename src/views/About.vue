@@ -207,11 +207,24 @@ export default {
     },
     methods:{
       handlerClick(){
-        // this.$message({text:'测试0001 ',color:'info'})
-        this.$confirm('是否禁用当前账号？')
-                .then(res => {
-          console.log(res)
+        // this.$confirm('是否禁用当前账号？')
+        //         .then(res => {
+        //   console.log(res)
+        // })
+
+
+        this.$dialog.message.error('已存在该账号！', {
+          position:'top'
         })
+
+        // this.$dialog.notify.success('Test notification', {
+        //   timeout: 5000,
+        // })
+
+        // this.$dialog.confirm({
+        //   text: '是否禁用当前账号?',
+        //   actions: ['否', '是']
+        // })
       }
     }
 }

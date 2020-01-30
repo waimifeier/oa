@@ -9,6 +9,14 @@ import './plugins/NProgress'
 import VuetifyConfirm from '@/components/confirm'
 Vue.use(VuetifyConfirm, { vuetify })
 
+import VuetifyDialog from 'vuetify-dialog'
+import 'vuetify-dialog/dist/vuetify-dialog.css'
+
+Vue.use(VuetifyDialog, {
+  context: {
+    vuetify
+  }
+})
 
 
 Vue.config.productionTip = false

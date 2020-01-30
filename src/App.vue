@@ -11,9 +11,7 @@ export default {
   data: () => ({
   }),
     mounted(){
-        this.$message({
-            dark:true
-        })
+       
     },
 };
 </script>

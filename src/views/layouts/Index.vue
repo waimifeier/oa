@@ -31,6 +31,7 @@
         <v-app-bar
           :clipped-left="primaryDrawer.clipped"
           app
+          :style=" {backgroundColor: $vuetify.theme.dark ? '#303030' :'#eff4f8'} "
           elevate-on-scroll
         >
             <v-app-bar-nav-icon
