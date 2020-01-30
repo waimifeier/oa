@@ -207,7 +207,11 @@ export default {
     },
     methods:{
       handlerClick(){
-        this.$message({text:'测试0001 ',color:'info'})
+        // this.$message({text:'测试0001 ',color:'info'})
+        this.$confirm('是否禁用当前账号？')
+                .then(res => {
+          console.log(res)
+        })
       }
     }
 }

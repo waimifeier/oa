@@ -121,7 +121,7 @@
                 <v-subheader>其他设置</v-subheader>
                 <v-list-item link @click="modifyPasswordHandler">
                     <v-list-item-icon>
-                        <v-icon size="16">mdi-key-wireless</v-icon>
+                        <v-icon size="16">mdi-lock-open</v-icon>
                     </v-list-item-icon>
                     <v-list-item-content>
                         <v-list-item-title>修改密码</v-list-item-title>

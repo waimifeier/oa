@@ -5,8 +5,9 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 import './plugins/NProgress'
 
-import Message from '@/components/message'
-Vue.use(Message)
+
+import VuetifyConfirm from '@/components/confirm'
+Vue.use(VuetifyConfirm, { vuetify })
 
 
 

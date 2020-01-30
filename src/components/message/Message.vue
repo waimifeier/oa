@@ -8,7 +8,7 @@
         保存成功
         <v-btn
                 icon
-                @click="snackbar = false"
+                @click="doClose"
         >
             <v-icon small>mdi-close</v-icon>
         </v-btn>
@@ -41,6 +41,12 @@ export default {
             right:false
         }
 
-    })
+    }),
+
+    methods:{
+        doClose(){
+            this.$emit('close');
+        }
+    }
 }
 </script>
