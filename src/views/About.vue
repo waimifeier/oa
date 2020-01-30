@@ -217,14 +217,21 @@ export default {
           position:'top'
         })
 
-        // this.$dialog.notify.success('Test notification', {
+
+        // this.$dialog.notify.success('保存成功！', {
         //   timeout: 5000,
         // })
 
         // this.$dialog.confirm({
         //   text: '是否禁用当前账号?',
-        //   actions: ['否', '是']
+        //   actions: ['否', '是'],
+        //   title:'警告'
         // })
+       /* this.$dialog.warning  ({
+          text: '是否禁用当前账号?',
+          actions: ['否', '是'],
+          title:'警告'
+        })*/
       }
     }
 }
