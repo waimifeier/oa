@@ -1,6 +1,8 @@
 <template>
 
     <v-list
+            subheader
+            expand
             shaped
             dense
             nav
@@ -61,12 +63,13 @@
                 <v-list-item
                         v-for="subItem in item.items"
                         :key="subItem.id"
+
                 >
                     <v-list-item-icon>
-                        <v-icon :size="18" v-text="subItem.icon"></v-icon>
+                        <v-icon :size="14" v-text="subItem.icon"></v-icon>
                     </v-list-item-icon>
                     <v-list-item-content>
-                        <v-list-item-title v-text="subItem.title"></v-list-item-title>
+                        <v-list-item-title class="caption" v-text="subItem.title"></v-list-item-title>
                     </v-list-item-content>
 
                 </v-list-item>

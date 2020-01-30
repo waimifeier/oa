@@ -78,7 +78,7 @@
 
 
         <v-content>
-            <v-container :fluid="!primaryDrawer.clipped">
+            <v-container :fluid="!primaryDrawer.clipped" transition="fade-transition">
                 <router-view />
             </v-container>
         </v-content>

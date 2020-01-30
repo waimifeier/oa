@@ -2,8 +2,8 @@
   <v-row>
     <v-col cols="12" sm="3">
       <v-card class="mx-auto" loader-height="1" flat  width="240" min-height="400">
-        <v-list rounded dense>
-        <v-list-item three-line>
+        <v-list nav dense flat>
+        <v-list-item two-line>
           <v-list-item-avatar>
             <v-btn icon>
               <v-icon :size="30" color="primary">mdi-account-multiple-plus</v-icon>
@@ -21,7 +21,7 @@
         </v-list-item>
 
         <v-subheader> 账号状态  </v-subheader>
-        <v-list-item-group color="primary">
+        <v-list-item-group color="primary" v-model="accountState" no-action>
           <v-list-item>
             <v-list-item-icon>
               <v-icon :size="20">mdi-account-supervisor</v-icon>
@@ -107,6 +107,8 @@
 <script>
 export default {
     data: () => ({
+      accountState:0,
+
       headers: [
         {
           text: '账号 ',
@@ -232,6 +234,11 @@ export default {
           actions: ['否', '是'],
           title:'警告'
         })*/
+      }
+    },
+    watch:{
+      accountState(val){
+        console.log(val)
       }
     }
 }
