@@ -9,7 +9,7 @@
         <!-- 头像 -->
         <template v-slot:activator="{ on }">
             <v-btn icon>
-                <v-avatar v-on="on" :size="30">
+                <v-avatar v-on="on" right :size="40">
                     <img src="https://randomuser.me/api/portraits/men/81.jpg" alt="John"/>
                 </v-avatar>
             </v-btn>

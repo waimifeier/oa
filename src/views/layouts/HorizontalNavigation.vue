@@ -8,111 +8,63 @@
             next-icon
     >
         <v-tabs-slider></v-tabs-slider>
-        <v-menu
-                transition="slide-y-reverse-transition"
-                allow-overflow
-                nudge-bottom="3"
-                internal-activator
-                eager
-                :close-on-content-click="true"
-                offset-y
-                close-delay="200"
-                v-for="item in items" :key="item.id" >
-            <template v-slot:activator="{ on }">
-                <v-tab v-on="on" >
-                    {{item.title}}
-                    <v-icon :size="12" class="ml-2" v-if="item.children.length>0">mdi-chevron-down</v-icon>
-                </v-tab>
+        <template  v-for="item in items"  >
+            <v-menu
+                    transition="slide-y-reverse-transition"
+                    allow-overflow
+                    nudge-bottom="3"
+                    internal-activator
+                    eager
+                    :close-on-content-click="true"
+                    offset-y
+                    close-delay="200"
+                    :key="item.id"
+                    v-if="item.children && item.children.length>1"
+                   >
+                <template v-slot:activator="{ on }">
+                    <v-tab v-on="on" >
+                        {{item.title}}
+                        <v-icon :size="12" class="ml-2">mdi-chevron-down</v-icon>
+                    </v-tab>
 
-            </template>
+                </template>
 
-            <v-list dense
-                    min-width="120"
-                    v-if="item.children.length>0" >
+                <v-list dense
+                        min-width="120">
 
-                <v-list-item link
-                        v-for="subitem in item.children"
-                        :key="subitem.id"
-                >
+                    <v-list-item link
+                                 v-for="subitem in item.children"
+                                 :key="subitem.id"
+                    >
 
-                    <v-list-item-icon class="mr-2">
-                        <v-icon :size="14">mdi-email-outline</v-icon>
-                    </v-list-item-icon>
-                    <v-list-item-content>
+                        <v-list-item-icon class="mr-2">
+                            <v-icon :size="14">mdi-email-outline</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-content>
+                            <v-list-item-subtitle v-html="subitem.title"></v-list-item-subtitle>
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-list>
+            </v-menu>
+            <v-tab v-else :key="item.id" :to="item.link">
+                {{item.title}}
+            </v-tab>
+        </template>
 
-                        <v-list-item-subtitle v-html="subitem.title"></v-list-item-subtitle>
-                    </v-list-item-content>
-            </v-list-item>
-        </v-list>
-    </v-menu>
     </v-tabs>
 
 </template>
 
 <script>
+    import menuList from '@/config/resource.js'
 export default {
     name: 'HorizontalNavigation',
-    created(){
-        console.log(this)
+    mounted(){
+        console.log(this.items)
     },
     data: () => ({
         currentItem:"",
-        items: [
-            {
-                id:1,
-                title: '工作台',
-                icon:'' ,
-                to: '/',
-                children:[
-                    {
-                        id:2,
-                        title: '首页',
-                        icon:'' ,
-                        to: '/',
-                    },
-                    {
-                        id:8,
-                        title: '我的日程',
-                        icon:'' ,
-                        to: '/',
-                    },
-                    {
-                        id:9,
-                        title: '待办事项',
-                        icon:'' ,
-                        to: '/',
-                    }
-                ]
-            },
-            {
-                id:3,
-                title: '系统管理',
-                icon:'' ,
-                to: '/home',
-                children:[
-                    {
-                        id:33,
-                        title: '首页',
-                        icon:'' ,
-                        to: '/',
-                    },
-                ]
-            },
-            {
-                id:4,
-                title: '账号管理',
-                icon:'' ,
-                to: '/acc',
-                children:[]
-            },
-            {
-                id:5,
-                title: '测试',
-                icon:'' ,
-                to: '/test',
-                children:[]
-            }
-        ]
+        items:menuList.map(item=>item.list).reduce((x,y)=>[...x,...y])
     })
 }
 </script>

@@ -9,14 +9,20 @@
     >
         <v-subheader> 工作台 </v-subheader>
         <v-list-item-group color="primary">
-            <v-list-item to="/home">
-                <v-list-item-icon>
-                    <v-icon small>mdi-home-analytics</v-icon>
-                </v-list-item-icon>
-                <v-list-item-content>
-                    <v-list-item-title>首页</v-list-item-title>
-                </v-list-item-content>
-            </v-list-item>
+            <v-tooltip right :disabled="false" color="info">
+                <template v-slot:activator="{ on }">
+                    <v-list-item to="/home" link v-on="on">
+                        <v-list-item-icon>
+                            <v-icon small>mdi-home-analytics</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-content>
+                            <v-list-item-title>首页</v-list-item-title>
+                        </v-list-item-content>
+                    </v-list-item>
+                </template>
+                <span >首页</span>
+            </v-tooltip>
+
             <v-list-item to="/workbench/schedule">
                 <v-list-item-icon>
                     <v-icon small>mdi-sign-text</v-icon>
@@ -55,9 +61,9 @@
             <template v-for="item in sh.list">
                 <v-list-group
                         :key="item.id"
-                        v-model="item.active"
                         v-if="item.children"
                         no-action
+                        eager
                         color="primary"
                 >
                     <template v-slot:activator>
@@ -76,15 +82,12 @@
                         </v-list-item-content>
                     </v-list-item>
                 </v-list-group>
-                <v-list-item-group color="primary" v-else :key="item.id">
-                    <v-list-item :to="item.link" :key="item.id" >
+                    <v-list-item :to="item.link" :key="item.id" v-else color="primary">
                         <v-list-item-icon>
                             <v-icon small>{{item.icon}}</v-icon>
                         </v-list-item-icon>
                         <v-list-item-title v-text="item.title"></v-list-item-title>
                     </v-list-item>
-                </v-list-item-group>
-
             </template>
 
         </template>
