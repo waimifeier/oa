@@ -62,23 +62,17 @@
                         <v-list-item-icon><v-icon :size="18" v-text="item.icon"></v-icon></v-list-item-icon>
                         <v-list-item-title v-text="item.title"></v-list-item-title>
                     </template>
-                    <v-list-item-group
+
+                    <v-list-item
                             v-for="subItem in item.children"
+                            ripple
+                            :to="subItem.link"
                             :key="subItem.id"
                     >
-                        <v-list-item
-                                ripple
-                                :to="subItem.link"
-                                :key="subItem.id"
-                        >
-                            <v-list-item-icon>
-                                <v-icon :size="14" v-text="subItem.icon"></v-icon>
-                            </v-list-item-icon>
-                            <v-list-item-content>
-                                <v-list-item-title class="caption" v-text="subItem.title"></v-list-item-title>
-                            </v-list-item-content>
-                        </v-list-item>
-                    </v-list-item-group>
+                        <v-list-item-content>
+                            <v-list-item-title class="caption" v-text="subItem.title"></v-list-item-title>
+                        </v-list-item-content>
+                    </v-list-item>
                 </v-list-group>
                 <v-list-item :to="item.link" :key="item.id" ripple v-else>
                     <v-list-item-icon>
