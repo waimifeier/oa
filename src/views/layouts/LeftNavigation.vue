@@ -9,9 +9,9 @@
     >
         <v-subheader> 工作台 </v-subheader>
         <v-list-item-group color="primary">
-            <v-list-item link to="/home">
+            <v-list-item to="/home">
                 <v-list-item-icon>
-                    <v-icon :size="16">mdi-home-analytics</v-icon>
+                    <v-icon small>mdi-home-analytics</v-icon>
                 </v-list-item-icon>
                 <v-list-item-content>
                     <v-list-item-title>首页</v-list-item-title>
@@ -19,7 +19,7 @@
             </v-list-item>
             <v-list-item to="/workbench/schedule">
                 <v-list-item-icon>
-                    <v-icon :size="18">mdi-sign-text</v-icon>
+                    <v-icon small>mdi-sign-text</v-icon>
                 </v-list-item-icon>
                 <v-list-item-title> 我的日程 </v-list-item-title>
                 <v-list-item-icon class="teal--text">
@@ -29,7 +29,7 @@
             </v-list-item>
             <v-list-item to="/workbench/todo">
                 <v-list-item-icon>
-                    <v-icon :size="18">mdi-lightbulb-outline</v-icon>
+                    <v-icon small>mdi-lightbulb-outline</v-icon>
                 </v-list-item-icon>
                 <v-list-item-title> 待办事项 </v-list-item-title>
                 <v-list-item-icon class="orange--text">
@@ -39,7 +39,7 @@
             </v-list-item>
             <!--<v-list-item to="/workbench/message">
                 <v-list-item-icon>
-                    <v-icon :size="18">mdi-email-outline</v-icon>
+                    <v-icon small>mdi-email-outline</v-icon>
                 </v-list-item-icon>
                 <v-list-item-title> 消息列表 </v-list-item-title>
                 <v-list-item-icon class="error&#45;&#45;text">
@@ -61,7 +61,7 @@
                         color="primary"
                 >
                     <template v-slot:activator>
-                        <v-list-item-icon><v-icon :size="18" v-text="item.icon"></v-icon></v-list-item-icon>
+                        <v-list-item-icon><v-icon small v-text="item.icon"></v-icon></v-list-item-icon>
                         <v-list-item-title v-text="item.title"></v-list-item-title>
                     </template>
 
