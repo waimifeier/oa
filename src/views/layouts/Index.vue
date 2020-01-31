@@ -31,7 +31,7 @@
         <v-app-bar
           :clipped-left="primaryDrawer.clipped"
           app
-          :style=" {backgroundColor: $vuetify.theme.dark ? '#303030' :'#eff4f8'} "
+          :style=" {backgroundColor: renderStyleBar()} "
           elevate-on-scroll
         >
             <v-app-bar-nav-icon
@@ -132,6 +132,13 @@ export default {
         layoutNavClipped(val){
             this.primaryDrawer.clipped = val
             this.primaryDrawer.model = !val
+        },
+        renderStyleBar(){
+            if(this.$vuetify.theme.dark){
+                return this.primaryDrawer.clipped ?  '#363636' : '#303030'
+            }else {
+                return this.primaryDrawer.clipped ?  '#fff' : '#eff4f8'
+            }
         }
     },
     mounted () {
