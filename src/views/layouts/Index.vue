@@ -55,14 +55,7 @@
 
             <HorizontalNavigation v-if="this.primaryDrawer.clipped"></HorizontalNavigation>
             <v-spacer></v-spacer>
-
-
-
-
-            <v-btn icon>
-<!--                <v-icon small>mdi-arrow-expand-all</v-icon>-->
-                <v-icon small>mdi-arrow-collapse-all</v-icon>
-            </v-btn>
+            <FullScreen></FullScreen>
 
             <!--头像-->
             <Avatar @layoutNavClipped="layoutNavClipped"/>
@@ -90,6 +83,7 @@
 import Avatar from './Avatar.vue'
 import LeftNavigation from './LeftNavigation.vue'
 import HorizontalNavigation from './HorizontalNavigation.vue'
+import FullScreen from './widget/FullScreen.vue'
 
 export default {
     data: () => ({
@@ -131,7 +125,7 @@ export default {
     },
 
     components:{
-        Avatar, LeftNavigation, HorizontalNavigation
+        Avatar, LeftNavigation, HorizontalNavigation,FullScreen
     },
 
     methods:{

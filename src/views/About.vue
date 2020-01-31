@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-col cols="12" sm="3">
+    <v-col cols="12" md="3" class="hidden-sm-and-down">
       <v-card class="mx-auto" loader-height="1" flat  width="240" min-height="400">
         <v-list nav dense flat>
         <v-list-item two-line>
@@ -21,7 +21,7 @@
         </v-list-item>
 
         <v-subheader> 账号状态  </v-subheader>
-        <v-list-item-group color="primary" v-model="accountState" no-action>
+        <v-list-item-group color="primary" v-model="accountState" group="23">
           <v-list-item>
             <v-list-item-icon>
               <v-icon :size="20">mdi-account-supervisor</v-icon>
@@ -65,7 +65,7 @@
         </v-list>
       </v-card>
     </v-col>
-    <v-col cols="12" sm="9">
+    <v-col cols="12" md="9" sm="12">
 
 <!--        <div style="border-radius:36px; border: 1px solid #ddd; width: 320px;text-align: center;padding: 2px;">-->
 <!--            <v-btn-toggle rounded dense borderless color="teal" >-->
