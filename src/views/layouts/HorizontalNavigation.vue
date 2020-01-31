@@ -32,13 +32,13 @@
                 <v-list dense
                         min-width="120">
 
-                    <v-list-item link
+                    <v-list-item :to="subitem.link" color="primary"
                                  v-for="subitem in item.children"
                                  :key="subitem.id"
                     >
 
                         <v-list-item-icon class="mr-2">
-                            <v-icon :size="14">mdi-email-outline</v-icon>
+                            <v-icon :size="14">{{subitem.icon}}</v-icon>
                         </v-list-item-icon>
                         <v-list-item-content>
                             <v-list-item-subtitle v-html="subitem.title"></v-list-item-subtitle>
@@ -47,7 +47,7 @@
                 </v-list>
             </v-menu>
             <v-tab v-else :key="item.id" :to="item.link">
-                {{item.title}}
+                {{item.children ? item.children[0]['title'] : item.title}}
             </v-tab>
         </template>
 
