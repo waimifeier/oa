@@ -2,7 +2,6 @@
 
     <v-list
             subheader
-            expand
             shaped
             dense
             nav
@@ -23,8 +22,9 @@
                     <v-icon :size="18">mdi-sign-text</v-icon>
                 </v-list-item-icon>
                 <v-list-item-title> 我的日程 </v-list-item-title>
-                <v-list-item-icon>
-                    <v-badge left dot color="teal" offset-x="10" offset-y="16"></v-badge>
+                <v-list-item-icon class="teal--text">
+                    <v-badge left dot color="teal" offset-x="16" offset-y="16"></v-badge>
+                    <svg style="position: absolute;top:4px;right:5px;" focusable="false" stroke="currentColor" width="2em" height="2em" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" class="q-spinner text-primary"><g fill="none" fill-rule="evenodd" stroke-width="2"><circle cx="22" cy="22" r="19.3147"><animate attributeName="r" begin="0s" dur="1.8s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"></animate><animate attributeName="stroke-opacity" begin="0s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"></animate></circle><circle cx="22" cy="22" r="10.3255"><animate attributeName="r" begin="-0.9s" dur="1.8s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"></animate><animate attributeName="stroke-opacity" begin="-0.9s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"></animate></circle></g></svg>
                 </v-list-item-icon>
             </v-list-item>
             <v-list-item to="/workbench/todo">
@@ -32,8 +32,9 @@
                     <v-icon :size="18">mdi-lightbulb-outline</v-icon>
                 </v-list-item-icon>
                 <v-list-item-title> 待办事项 </v-list-item-title>
-                <v-list-item-icon>
-                    <v-badge left dot color="orange" offset-x="10" offset-y="16"></v-badge>
+                <v-list-item-icon class="orange--text">
+                    <v-badge left dot color="orange" offset-x="16" offset-y="16"></v-badge>
+                    <svg style="position: absolute;top:4px;right:5px;" focusable="false" stroke="currentColor" width="2em" height="2em" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" class="q-spinner text-primary"><g fill="none" fill-rule="evenodd" stroke-width="2"><circle cx="22" cy="22" r="19.3147"><animate attributeName="r" begin="0s" dur="1.8s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"></animate><animate attributeName="stroke-opacity" begin="0s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"></animate></circle><circle cx="22" cy="22" r="10.3255"><animate attributeName="r" begin="-0.9s" dur="1.8s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"></animate><animate attributeName="stroke-opacity" begin="-0.9s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"></animate></circle></g></svg>
                 </v-list-item-icon>
             </v-list-item>
             <v-list-item to="/workbench/message">
@@ -41,8 +42,9 @@
                     <v-icon :size="18">mdi-email-outline</v-icon>
                 </v-list-item-icon>
                 <v-list-item-title> 消息列表 </v-list-item-title>
-                <v-list-item-icon>
-                    <v-badge left dot color="error" offset-x="10" offset-y="16"></v-badge>
+                <v-list-item-icon class="error--text">
+                    <v-badge left dot color="error" offset-x="16" offset-y="16"></v-badge>
+                    <svg style="position: absolute;top:4px;right:5px;" focusable="false" stroke="currentColor" width="2em" height="2em" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" class="q-spinner text-primary"><g fill="none" fill-rule="evenodd" stroke-width="2"><circle cx="22" cy="22" r="19.3147"><animate attributeName="r" begin="0s" dur="1.8s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"></animate><animate attributeName="stroke-opacity" begin="0s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"></animate></circle><circle cx="22" cy="22" r="10.3255"><animate attributeName="r" begin="-0.9s" dur="1.8s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"></animate><animate attributeName="stroke-opacity" begin="-0.9s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"></animate></circle></g></svg>
                 </v-list-item-icon>
             </v-list-item>
         </v-list-item-group>
@@ -74,12 +76,15 @@
                         </v-list-item-content>
                     </v-list-item>
                 </v-list-group>
-                <v-list-item :to="item.link" :key="item.id" ripple v-else>
-                    <v-list-item-icon>
-                        <v-icon small>{{item.icon}}</v-icon>
-                    </v-list-item-icon>
-                    <v-list-item-title v-text="item.title"></v-list-item-title>
-                </v-list-item>
+                <v-list-item-group color="primary" v-else :key="item.id">
+                    <v-list-item :to="item.link" :key="item.id" >
+                        <v-list-item-icon>
+                            <v-icon small>{{item.icon}}</v-icon>
+                        </v-list-item-icon>
+                        <v-list-item-title v-text="item.title"></v-list-item-title>
+                    </v-list-item>
+                </v-list-item-group>
+
             </template>
 
         </template>
