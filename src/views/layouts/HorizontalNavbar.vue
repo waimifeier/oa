@@ -1,12 +1,13 @@
 <template>
-    <div>
-        file
-    </div>
+
 </template>
 
 <script>
     export default {
-        name: "index"
+        name: "HorizontalNavbar",
+        data:() => ({
+
+        })
     }
 </script>
 

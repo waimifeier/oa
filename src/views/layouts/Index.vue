@@ -1,6 +1,5 @@
 <template>
     <v-app app>
-
         <v-navigation-drawer
                 app
                 fixed
@@ -23,17 +22,15 @@
                     微人事
                 </v-toolbar-title>
             </v-toolbar>
-
             <LeftNavigation></LeftNavigation>
         </v-navigation-drawer>
-
-
 
         <v-app-bar
           :clipped-left="primaryDrawer.clipped"
           app
           :style=" {backgroundColor: renderStyleBar()} "
           elevate-on-scroll
+          scroll-threshold
         >
             <v-app-bar-nav-icon
                 v-if="primaryDrawer.model"

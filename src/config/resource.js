@@ -40,6 +40,12 @@ export default [
         "subheader":"系统管理",
         "list":[
             {
+                "id":91,
+                "title":"系统配置",
+                "icon":"mdi-settings",
+                "link":"/sys/setting"
+            },
+            {
                 "id":9,
                 "title":"菜单配置",
                 "icon":"mdi-file-document-box-outline",

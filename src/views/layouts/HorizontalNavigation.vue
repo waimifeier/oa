@@ -2,10 +2,8 @@
     <v-tabs v-model="currentItem"
             background-color="transparent"
             show-arrows
-            align-with-title
+            right
             center-active
-            centered
-            next-icon
     >
         <v-tabs-slider></v-tabs-slider>
         <template  v-for="item in items"  >
@@ -52,16 +50,12 @@
         </template>
 
     </v-tabs>
-
 </template>
 
 <script>
-    import menuList from '@/config/resource.js'
+import menuList from '@/config/resource.js'
 export default {
     name: 'HorizontalNavigation',
-    mounted(){
-        console.log(this.items)
-    },
     data: () => ({
         currentItem:"",
         items:menuList.map(item=>item.list).reduce((x,y)=>[...x,...y])

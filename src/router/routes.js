@@ -29,6 +29,7 @@ const routes = [
       { path: 'account', component: () => import('../views/sys/account/Account.vue') },
       { path: 'department', component: () => import('../views/sys/account/Department.vue') },
       { path: 'roles', component: () => import('../views/sys/account/Roles.vue') },
+      { path: 'setting', component: () => import('../views/sys/setting') },
     ]
   },
   {

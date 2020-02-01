@@ -1,6 +1,6 @@
 <template>
     <div>
-        file
+        setting
     </div>
 </template>
 
