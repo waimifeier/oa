@@ -27,7 +27,7 @@
                 <v-list-item-icon>
                     <v-icon small>mdi-sign-text</v-icon>
                 </v-list-item-icon>
-                <v-list-item-title> 我的日程 </v-list-item-title>
+                <v-list-item-title> 工作计划 </v-list-item-title>
                 <v-list-item-icon class="teal--text">
                     <v-badge left dot color="teal" offset-x="16" offset-y="16"></v-badge>
                     <svg style="position: absolute;top:4px;right:5px;" focusable="false" stroke="currentColor" width="2em" height="2em" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" class="q-spinner text-primary"><g fill="none" fill-rule="evenodd" stroke-width="2"><circle cx="22" cy="22" r="19.3147"><animate attributeName="r" begin="0s" dur="1.8s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"></animate><animate attributeName="stroke-opacity" begin="0s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"></animate></circle><circle cx="22" cy="22" r="10.3255"><animate attributeName="r" begin="-0.9s" dur="1.8s" values="1; 20" calcMode="spline" keyTimes="0; 1" keySplines="0.165, 0.84, 0.44, 1" repeatCount="indefinite"></animate><animate attributeName="stroke-opacity" begin="-0.9s" dur="1.8s" values="1; 0" calcMode="spline" keyTimes="0; 1" keySplines="0.3, 0.61, 0.355, 1" repeatCount="indefinite"></animate></circle></g></svg>
@@ -105,6 +105,8 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style>
+    .v-calendar .v-event{
+        border-radius: 30px !important;
+    }
 </style>
