@@ -18,7 +18,9 @@ Vue.use(VuetifyDialog, {
   }
 })
 
-
+import '@fullcalendar/core/main.css';
+import '@fullcalendar/daygrid/main.css';
+import '@fullcalendar/resource-timeline/main.css';
 Vue.config.productionTip = false
 
 export default new Vue({

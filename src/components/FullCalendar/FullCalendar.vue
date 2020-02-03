@@ -1,29 +1,28 @@
 <template>
   <FullCalendar
-    :events="calendarEvents"
-    ref="fullCalendar"
-    @dateClick="handleDateClick"
-    @eventClick="handleEventClick"
-    :plugins="calendarPlugins"
-    locale="zh-cn"
-    :buttonText="buttonText"
-    @eventMouseEnter="eventMouseEnter"
-    :header="{
+          :events="calendarEvents"
+          ref="fullCalendar"
+          @dateClick="handleDateClick"
+          @eventClick="handleEventClick"
+          :plugins="calendarPlugins"
+          locale="zh-cn"
+          :buttonText="buttonText"
+          @eventMouseEnter="eventMouseEnter"
+          :header="{
         right: 'prev,today,next',
         center: '',
         left:'title',
       }"
-      :editable="true"
-      :selectable="true"
-    @select="select"
-    :eventLimit="2"
-    :height="380"
-    :width="500"
-    allDayText="全天"
-    :eventLimitText="config.eventLimitText"
-    :firstDay="config.firstDay"
-    :eventColor="config.eventColor"
-    @dayRender="datesRender"
+          :editable="true"
+          :selectable="true"
+          @select="select"
+          :eventLimit="2"
+          :height="380"
+          allDayText="全天"
+          :eventLimitText="config.eventLimitText"
+          :firstDay="config.firstDay"
+          :eventColor="config.eventColor"
+          @dayRender="datesRender"
   />
 </template>
 <script>
@@ -33,7 +32,7 @@
   import timeGrid from '@fullcalendar/timegrid'
   import getDayData from '@/utils/lunarUtils.js'
 
-// https://www.jianshu.com/p/037d4c6c7824  参考
+  // https://www.jianshu.com/p/037d4c6c7824  参考
   export default {
     name:'v-fullCalendar',
     components: {
@@ -106,7 +105,7 @@
           iSsolar = true
         }else if(solarFestival){  // 阳历节日
           let solar = solarFestival.split(' ')[0]
-          if(solar.length < 5) {
+          if(solar.length<5) {
             text =  solar
             iSsolar = true
           }
@@ -118,6 +117,7 @@
 
         event.el.innerHTML = `<span class="${iSsolar ? 'lunar solar' :'lunar'}">${text}</span>`
       },
+
 
       // 点击日期网格回调
       handleDateClick (arg) {
@@ -134,16 +134,16 @@
 
       // 点击事件回调
       handleEventClick (info) {
-       // alert('Event: ' + info.event.title)
+        // alert('Event: ' + info.event.title)
         // this.$prompt('sss','aaa') 输入框弹窗
-      //  this.$alert('message', 'title')
+       // this.$alert('message', 'title')
       },
 
       eventMouseEnter(){
         //alert(1)
       },
       select(){
-       // alert(12)
+        // alert(12)
       }
     }
   }
@@ -152,7 +152,7 @@
 
 
 
-<style>
+<style lang='scss'>
 
   .fc-content{
     text-align: center;
@@ -162,8 +162,8 @@
     border-radius: 10px;
   }
 
-  /*事件中的内容 剧中方式*/
- .fc-content-skeleton .fc-day-top{
+  // 事件中的内容 剧中方式
+  .fc-content-skeleton .fc-day-top{
     text-align: center;
   }
 
@@ -191,7 +191,7 @@
     border-color: #f3f3f8;
   }
 
-    /*表格样式*/
+  // 表格样式
   .fc-unthemed th, .fc-unthemed td,
   .fc-unthemed thead, .fc-unthemed tbody,
   .fc-unthemed .fc-divider, .fc-unthemed

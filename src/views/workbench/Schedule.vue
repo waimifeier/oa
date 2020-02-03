@@ -1,6 +1,6 @@
 <template>
-    <v-row>
-        <v-col cols="12" md="8">
+
+     <!--   <v-col cols="12" md="8">
             type:
             <v-chip-group v-model="types">
                 <v-chip v-for="tag in typeOptions" :key="tag">
@@ -14,15 +14,21 @@
                 :weekdays="[1, 2, 3, 4, 5, 6, 0]"
                 color="primary"
                 :type="types"
+                @touchmove:day="touchmove"
             >
 
             </v-calendar>
-        </v-col>
-    </v-row>
+        </v-col>-->
+        <div style="width: 100%;">
+            <FullCalendar></FullCalendar>
+        </div>
+
+
 </template>
 
 
 <script>
+    import FullCalendar from '@/components/FullCalendar/FullCalendar.vue'
     export default {
         data: () => ({
             types:'month',
@@ -36,8 +42,11 @@
             ],
         }),
         methods: {
-
+            touchmove(val){
+                console.log(val)
+            }
         },
+        components:{ FullCalendar }
     }
 </script>
 
