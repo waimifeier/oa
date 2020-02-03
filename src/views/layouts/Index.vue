@@ -4,6 +4,7 @@
                 app
                 fixed
                 width="220"
+                mini-variant-width="80"
                 v-model="primaryDrawer.model"
                 :clipped="primaryDrawer.clipped"
                 :floating="primaryDrawer.floating"

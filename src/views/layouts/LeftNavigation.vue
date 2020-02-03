@@ -106,7 +106,5 @@ export default {
 </script>
 
 <style>
-    .v-calendar .v-event{
-        border-radius: 30px !important;
-    }
+
 </style>
