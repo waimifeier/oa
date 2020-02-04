@@ -17,7 +17,7 @@
           :selectable="true"
           @select="select"
           :eventLimit="2"
-          :height="380"
+          :height="500"
           allDayText="全天"
           :eventLimitText="config.eventLimitText"
           :firstDay="config.firstDay"

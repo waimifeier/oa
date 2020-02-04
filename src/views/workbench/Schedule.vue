@@ -1,28 +1,30 @@
 <template>
+    <div class="d-flex">
+        <v-card flat class="mr-6">
+            <v-sheet class="pa-4 card-image-bg">
+                <v-img
+                        :aspect-ratio="16/9"
+                        contain
+                        src="../../assets/svg/undraw_events_2p66.svg"
+                >
+                </v-img>
+            </v-sheet>
 
-     <!--   <v-col cols="12" md="8">
-            type:
-            <v-chip-group v-model="types">
-                <v-chip v-for="tag in typeOptions" :key="tag">
-                    {{ tag.text }}
-                </v-chip>
-            </v-chip-group>
+            <v-list min-width="220" >
 
+                <v-list-item>
+                    <v-list-item-content>
+                        <v-list-item-title>我的工作计划</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+            </v-list>
+        </v-card>
 
-            <v-calendar
-                locale="zh-cn"
-                :weekdays="[1, 2, 3, 4, 5, 6, 0]"
-                color="primary"
-                :type="types"
-                @touchmove:day="touchmove"
-            >
-
-            </v-calendar>
-        </v-col>-->
-        <div style="width: 100%;">
+        <v-card flat>
             <FullCalendar></FullCalendar>
-        </div>
+        </v-card>
 
+    </div>
 
 </template>
 

@@ -1,6 +1,7 @@
 <template>
-    <div>
-        代办
+    <div class="d-flex justify-content">
+        <div>111</div>
+        <div>222</div>
     </div>
 </template>
 

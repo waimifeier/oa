@@ -9,6 +9,7 @@ $text-field-filled-full-width-outlined-single-line-slot-min-height:38px !default
 
 $light-bg:#eff4f8;
 $material-light: (
+    'card-image-bg': #fdfdfd,
     'background':$light-bg,
     'bg-color':$light-bg,
     'text': (
@@ -31,5 +32,5 @@ $material-dark-elevation-colors: (
 );
 
 $material-dark: (
-
+    'card-image-bg': #303030
 );

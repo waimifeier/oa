@@ -70,7 +70,7 @@
 
 
         <v-content>
-            <v-container :fluid="!primaryDrawer.clipped" transition="fade-transition">
+            <v-container :fluid="!primaryDrawer.clipped">
                 <v-fade-transition mode="out-in">
                     <router-view></router-view>
                 </v-fade-transition>

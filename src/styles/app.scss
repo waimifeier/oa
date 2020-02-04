@@ -9,12 +9,8 @@ html{
   overflow-x: hidden
 }
 
-/* 日历样式 */
-.v-calendar-weekly__head{
-  font-weight: bold;
-  border-bottom: 1px solid #e0e0e0;
-  line-height: 40px;
-}
-.v-calendar .v-event{
-  border-radius: 30px !important;
+/* 全屏布局容器边距 */
+.container--fluid{
+  padding-left: 20px;
+  padding-right:20px;
 }
