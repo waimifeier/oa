@@ -1,7 +1,7 @@
 <template>
-    <div class="d-flex">
+    <v-sheet class="d-flex" >
         <v-card flat class="mr-6">
-            <v-sheet class="pa-4 card-image-bg">
+            <v-sheet class="pa-5 card-image-bg">
                 <v-img
                         :aspect-ratio="16/9"
                         contain
@@ -10,21 +10,31 @@
                 </v-img>
             </v-sheet>
 
-            <v-list min-width="220" >
-
+            <v-list min-width="220">
                 <v-list-item>
                     <v-list-item-content>
-                        <v-list-item-title>我的工作计划</v-list-item-title>
+                        <v-list-item-title class="body-2">我的工作计划</v-list-item-title>
+                        <v-list-item-subtitle class="overline">创建属于我的工作计划</v-list-item-subtitle>
                     </v-list-item-content>
                 </v-list-item>
             </v-list>
+            <v-card-actions>
+                <v-btn
+                        text
+                        small
+                        block
+                        color="deep-purple accent-4"
+                >
+                    开始使用
+                </v-btn>
+            </v-card-actions>
         </v-card>
 
-        <v-card flat>
+        <v-card flat class="pa-3">
             <FullCalendar></FullCalendar>
         </v-card>
 
-    </div>
+    </v-sheet>
 
 </template>
 

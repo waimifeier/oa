@@ -16,7 +16,7 @@
         </v-sheet>
 
 
-        <v-row dense class="d-none">
+        <v-row dense  class="d-none">
             <v-col cols="12" md="4">
                 <v-card dark color="#1F7087">
                     <div class="d-flex flex-no-wrap justify-space-between">
@@ -24,8 +24,8 @@
                             <v-card-title class="subtitle-1">OA服务</v-card-title>
                             <v-card-text class="overline">
                                 <div>版本：jdk8.1</div>
-                                <div>系统内存: 3789MB</div>
-                                <div>剩余内存: 107MB</div>
+                                <div>jvm内存: 3789MB</div>
+                                <div>jvm剩余内存: 107MB</div>
                             </v-card-text>
                         </div>
 
@@ -55,8 +55,8 @@
                             <v-card-title class="subtitle-1">授权服务</v-card-title>
                             <v-card-text class="overline">
                                 <div>版本：jdk8.1</div>
-                                <div>系统内存: 3789MB</div>
-                                <div>剩余内存: 107MB</div>
+                                <div>jvm内存: 3789MB</div>
+                                <div>jvm剩余内存: 107MB</div>
                             </v-card-text>
                         </div>
 
@@ -86,8 +86,8 @@
                             <v-card-title class="subtitle-1">资源服务</v-card-title>
                             <v-card-text class="overline">
                                 <div>版本：jdk8.1</div>
-                                <div>系统内存: 3789MB</div>
-                                <div>剩余内存: 107MB</div>
+                                <div>jvm内存: 3789MB</div>
+                                <div>jvm剩余内存: 107MB</div>
                             </v-card-text>
                         </div>
 
