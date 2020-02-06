@@ -16,7 +16,7 @@
         </v-sheet>
 
 
-        <v-row dense  class="d-none">
+        <v-row dense  >
             <v-col cols="12" md="4">
                 <v-card dark color="#1F7087">
                     <div class="d-flex flex-no-wrap justify-space-between">
@@ -142,7 +142,7 @@
 
             </v-row>
 
-        <v-row dense>
+        <v-row dense class="d-none">
             <v-col md="3">
                 <v-card flat hover>
                     <v-img :aspect-ratio="16/9" v-ripple="{ center: true }"

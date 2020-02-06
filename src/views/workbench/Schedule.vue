@@ -30,9 +30,14 @@
             </v-card-actions>
         </v-card>
 
-        <v-card flat class="pa-3">
+        <v-card flat style="flex: 3">
             <FullCalendar></FullCalendar>
         </v-card>
+
+        <v-card flat style="flex: 1">
+            asdfasdf
+        </v-card>
+
 
     </v-sheet>
 
