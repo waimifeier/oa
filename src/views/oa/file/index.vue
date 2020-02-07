@@ -102,14 +102,16 @@
                     <span class="caption">已加载全部, 共1个</span>
                 </template>
             </v-toolbar>
-
+            <EmptyContent></EmptyContent>
 
         </v-card>
     </div>
 </template>
 
 <script>
+import EmptyContent from '@/components/empty_content/EmptyContent.vue'
 export default {
+    components:{EmptyContent},
     data: () => ({
         valueDeterminate:13,
         items: [
