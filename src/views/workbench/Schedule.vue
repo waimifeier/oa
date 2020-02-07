@@ -21,7 +21,6 @@
             <v-card-actions>
                 <v-btn
                         text
-                        small
                         block
                         color="deep-purple accent-4"
                 >

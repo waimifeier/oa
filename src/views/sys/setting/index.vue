@@ -16,7 +16,7 @@
         </v-sheet>
 
 
-        <v-row dense  >
+        <v-row dense >
             <v-col cols="12" md="4">
                 <v-card dark color="#1F7087">
                     <div class="d-flex flex-no-wrap justify-space-between">
