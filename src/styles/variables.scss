@@ -7,14 +7,22 @@ $input-font-size:14px !default;
 $text-field-filled-full-width-outlined-single-line-slot-min-height:38px !default;
 
 
-$light-bg:#eff4f8;
+$shades:(
+    'black': #242e42,
+    'white': #f9fafc,
+    'transparent': transparent
+);
+
 $material-light: (
-    'card-image-bg': #fdfdfd,
-    'background':$light-bg,
-    'bg-color':$light-bg,
+    'navigation-drawer': #fff,
+    'tabs': #36435c,
     'text': (
-      'primary':#242e42,
+        'primary': map-get($shades, 'black'),
+         'secondary': #5f708a,
     ),
+    'icons': (
+        'active': #79879c
+    )
 );
 
 
@@ -32,5 +40,5 @@ $material-dark-elevation-colors: (
 );
 
 $material-dark: (
-    'card-image-bg': #303030
+    'navigation-drawer': map-get($material-dark-elevation-colors, '4'),
 );

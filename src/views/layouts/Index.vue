@@ -14,7 +14,7 @@
                 overflow
         >
 
-            <v-toolbar elevation="0" :style="{backgroundColor: $vuetify.theme.dark ? '#363636':''}">
+            <v-toolbar elevation="0" :style="{backgroundColor: $vuetify.theme.dark ? '#272727':'#fff'}">
                 <v-btn icon>
                     <v-img contain src="https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png" width="32px" height="32"/>
                 </v-btn>
@@ -54,7 +54,20 @@
 
             <HorizontalNavigation v-if="this.primaryDrawer.clipped"></HorizontalNavigation>
             <v-spacer></v-spacer>
+
+
+
+
             <FullScreen></FullScreen>
+            <v-tooltip left color="grey darken-4">
+                <template v-slot:activator="{ on }">
+                    <v-btn icon v-on="on">
+                        <v-icon size="20">mdi-chat-processing-outline</v-icon>
+                    </v-btn>
+                </template>
+                <span>消息列表</span>
+            </v-tooltip>
+
 
             <!--头像-->
             <Avatar @layoutNavClipped="layoutNavClipped"/>
@@ -137,9 +150,9 @@ export default {
         },
         renderStyleBar(){
             if(this.$vuetify.theme.dark){
-                return this.primaryDrawer.clipped ?  '#363636' : '#303030'
+                return this.primaryDrawer.clipped ?  '#363636' : '#121212'
             }else {
-                return this.primaryDrawer.clipped ?  '#fff' : '#eff4f8'
+                return this.primaryDrawer.clipped ?  '#fff' : '#f9fafc'
             }
         }
     },

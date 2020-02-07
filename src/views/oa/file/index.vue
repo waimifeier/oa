@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex" style="min-height: 650px;">
-        <v-card flat width="260" class="pa-1">
+        <v-card flat width="360" class="pa-1" >
             <v-card-title> 文件管理 </v-card-title>
             <v-card-subtitle>系统占用 892M/128G
                 <v-progress-linear
@@ -12,23 +12,23 @@
                 ></v-progress-linear>
             </v-card-subtitle>
 
-            <v-list nav dense flat>
+            <v-list nav dense flat >
                 <v-list-item-group color="primary">
                     <v-list-item>
                         <v-list-item-icon>
                             <v-icon size="18">mdi-folder-open</v-icon>
                         </v-list-item-icon>
-                        <v-list-content>
-                            <v-list-title class="body-2">全部文件</v-list-title>
-                        </v-list-content>
+                        <v-list-item-content>
+                            <v-list-item-title class="body-2">全部文件</v-list-item-title>
+                        </v-list-item-content>
                     </v-list-item>
                     <v-list-item>
                         <v-list-item-icon>
                             <v-icon size="18">mdi-folder-lock</v-icon>
                         </v-list-item-icon>
-                        <v-list-content>
-                             <v-list-title class="body-2">私密文件</v-list-title>
-                        </v-list-content>
+                        <v-list-item-content>
+                             <v-list-item-title class="body-2">私密文件</v-list-item-title>
+                        </v-list-item-content>
                     </v-list-item>
 
                     <v-subheader>传输列表</v-subheader>
@@ -36,31 +36,47 @@
                         <v-list-item-icon>
                             <v-icon size="18">mdi-cloud-upload</v-icon>
                         </v-list-item-icon>
-                        <v-list-content>
-                            <v-list-title class="body-2">正在上传</v-list-title>
-                        </v-list-content>
+                        <v-list-item-content>
+                            <v-list-item-title class="body-2">正在上传</v-list-item-title>
+                        </v-list-item-content>
                     </v-list-item>
                     <v-list-item>
                         <v-list-item-icon>
                             <v-icon size="18">mdi-cloud-download</v-icon>
                         </v-list-item-icon>
-                        <v-list-content>
-                            <v-list-title class="body-2">正在下载</v-list-title>
-                        </v-list-content>
+                        <v-list-item-content>
+                            <v-list-item-title class="body-2">正在下载</v-list-item-title>
+                        </v-list-item-content>
+                        <v-list-item-icon>
+                            <v-progress-circular
+                                    :value="20"
+                                     size="20"
+                                     width="2"
+                            ></v-progress-circular>
+                        </v-list-item-icon>
                     </v-list-item>
                     <v-list-item>
                         <v-list-item-icon>
                             <v-icon size="18">mdi-cloud-check</v-icon>
                         </v-list-item-icon>
-                        <v-list-content>
-                            <v-list-title class="body-2">传输完成</v-list-title>
-                        </v-list-content>
+                        <v-list-item-content>
+                            <v-list-item-title class="body-2">传输完成</v-list-item-title>
+                        </v-list-item-content>
+                        <v-list-item-icon>
+                            <v-badge
+                                    color="success"
+                                    content="6"
+                                    offset-y="22"
+                                    offset-x="-1"
+                            >
+                            </v-badge>
+                        </v-list-item-icon>
                     </v-list-item>
 
                 </v-list-item-group>
             </v-list>
         </v-card>
-        <v-card flat style="width: 100%">
+        <v-card flat style="width: 100%" >
             <v-toolbar extended flat dense color="transparent">
                 <v-btn color="primary" depressed small>
                     <v-icon left>mdi-cloud-upload</v-icon>

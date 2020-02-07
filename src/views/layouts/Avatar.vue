@@ -8,12 +8,9 @@
     >
         <!-- 头像 -->
         <template v-slot:activator="{ on }">
-            <v-btn icon>
-                <v-avatar v-on="on" right :size="40">
-                    <img src="https://randomuser.me/api/portraits/men/81.jpg" alt="John"/>
-                </v-avatar>
+            <v-btn icon v-on="on">
+                <v-icon size="20">mdi-account-settings</v-icon>
             </v-btn>
-
         </template>
 
 
@@ -45,11 +42,11 @@
                                         offset-y="10"
                                 >
                                     <v-btn icon v-on="on">
-                                        <v-icon size="18" color="darken-2">mdi-bell-ring-outline</v-icon>
+                                        <v-icon>mdi-certificate</v-icon>
                                     </v-btn>
                                 </v-badge>
                             </template>
-                            <span>系统通知</span>
+                            <span>个人中心</span>
                         </v-tooltip>
                     </v-list-item-action>
                 </v-list-item>
@@ -130,7 +127,7 @@
 
                 <v-list-item link @click="logoutHandler">
                     <v-list-item-icon>
-                        <v-icon size="16">mdi-power-standby</v-icon>
+                        <v-icon size="16">mdi-location-enter</v-icon>
                     </v-list-item-icon>
                     <v-list-item-content>
                         <v-list-item-title>退出系统</v-list-item-title>
