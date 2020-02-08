@@ -23,13 +23,13 @@ export default [
                     {
                         "id":13,
                         "title":"我的工单",
-                        "icon":"mdi-sign-text",
+                        "icon":"mdi-chef-hat",
                         "link":"/oa/order"
                     },
                     {
                         "id":14,
                         "title":"流程设计",
-                        "icon":"mdi-sign-text",
+                        "icon":"mdi-feather",
                         "link":"/oa/design"
                     },
                 ]

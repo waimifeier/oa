@@ -1,5 +1,5 @@
 <template>
-    <v-container>
+    <div class="app-container container">
         <span class="title">系统配置</span>
         <v-sheet color="transparent" md="5">
             <div class="d-flex justify-space-between">
@@ -303,7 +303,7 @@
                 </v-list-item>
             </v-sheet>
         </div>
-    </v-container>
+    </div>
 </template>
 
 <script>

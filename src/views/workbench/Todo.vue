@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex justify-content">
+    <div class="app-container container">
         <div>111</div>
         <div>222</div>
     </div>

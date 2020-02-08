@@ -1,5 +1,5 @@
 <template>
-    <v-container>
+    <div class="app-container container">
         <span class="title">工作计划</span>
         <v-sheet class="d-flex" color="transparent" >
         <v-card flat class="mr-6 hidden-sm-and-down" width="300">
@@ -40,7 +40,7 @@
 
 
     </v-sheet>
-    </v-container>
+    </div>
 </template>
 
 

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="app-container container">
         消息
     </div>
 </template>

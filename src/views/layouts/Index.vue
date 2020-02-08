@@ -109,7 +109,7 @@ export default {
             type: 'Permanent', //
             clipped: true,  // 顶部导航是否是通航
             floating: true, // 是否影藏边框
-            mini: true,  // 是否用模拟模式
+            mini: false,  // 是否用模拟模式
         },
         footer: {
             inset: true,
