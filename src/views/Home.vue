@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+    <div class="app-container container">
       <span class="title">首页</span>
       <v-row>
           <v-col cols="12" md="4">
@@ -136,7 +136,7 @@
               <v-icon>mdi-delete</v-icon>
           </v-btn>
       </v-speed-dial>
-  </v-container>
+  </div>
 </template>
 
 <script>
