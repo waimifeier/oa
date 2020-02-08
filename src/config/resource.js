@@ -72,19 +72,19 @@ export default [
                     {
                         "id":6,
                         "title":"账号列表",
-                        "icon":"mdi-sign-text",
+                        "icon":"mdi-account-tie",
                         "link":"/sys/account"
                     },
                     {
                         "id":7,
                         "title":"角色管理",
-                        "icon":"mdi-sign-text",
+                        "icon":"mdi-incognito",
                         "link":"/sys/roles"
                     },
                     {
                         "id":8,
                         "title":"部门管理",
-                        "icon":"mdi-sign-text",
+                        "icon":"mdi-lan",
                         "link":"/sys/department"
                     },
                 ]

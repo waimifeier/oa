@@ -4,10 +4,17 @@ import theme from './theme'
 Vue.use(Vuetify);
 
 export default new Vuetify({
-    breakpoint: {
-        scrollbarWidth: 120
-    },
-    theme:theme
+    theme:{
+        themes:theme,
+        default: 'light',
+        disable: false,
+        options: {
+            cspNonce: undefined,
+            customProperties: undefined,
+            minifyTheme: undefined,
+            themeCache: undefined,
+        }
+    }
 });
 
 

@@ -11,7 +11,7 @@
         <v-list-item-group color="primary">
             <v-tooltip right :disabled="false" color="info">
                 <template v-slot:activator="{ on }">
-                    <v-list-item to="/home" link v-on="on">
+                    <v-list-item to="/" link v-on="on">
                         <v-list-item-icon>
                             <v-icon small>mdi-home-analytics</v-icon>
                         </v-list-item-icon>

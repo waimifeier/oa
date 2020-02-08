@@ -17,7 +17,7 @@
 
 
         <v-row dense >
-            <v-col cols="12" md="4">
+            <v-col cols="12" md="4" sm="6" xl="3">
                 <v-card dark color="#1F7087">
                     <div class="d-flex flex-no-wrap justify-space-between">
                         <div>
@@ -48,7 +48,7 @@
                     </div>
                 </v-card>
             </v-col>
-            <v-col cols="12" md="4">
+            <v-col cols="12" md="4" sm="6" xl="3">
                 <v-card dark color="#009688">
                     <div class="d-flex flex-no-wrap justify-space-between">
                         <div>
@@ -79,7 +79,7 @@
                     </div>
                 </v-card>
             </v-col>
-            <v-col cols="12" md="4">
+            <v-col cols="12" md="4" sm="6" xl="3">
                 <v-card dark color="#1F7087">
                     <div class="d-flex flex-no-wrap justify-space-between">
                         <div>
@@ -109,7 +109,7 @@
                     </div>
                 </v-card>
             </v-col>
-            <!--<v-col
+            <v-col
                     v-for="(item, i) in items"
                     :key="i"
                     cols="12"
@@ -138,11 +138,11 @@
                             </v-avatar>
                         </div>
                     </v-card>
-                </v-col>-->
+                </v-col>
 
             </v-row>
 
-        <v-row dense class="d-none">
+        <v-row dense>
             <v-col md="3">
                 <v-card flat hover>
                     <v-img :aspect-ratio="16/9" v-ripple="{ center: true }"
@@ -194,7 +194,7 @@
                     </v-list-item-content>
                     <v-list-item-action>
                         <v-switch
-                                v-model="ex11"
+
                                 color="indigo"
                                 hide-details
                         ></v-switch>
@@ -228,7 +228,6 @@
                     </v-list-item-content>
                     <v-list-item-action>
                         <v-switch
-                                v-model="ex11"
                                 color="indigo"
                                 hide-details
                         ></v-switch>
@@ -237,6 +236,73 @@
 
             </v-col>
         </v-row>
+
+        <div class="d-flex">
+            <v-sheet width="280">
+                <v-hover v-slot:default="{ hover }">
+                    <v-card flat>
+                        <v-img
+                                :aspect-ratio="16/9"
+                                src="https://img.zcool.cn/community/0138eb5c36fdb0a8012090db2e28d0.jpg@2o.jpg"
+                        >
+                            <v-expand-transition>
+                                <div
+                                        v-if="hover"
+                                        class="d-flex transition-fast-in-fast-out black darken-2 v-card--reveal display-3"
+                                        style="height: 100%;"
+                                >
+
+                                </div>
+                            </v-expand-transition>
+                        </v-img>
+                    </v-card>
+                </v-hover>
+                <v-list-item dense>
+                    <v-list-item-content>
+                        <v-list-item-title class="body-2">侧边导航</v-list-item-title>
+                        <v-list-item-subtitle class="caption">新春主题</v-list-item-subtitle>
+                    </v-list-item-content>
+                    <v-list-item-action>
+                        <v-switch
+                                color="indigo"
+                                hide-details
+                        ></v-switch>
+                    </v-list-item-action>
+                </v-list-item>
+            </v-sheet>
+            <v-sheet width="280" class="ml-3">
+                <v-hover v-slot:default="{ hover }">
+                    <v-card flat>
+                        <v-img
+                                :aspect-ratio="16/9"
+                                src="https://img.zcool.cn/community/0138eb5c36fdb0a8012090db2e28d0.jpg@2o.jpg"
+                        >
+                            <v-expand-transition>
+                                <div
+                                        v-if="hover"
+                                        class="d-flex transition-fast-in-fast-out black darken-2 v-card--reveal display-3"
+                                        style="height: 100%;"
+                                >
+
+                                </div>
+                            </v-expand-transition>
+                        </v-img>
+                    </v-card>
+                </v-hover>
+                <v-list-item dense>
+                    <v-list-item-content>
+                        <v-list-item-title class="body-2">顶部导航</v-list-item-title>
+                        <v-list-item-subtitle class="caption">新春主题</v-list-item-subtitle>
+                    </v-list-item-content>
+                    <v-list-item-action>
+                        <v-switch
+                                color="indigo"
+                                hide-details
+                        ></v-switch>
+                    </v-list-item-action>
+                </v-list-item>
+            </v-sheet>
+        </div>
     </v-container>
 </template>
 
@@ -263,7 +329,10 @@
                     title: 'Halcyon Days',
                     artist: 'Ellie Goulding',
                 },]
-        })
+        }),
+        mounted () {
+            console.log(this.$vuetify.breakpoint )
+        },
     }
 </script>
 

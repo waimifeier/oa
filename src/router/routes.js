@@ -4,10 +4,10 @@ const routes = [
     component: () => import('../views/login/Index.vue')
   },
   {
-    path: '/',
+    path: '',
     component: () => import('../views/layouts/Index.vue'),
     children: [
-      { path: 'home', component: () => import('../views/Home.vue') },
+      { path: '/', component: () => import('../views/Home.vue') },
     ]
   },
   {
