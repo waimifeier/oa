@@ -61,7 +61,7 @@
             <FullScreen></FullScreen>
             <v-tooltip left color="grey darken-4">
                 <template v-slot:activator="{ on }">
-                    <v-btn icon v-on="on">
+                    <v-btn icon v-on="on" to="/workbench/message">
                         <v-icon size="20">mdi-chat-processing-outline</v-icon>
                     </v-btn>
                 </template>

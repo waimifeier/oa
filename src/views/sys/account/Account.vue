@@ -26,7 +26,7 @@
                             <v-list-item-icon>
                                 <v-icon :size="20">mdi-account-supervisor</v-icon>
                             </v-list-item-icon>
-                            <v-list-item-title>全部</v-list-item-title>
+                            <v-list-item-title class="caption">全部</v-list-item-title>
                             <v-list-item-icon>
                                 <v-badge left content="132" color="success" offset-x="10" offset-y="20"></v-badge>
                             </v-list-item-icon>
@@ -36,7 +36,7 @@
                             <v-list-item-icon>
                                 <v-icon :size="20">mdi-account-arrow-right</v-icon>
                             </v-list-item-icon>
-                            <v-list-item-title> 待分配 </v-list-item-title>
+                            <v-list-item-title class="caption"> 待分配 </v-list-item-title>
                             <v-list-item-icon>
                                 <v-badge left content="5" color="teal" offset-x="10" offset-y="20"></v-badge>
                             </v-list-item-icon>
@@ -45,7 +45,7 @@
                             <v-list-item-icon>
                                 <v-icon :size="20">mdi-account-cancel</v-icon>
                             </v-list-item-icon>
-                            <v-list-item-title> 已禁用 </v-list-item-title>
+                            <v-list-item-title class="caption"> 已禁用 </v-list-item-title>
                             <v-list-item-icon>
                                 <v-badge left content="3" color="orange" offset-x="10" offset-y="20"></v-badge>
                             </v-list-item-icon>
@@ -56,7 +56,7 @@
                             <v-list-item-icon>
                                 <v-icon :size="20">mdi-account-off</v-icon>
                             </v-list-item-icon>
-                            <v-list-item-title> 已删除 </v-list-item-title>
+                            <v-list-item-title class="caption"> 已删除 </v-list-item-title>
                             <v-list-item-icon>
                                 <v-badge left content="0" color="error" offset-x="10" offset-y="20"></v-badge>
                             </v-list-item-icon>

@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex" style="min-height: 650px;">
-        <v-card flat width="360" class="pa-1" >
+        <v-card flat width="300" class="pa-1 hidden-sm-and-down" >
             <v-card-title> 文件管理 </v-card-title>
             <v-card-subtitle>系统占用 892M/128G
                 <v-progress-linear
@@ -19,7 +19,7 @@
                             <v-icon size="18">mdi-folder-open</v-icon>
                         </v-list-item-icon>
                         <v-list-item-content>
-                            <v-list-item-title class="body-2">全部文件</v-list-item-title>
+                            <v-list-item-title class="caption">全部文件</v-list-item-title>
                         </v-list-item-content>
                     </v-list-item>
                     <v-list-item>
@@ -27,7 +27,7 @@
                             <v-icon size="18">mdi-folder-lock</v-icon>
                         </v-list-item-icon>
                         <v-list-item-content>
-                             <v-list-item-title class="body-2">私密文件</v-list-item-title>
+                             <v-list-item-title class="caption">私密文件</v-list-item-title>
                         </v-list-item-content>
                     </v-list-item>
 
@@ -37,7 +37,7 @@
                             <v-icon size="18">mdi-cloud-upload</v-icon>
                         </v-list-item-icon>
                         <v-list-item-content>
-                            <v-list-item-title class="body-2">正在上传</v-list-item-title>
+                            <v-list-item-title class="caption">正在上传</v-list-item-title>
                         </v-list-item-content>
                     </v-list-item>
                     <v-list-item>
@@ -45,7 +45,7 @@
                             <v-icon size="18">mdi-cloud-download</v-icon>
                         </v-list-item-icon>
                         <v-list-item-content>
-                            <v-list-item-title class="body-2">正在下载</v-list-item-title>
+                            <v-list-item-title class="caption">正在下载</v-list-item-title>
                         </v-list-item-content>
                         <v-list-item-icon>
                             <v-progress-circular
@@ -60,7 +60,7 @@
                             <v-icon size="18">mdi-cloud-check</v-icon>
                         </v-list-item-icon>
                         <v-list-item-content>
-                            <v-list-item-title class="body-2">传输完成</v-list-item-title>
+                            <v-list-item-title class="caption">传输完成</v-list-item-title>
                         </v-list-item-content>
                         <v-list-item-icon>
                             <v-badge
@@ -99,7 +99,7 @@
                 </v-btn>
                 <v-spacer></v-spacer>
 
-                <v-btn-toggle dense color="primary">
+                <v-btn-toggle dense color="primary" class="hidden-xs-only">
                     <v-btn small>
                         <v-icon>mdi-view-headline</v-icon>
                     </v-btn>

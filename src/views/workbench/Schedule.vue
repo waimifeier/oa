@@ -1,7 +1,7 @@
 <template>
     <v-sheet class="d-flex" color="transparent" >
-        <v-card flat class="mr-6" color="transparent" >
-            <v-sheet class="pa-5" color="transparent" >
+        <v-card flat class="mr-6 hidden-sm-and-down" width="300">
+            <v-sheet class="pa-5">
                 <v-img
                         :aspect-ratio="16/9"
                         contain
@@ -10,7 +10,7 @@
                 </v-img>
             </v-sheet>
 
-            <v-list min-width="300" color="transparent" >
+            <v-list>
                 <v-list-item>
                     <v-list-item-content>
                         <v-list-item-title class="body-2">我的工作计划</v-list-item-title>
@@ -22,7 +22,7 @@
                 <v-btn
                         text
                         block
-                        color="deep-purple accent-4"
+                        color="primary"
                 >
                     开始使用
                 </v-btn>
