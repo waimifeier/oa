@@ -153,6 +153,7 @@ export default {
         layoutValue(val){
             // ==1  顶部导航 ==0 左侧菜单
             this.$emit("layoutNavClipped", val === 1)
+            this.$store.dispatch('NavbarStyle' , val === 1 ? 'horizontal' : 'vertical');
         }
     },
 

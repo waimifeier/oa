@@ -17,6 +17,7 @@ const settings = {
         navbarDense: (state) => state.navbar.dense,
         navbarShow: (state) => state.navbar.show,
         navbarLogo: (state) => state.navbar.logo,
+        navbarStyle: (state) => state.navbar.style,
         fullscreenBtn: (state) => state.fullscreen.btn,
         fullscreenShow: (state) => state.fullscreen.show,
         settingsPanelBtn: (state) => state.settingsPanel.btn,
@@ -64,6 +65,9 @@ const settings = {
         NAVBAR_STATE: (state, payload) => {
             state.navbar.show = payload.state;
         },
+        NAVBAR_STYLE: (state, payload) => {
+            state.navbar.style = payload.style;
+        },
         FULLSCREEN_TOGGLE: (state, payload) => {
             state.fullscreen.show = payload.state;
         },
@@ -110,6 +114,9 @@ const settings = {
         },
         NavbarState: async (context, payload) => {
             context.commit('NAVBAR_STATE', payload);
+        },
+        NavbarStyle: async (context, payload) => {
+            context.commit('NAVBAR_STYLE', payload);
         },
         FullscreenToggle: async (context, payload) => {
             context.commit('FULLSCREEN_TOGGLE', payload);

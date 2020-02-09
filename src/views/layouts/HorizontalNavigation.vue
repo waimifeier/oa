@@ -2,8 +2,7 @@
     <v-tabs v-model="currentItem"
             background-color="transparent"
             show-arrows
-            right
-            center-active
+            centered
     >
         <v-tabs-slider></v-tabs-slider>
         <template  v-for="item in items"  >

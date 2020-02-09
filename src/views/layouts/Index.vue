@@ -2,15 +2,11 @@
     <v-app app>
         <v-navigation-drawer
                 app
-                fixed
                 width="220"
                 mini-variant-width="80"
                 v-model="primaryDrawer.model"
-                :clipped="primaryDrawer.clipped"
-                :floating="primaryDrawer.floating"
+                floating
                 :mini-variant="primaryDrawer.mini"
-                :permanent="primaryDrawer.type === 'permanent'"
-                :temporary="primaryDrawer.type === 'temporary'"
                 overflow
         >
 
@@ -27,18 +23,20 @@
         </v-navigation-drawer>
 
         <v-app-bar
-          :clipped-left="primaryDrawer.clipped"
+          clipped-left
           app
           :style=" {backgroundColor: renderStyleBar()} "
           elevate-on-scroll
-          scroll-threshold
         >
             <v-app-bar-nav-icon
                 v-if="primaryDrawer.model"
                 @click.stop="primaryDrawer.mini = !primaryDrawer.mini"
             />
 
-            <v-toolbar-title v-if="!primaryDrawer.model">微人事</v-toolbar-title>
+            <v-btn icon>
+                <v-img contain src="https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png" width="32px" height="32"/>
+            </v-btn>
+            <v-toolbar-title v-if="!primaryDrawer.model" style="min-width: 200px;">微人事</v-toolbar-title>
 
                <!--  class="hidden-xs-only"
 
@@ -51,7 +49,7 @@
                       v-text-field--is-booted
                 -->
             <v-breadcrumbs :items="items" v-if="!this.primaryDrawer.clipped"></v-breadcrumbs>
-
+            <v-spacer></v-spacer>
             <HorizontalNavigation v-if="this.primaryDrawer.clipped"></HorizontalNavigation>
             <v-spacer></v-spacer>
 
@@ -67,7 +65,6 @@
                 </template>
                 <span>消息列表</span>
             </v-tooltip>
-
 
             <!--头像-->
             <Avatar @layoutNavClipped="layoutNavClipped"/>
@@ -99,17 +96,20 @@ import Avatar from './Avatar.vue'
 import LeftNavigation from './LeftNavigation.vue'
 import HorizontalNavigation from './HorizontalNavigation.vue'
 import FullScreen from './widget/FullScreen.vue'
-
+import {mapState} from 'vuex'
 export default {
+    computed:{
+        ...mapState([
+            "settings"
+        ])
+    },
+
     data: () => ({
         //  默认 permanent（不能隐藏或显示为true不能影藏）  Temporary（层叠模式）
-        drawers: ['Default (no property)', 'Permanent', 'Temporary'],
         primaryDrawer: {
-            model: false,  // 控制左侧菜单是否显示
-            type: 'Permanent', //
+            model: true,  // 控制左侧菜单是否显示
             clipped: true,  // 顶部导航是否是通航
-            floating: true, // 是否影藏边框
-            mini: false,  // 是否用模拟模式
+            mini: false,  // 是否用mini模式
         },
         footer: {
             inset: true,
@@ -128,6 +128,9 @@ export default {
             }
         ],
     }),
+
+
+
 
     watch: {
         primaryDrawer: {
@@ -157,6 +160,8 @@ export default {
         }
     },
     mounted () {
+        console.log(this.settings);
+        console.log(this.$store.state)
     }
 
 }

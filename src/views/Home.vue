@@ -82,7 +82,7 @@
                     </v-list-item-group>
                 </v-list>
                 <v-card-actions style="justify-content: center">
-                    <v-btn text small color="purple">
+                    <v-btn text small color="primary">
                         <v-icon left v-text="1===1? 'mdi-thumb-up-outline': 'mdi-thumb-up'"></v-icon>
                         确认投票
                     </v-btn>

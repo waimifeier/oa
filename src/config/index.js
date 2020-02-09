@@ -41,6 +41,7 @@ module.exports = {
             show: true,
             dense: false,
             logo: false,
+            style: 'horizontal' //  vertical(竖着的) ，horizontal(横着的)
         },
         fullscreen: {
             show: false,
