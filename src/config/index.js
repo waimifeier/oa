@@ -35,13 +35,11 @@ module.exports = {
      */
     settings: {
         locale: 'en',
-        dense: true,
         footer: false,
         navbar: {
             show: true,
-            dense: false,
-            logo: false,
-            style: 'horizontal' //  vertical(竖着的) ，horizontal(横着的)
+            mini: false,
+            style: 'horizontal'  //  vertical(竖着的) ，horizontal(横着的)
         },
         fullscreen: {
             show: false,
@@ -55,14 +53,5 @@ module.exports = {
             index: 0,
             dark: false,
         },
-    },
-
-    /**
-     * @type {boolean} true | false
-     * @type {string | array} 'production' | ['production', 'development']
-     * @description Need show err logs component.
-     * The default is only used in the production env
-     * If you want to also use it in dev, you can pass ['production', 'development']
-     */
-    // errorLog: 'production',
+    }
 };

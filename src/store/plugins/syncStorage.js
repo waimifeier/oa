@@ -68,26 +68,6 @@ class SyncStorage {
             }
         });
 
-        /* store.subscribeAction({
-          after: (action, state) => {
-            // console.log('storage subscribeAction after ', action.type);
-            if (this.userActions.includes(action.type)) {
-              console.log('storage subscribeAction user_actions after', action, state);
-            }
-            if (this.settingsActions.includes(action.type)) {
-              console.log('storage subscribeAction settings_actions after', action, state);
-            }
-          },
-          before: (action, state) => {
-            // console.log('storage subscribeAction before ', action.type);
-            if (this.userActions.includes(action.type)) {
-              console.warn('storage subscribeAction user_actions before', action, state);
-            }
-            if (this.settingsActions.includes(action.type)) {
-              console.warn('storage subscribeAction settings_actions before', action, state);
-            }
-          }
-        }); */
     };
 
     /**

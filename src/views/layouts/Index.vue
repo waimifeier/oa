@@ -4,9 +4,9 @@
                 app
                 width="220"
                 mini-variant-width="80"
-                v-model="primaryDrawer.model"
-                :floating="primaryDrawer.floating"
-                :mini-variant="primaryDrawer.mini"
+                v-model="settings.navbar.show"
+                floating
+                :mini-variant="settings.navbar.mini"
                 overflow
         >
 
@@ -23,15 +23,14 @@
         </v-navigation-drawer>
 
         <v-app-bar
-                :clipped-left="primaryDrawer.clipped"
                 app
+                :clipped-left="primaryDrawer.clipped"
                 :style=" {backgroundColor: renderStyleBar()} "
                 elevate-on-scroll
                 scroll-threshold
         >
             <v-app-bar-nav-icon
-                    v-if="primaryDrawer.model"
-                    @click.stop="primaryDrawer.mini = !primaryDrawer.mini"
+                    @click.stop="hidenVerticalNavbar()"
             />
 
             <v-toolbar-title v-if="!primaryDrawer.model">微人事</v-toolbar-title>
@@ -111,7 +110,7 @@
             primaryDrawer: {
                 model: true,  // 控制左侧菜单是否显示
                 type: 'Permanent', //
-                clipped: true,  // 顶部导航是否是通航
+                clipped: false,  // 顶部导航是否是通航
                 floating: true, // 是否影藏边框
                 mini: false,  // 是否用模拟模式
             },
@@ -134,13 +133,7 @@
         }),
 
         watch: {
-            primaryDrawer: {
-                handler: function (val) {
-                    console.log(val)
-                },
-                immediate: true,
-                deep: true
-            }
+
         },
 
         components:{
@@ -158,16 +151,19 @@
                 }else {
                     return this.primaryDrawer.clipped ?  '#fff' : '#f9fafc'
                 }
+            },
+
+            hidenVerticalNavbar(){
+                this.settings.style===''
             }
         },
         mounted () {
+            console.log(this.settings);
         }
 
     }
 </script>
 
 <style>
-    .test:focus{
-        width: 300px;
-    }
+
 </style>
