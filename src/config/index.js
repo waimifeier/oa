@@ -1,5 +1,6 @@
 const packageJson = require('../../package.json');
 
+// https://github.com/NelsonEAX/vue-vuetify-admin
 module.exports = {
     title: packageJson.title,
 

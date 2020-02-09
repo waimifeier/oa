@@ -93,7 +93,7 @@
                 <v-subheader>主题</v-subheader>
                 <v-list-item>
                     <v-list-item-action>
-                        <v-switch v-model="$vuetify.theme.dark" color="info"></v-switch>
+                        <v-switch v-model="darkToggle" color="info"></v-switch>
                     </v-list-item-action>
                     <v-list-item-title>
                         深色模式
@@ -141,20 +141,35 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
+    computed: {
+        ...mapGetters([
+            'themeDark','navbarStyle'
+        ]),
+        darkToggle(){
+            return this.themeDark;
+        },
 
+        // 导航布局
+        layoutValue(){
+            return this.navbarStyle==='horizontal' ? 0 : 1;
+        }
+    },
     data: () => ({
-        layoutValue:0,         // 导航布局
+
         menu: false,           // 弹出菜单显示
         subscribeTopic: false, // 订阅通知
     }),
 
     watch:{
         layoutValue(val){
-            // ==1  顶部导航 ==0 左侧菜单
-            this.$emit("layoutNavClipped", val === 1)
             this.$store.dispatch('NavbarStyle' , val === 1 ? 'horizontal' : 'vertical');
-        }
+        },
+    },
+
+    mounted(){
+        console.log( "___" + this.themeDark)
     },
 
     methods:{
@@ -162,6 +177,7 @@ export default {
         // 修改密码
         modifyPasswordHandler(){
             console.log(this.$vuetify);
+            this.$store.dispatch('ThemeDarkToggle');
         },
 
         // 退出系统
