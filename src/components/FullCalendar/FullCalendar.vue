@@ -1,29 +1,51 @@
 <template>
-  <FullCalendar
-          :events="calendarEvents"
-          ref="fullCalendar"
-          @dateClick="handleDateClick"
-          @eventClick="handleEventClick"
-          :plugins="calendarPlugins"
-          locale="zh-cn"
-          :buttonText="buttonText"
-          @eventMouseEnter="eventMouseEnter"
-          :header="{
-        right: 'prev,today,next',
-        center: '',
-        left:'title',
-      }"
-          :editable="true"
-          :selectable="true"
-          @select="select"
-          :eventLimit="2"
-          :height="600"
-          allDayText="全天"
-          :eventLimitText="config.eventLimitText"
-          :firstDay="config.firstDay"
-          :eventColor="config.eventColor"
-          @dayRender="datesRender"
-  />
+  <div>
+
+      <v-chip-group
+              column
+              active-class="primary--text"
+      >
+          <v-chip>《</v-chip>
+          <v-chip>今天</v-chip>
+          <v-chip>》</v-chip>
+      </v-chip-group>
+
+      <v-chip-group
+              column
+              active-class="primary--text"
+      >
+          <v-chip>列表</v-chip>
+          <v-chip>周</v-chip>
+          <v-chip>月</v-chip>
+          <v-chip>天</v-chip>
+      </v-chip-group>
+
+
+      <span class="title"> 2020年12</span>
+
+
+      <FullCalendar
+              :events="calendarEvents"
+              ref="fullCalendar"
+              @dateClick="handleDateClick"
+              @eventClick="handleEventClick"
+              :plugins="calendarPlugins"
+              locale="zh-cn"
+              :buttonText="buttonText"
+              @eventMouseEnter="eventMouseEnter"
+              :header="false"
+              :editable="true"
+              :selectable="true"
+              @select="select"
+              :eventLimit="2"
+              :height="600"
+              allDayText="全天"
+              :eventLimitText="config.eventLimitText"
+              :firstDay="config.firstDay"
+              :eventColor="config.eventColor"
+              @dayRender="datesRender"
+      />
+  </div>
 </template>
 <script>
   import FullCalendar from '@fullcalendar/vue'
