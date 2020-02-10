@@ -90,7 +90,7 @@
 </template>
 
 <script>
-    import Avatar from './Avatar.vue'
+    import Avatar from './widget/Avatar.vue'
     import LeftNavigation from './LeftNavigation.vue'
     import HorizontalNavigation from './HorizontalNavigation.vue'
     import FullScreen from './widget/FullScreen.vue'
