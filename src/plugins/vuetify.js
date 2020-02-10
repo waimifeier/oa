@@ -17,9 +17,9 @@ const vuetify = new Vuetify({
         dark: false,
         themes: themes[0],
     },
-    icons: {
+   /* icons: {
         iconfont: 'mdi',
-    },
+    },*/
     lang: {
         locales,
         current: settings.locale,

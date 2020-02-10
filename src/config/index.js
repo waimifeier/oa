@@ -39,7 +39,7 @@ module.exports = {
         footer: false,
         navbar: {
             show: true,
-            mini: false,
+            mini: true,
             style: 'horizontal'  //  vertical(竖着的) ，horizontal(横着的)
         },
         fullscreen: {
