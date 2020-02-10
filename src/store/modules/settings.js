@@ -95,6 +95,12 @@ const settings = {
             context.commit('NAVBAR_STATE', payload);
         },
         NavbarStyle: async (context, payload) => {
+            if(payload==='horizontal'){
+                context.commit('NAVBAR_STATE', false);
+                console.log(payload)
+            }else if(payload==='vertical'){
+                context.commit('NAVBAR_STATE', true);
+            }
             context.commit('NAVBAR_STYLE', payload);
         },
 

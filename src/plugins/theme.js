@@ -16,7 +16,7 @@ const dark = {
 const themes = [
     {
         light: {
-            primary: '#1976D2',
+            primary: '#3c5afe',
             secondary: '#424242',
             accent: '#82B1FF',
             success: '#4CAF50',

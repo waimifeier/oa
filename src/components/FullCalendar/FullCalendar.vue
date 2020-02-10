@@ -1,29 +1,25 @@
 <template>
   <div>
-
-      <v-chip-group
-              column
-              active-class="primary--text"
-      >
-          <v-chip>《</v-chip>
-          <v-chip>今天</v-chip>
-          <v-chip>》</v-chip>
-      </v-chip-group>
-
-      <v-chip-group
-              column
-              active-class="primary--text"
-      >
-          <v-chip>列表</v-chip>
-          <v-chip>周</v-chip>
-          <v-chip>月</v-chip>
-          <v-chip>天</v-chip>
-      </v-chip-group>
-
-
-      <span class="title"> 2020年12</span>
-
-
+      <div class="d-flex justify-space-between">
+          <v-chip-group
+                  column
+                  active-class="primary--text"
+          >
+              <v-chip><v-icon size="18">mdi-chevron-double-left</v-icon></v-chip>
+              <v-chip>今天</v-chip>
+              <v-chip><v-icon size="18">mdi-chevron-double-right</v-icon></v-chip>
+          </v-chip-group>
+          <span class="title align-self-center"> 2020年02月</span>
+          <v-chip-group
+                  column
+                  active-class="primary--text"
+          >
+              <v-chip>列表</v-chip>
+              <v-chip>周</v-chip>
+              <v-chip>月</v-chip>
+              <v-chip>天</v-chip>
+          </v-chip-group>
+      </div>
       <FullCalendar
               :events="calendarEvents"
               ref="fullCalendar"

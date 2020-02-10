@@ -24,7 +24,6 @@
 
         <v-app-bar
                 app
-                :clipped-left="primaryDrawer.clipped"
                 :style=" {backgroundColor: renderStyleBar()} "
                 elevate-on-scroll
                 scroll-threshold
@@ -154,7 +153,7 @@
             },
 
             hidenVerticalNavbar(){
-                this.settings.style===''
+                this.$store.dispatch('NavbarToggle');
             }
         },
         mounted () {

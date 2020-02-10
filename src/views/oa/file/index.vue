@@ -1,6 +1,6 @@
 <template>
-<!--    <div class="app-container container">
-    <span class="title">文件管理</span>
+    <div class="app-container container">
+        <span class="title">文件管理</span>
         <v-row>
             <v-col md="3" class="hidden-sm-and-down pa-0">
                 <v-card flat width="225">
@@ -124,12 +124,12 @@
                 <EmptyContent></EmptyContent>
             </v-col>
         </v-row>
-    </div>-->
+    </div>
 
-    <div class="app-container container">
+    <!--<div class="app-container container">
         <span class="title">文件管理</span>
         <v-sheet flat class="d-flex">
-            <v-card flat width="225" class="mr-5 hidden-sm-and-down">
+            <v-card flat width="225" class="mr-6 hidden-sm-and-down">
                 <v-card-subtitle>系统占用 892M/128G
                     <v-progress-linear
                             color="teal"
@@ -205,7 +205,7 @@
                 </v-list>
             </v-card>
             <div style="width:100%;">
-                <v-toolbar extended flat dense color="transparent" class="pa-0">
+                <div class="d-flex justify-space-between mt-2">
                     <v-btn color="primary" depressed small>
                         <v-icon left>mdi-cloud-upload</v-icon>
                         上传文件
@@ -239,17 +239,16 @@
                     <v-btn small text outlined class="ml-1">
                         <v-icon small>mdi-restart</v-icon>
                     </v-btn>
-
-                    <template v-slot:extension style="height: 30px;">
-                        <v-breadcrumbs :items="items" divider=">" style="padding: 0;"></v-breadcrumbs>
-                        <v-spacer></v-spacer>
-                        <span class="caption">已加载全部, 共0个</span>
-                    </template>
-                </v-toolbar>
+                </div>
+                <div class="d-flex justify-space-around" style="line-height: 48px;">
+                    <v-breadcrumbs :items="items" divider=">" style="padding: 0;"></v-breadcrumbs>
+                    <v-spacer></v-spacer>
+                    <span class="caption align-self-center">已加载全部, 共0个</span>
+                </div>
                 <EmptyContent></EmptyContent>
             </div>
         </v-sheet>
-    </div>
+    </div>-->
 </template>
 
 <script>
@@ -280,4 +279,5 @@ export default {
 </script>
 
 <style scoped>
+
 </style>

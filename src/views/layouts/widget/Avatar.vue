@@ -56,7 +56,7 @@
                 <v-subheader>导航布局</v-subheader>
                 <v-list-item>
                     <v-item-group v-model="layoutValue">
-                        <v-item v-slot:default="{ active, toggle }">
+                        <v-item v-slot:default="{ active, toggle }" value="horizontal">
                             <v-tooltip top color="grey darken-4">
                                 <template v-slot:activator="{ on }">
                                     <v-avatar tile :size="60" v-on="on">
@@ -71,7 +71,7 @@
                             </v-tooltip>
                         </v-item>
 
-                        <v-item v-slot:default="{ active, toggle }" >
+                        <v-item v-slot:default="{ active, toggle }" value="vertical">
                             <v-tooltip top color="grey darken-4">
                                 <template v-slot:activator="{ on }" >
                                     <v-avatar tile :size="60" v-on="on" class="ml-7">
@@ -93,7 +93,7 @@
                 <v-subheader>主题</v-subheader>
                 <v-list-item>
                     <v-list-item-action>
-                        <v-switch v-model="darkToggle" color="info"></v-switch>
+                        <v-switch :input-value="themeDarkState" color="info" @change="darkThemeToggle"></v-switch>
                     </v-list-item-action>
                     <v-list-item-title>
                         深色模式
@@ -145,39 +145,37 @@ import { mapGetters } from 'vuex';
 export default {
     computed: {
         ...mapGetters([
-            'themeDark','navbarStyle'
+            'themeDark',
+            'navbarStyle'
         ]),
-        darkToggle(){
+        themeDarkState(){
             return this.themeDark;
         },
-
-        // 导航布局
-        layoutValue(){
-            return this.navbarStyle==='horizontal' ? 0 : 1;
+        layoutValue:{
+            get(){
+                return this.navbarStyle;
+            },
+            set(val){
+                this.$store.dispatch('NavbarStyle',val);
+            }
         }
     },
     data: () => ({
-
         menu: false,           // 弹出菜单显示
         subscribeTopic: false, // 订阅通知
     }),
 
-    watch:{
-        layoutValue(val){
-            this.$store.dispatch('NavbarStyle' , val === 1 ? 'horizontal' : 'vertical');
-        },
-    },
-
     mounted(){
-        console.log( "___" + this.themeDark)
     },
 
     methods:{
+        darkThemeToggle(){
+            this.$store.dispatch('ThemeDarkToggle');
+        },
 
         // 修改密码
         modifyPasswordHandler(){
             console.log(this.$vuetify);
-            this.$store.dispatch('ThemeDarkToggle');
         },
 
         // 退出系统
