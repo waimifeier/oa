@@ -54,7 +54,7 @@ const settings = {
         },
         // 设置左侧导航显示或隐藏
         NAVBAR_STATE: (state, payload) => {
-            state.navbar.show = payload.state;
+            state.navbar.show = payload;
         },
         // 设置导航样式
         NAVBAR_STYLE: (state, payload) => {
@@ -97,9 +97,9 @@ const settings = {
         },
         NavbarStyle: async (context, payload) => {
             if(payload==='horizontal'){
-                context.commit('NAVBAR_STATE', false);
-            }else if(payload==='vertical'){
                 context.commit('NAVBAR_STATE', true);
+            }else if(payload==='vertical'){
+                context.commit('NAVBAR_STATE', false);
             }
             context.commit('NAVBAR_STYLE', payload);
         },

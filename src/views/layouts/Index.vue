@@ -7,6 +7,7 @@
                 v-model="settings.navbar.show"
                 floating
                 :mini-variant="settings.navbar.mini"
+                :mobile-break-point="960"
                 overflow
         >
 
