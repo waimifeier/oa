@@ -145,11 +145,9 @@
                 this.primaryDrawer.model = !val
             },
             renderStyleBar(){
-                if(this.$vuetify.theme.dark){
+                if(this.$vuetify.theme.dark)
                     return this.primaryDrawer.clipped ?  '#363636' : '#121212'
-                }else {
-                    return this.primaryDrawer.clipped ?  '#fff' : '#f9fafc'
-                }
+                return this.primaryDrawer.clipped ?  '#fff' : '#f9fafc'
             },
 
             hidenVerticalNavbar(){

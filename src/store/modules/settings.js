@@ -14,6 +14,7 @@ const settings = {
         version: () => version,
         locale: (state) => state.locale,
         navbarShow: (state) => state.navbar.show,
+        navbarMini: (state) => state.navbar.mini,
         navbarStyle: (state) => state.navbar.style,
         fullscreenBtn: (state) => state.fullscreen.btn,
         fullscreenShow: (state) => state.fullscreen.show,
