@@ -101,6 +101,7 @@
                     :displayEventTime="calendarConfig.displayEventTime"
                     :nowIndicator="calendarConfig.nowIndicator"
 
+                    @dayRender="datesRender"
                     @dateClick="handleDateClick"
                     @eventClick="handleEventClick"
                     @eventMouseover="handlerEventMouseover"
@@ -120,6 +121,7 @@
 import FullCalendar from '@fullcalendar/vue'
 import  { Draggable } from '@fullcalendar/interaction';
 import calendarConfig from '@/config/calendar.js'
+import getDayData from '@/utils/lunarUtils.js'
 export default {
     data: () => ({
         events:[
@@ -131,6 +133,34 @@ export default {
         calendarConfig:calendarConfig
     }),
     methods:{
+        datesRender(event){
+            if(!this.calendarConfig.lunar) return;
+
+            let [ year,month,day ] = [...event.el.dataset.date.split('-')]
+            let lu = getDayData(year,month,day)
+            //  月份 ，初一，阳历节日，农历节日
+            let {lunarMonthName,lunarDayName,solarFestival,lunarFestival} = {...lu}
+
+            let iSsolar = false // 是否是节日
+            let text = lunarDayName;
+
+            if(lunarFestival ){ // 农历节日
+                text =  lunarFestival
+                iSsolar = true
+            }else if(solarFestival){  // 阳历节日
+                let solar = solarFestival.split(' ')[0]
+                if(solar.length<5) {
+                    text =  solar
+                    iSsolar = true
+                }
+            }else if(lunarDayName==='初一'){
+                text = lunarMonthName
+            }else {
+                text = lunarDayName
+            }
+
+            event.el.innerHTML = `<span class="${iSsolar ? 'lunar solar' :'lunar'}">${text}</span>`
+        },
         // 点击日期网格回调
         handleDateClick(arg){
             alert(arg.date+"天被点击了")

@@ -6,7 +6,7 @@ import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
 export default {
     schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
         calendarPlugins: [ dayGridPlugin ,resourceTimelinePlugin,interactionPlugin,timeGridPlugin,listPlugin],
-        defaultView:'timeGridWeek', // 默认视图
+        defaultView:'dayGridMonth', // 默认视图
         defaultEventMinutes:60,
         locale:'zh-cn', //默认语言
         timeZone:'UTC',
@@ -63,5 +63,6 @@ export default {
             hour12: false
     },
     displayEventTime: true, // 是否显示事件时间
-    nowIndicator:true  // 红色标记
+    nowIndicator:true , // 红色标记
+    lunar:true
 }
