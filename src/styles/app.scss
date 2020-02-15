@@ -17,3 +17,81 @@ html{
 .app-container{
   padding:0 12px;
 }
+
+/*日历-外部拖动*/
+.fc-event {
+  margin: 1em 0;
+  cursor: move;
+  border:none !important;
+}
+
+
+/*表头*/
+.fc th.fc-widget-header {
+  background: #edf1f5;
+  font-size: 13px;
+  line-height: 20px;
+  padding: 10px 0;
+  text-transform: uppercase;
+}
+
+
+/*日期样式*/
+.fc-ltr .fc-dayGrid-view .fc-day-top .fc-day-number {
+  float: right;
+/*  height: 28px;
+  background-color: #f1f3fa;
+  width: 28px;
+  text-align: center;
+  line-height: 28px;
+  border-radius: 50%;
+  margin: 5px;*/
+
+  font-size: 11px;
+}
+/*今天的日期样式*/
+.fc-unthemed td.fc-today > .fc-day-number{
+  height: 28px;
+  background-color: #ccc;
+  width: 28px;
+  text-align: center;
+  line-height: 28px;
+  border-radius: 50%;
+  font-size: 10px;
+}
+
+/*表格边框颜色*/
+.fc-unthemed th, .fc-unthemed td,
+.fc-unthemed thead, .fc-unthemed tbody,
+.fc-unthemed .fc-divider, .fc-unthemed
+.fc-row, .fc-unthemed .fc-content,
+.fc-unthemed .fc-popover,
+.fc-unthemed .fc-list-view,
+.fc-unthemed .fc-list-heading td{
+  border-color: #f1f3fa !important;
+}
+/*今天的背景色*/
+.fc-unthemed td.fc-today {
+  background: #f3f6f8 !important;
+}
+
+/*农历或者节日的样式*/
+.fc-day.fc-widget-content .lunar{
+  float: left;
+  font-size: 12px;
+  padding:2px;
+}
+
+/* 带节日的样式*/
+.fc-day.fc-widget-content .solar{
+  text-decoration: underline;
+  color:#fb648a;
+}
+/*日历事件样式*/
+.event-style{
+  color: #fff;
+  background-color: #fb648a;
+  border: none;
+  border-radius: 8px !important;
+  text-align: center;
+}
