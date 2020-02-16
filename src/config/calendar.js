@@ -9,7 +9,6 @@ export default {
         defaultView:'dayGridMonth', // 默认视图
         defaultEventMinutes:60,
         locale:'zh-cn', //默认语言
-        timeZone:'UTC',
         eventColor:'#1eb4a0',      // 默认事件的背景+边框色
         eventTextColor:'#fff',
 

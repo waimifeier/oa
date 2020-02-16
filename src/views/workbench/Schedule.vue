@@ -37,17 +37,17 @@
                         <v-list-item-subtitle>拖动日程到日历完成计划安排</v-list-item-subtitle>
                     </v-list-item-content>
                 </v-list-item>
-                <v-list dense dark nav color="transparent">
-                    <v-list-item class="fc-event">
-                        <v-list-item-content>早上例会</v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="fc-event" style="background-color:#3c5afe;">
-                        <v-list-item-content>开会</v-list-item-content>
-                    </v-list-item>
-                    <v-list-item class="fc-event" style="background-color:#fb648a;">
-                        <v-list-item-content>招聘面试</v-list-item-content>
-                    </v-list-item>
-                </v-list>
+
+                <v-chip small close class="ma-2 fc-event shaky" color="primary" text-color="white" style="display: inline-block;">
+                    开早会
+                </v-chip>
+                <v-chip small close class="ma-2 fc-event shaky" color="pink" text-color="white" style="display: inline-block;">
+                    外出签合同
+                </v-chip>
+
+                <v-chip small close class="ma-2 fc-event shaky" color="red" text-color="white" style="display: inline-block;">
+                    发工资
+                </v-chip>
             </v-card>
 
             <v-card flat style="flex: 3" color="transparent" >
@@ -76,7 +76,6 @@
                     :defaultView="calendarConfig.defaultView"
                     :defaultEventMinutes="calendarConfig.defaultEventMinutes"
                     :locale="calendarConfig.locale"
-                    :timeZone="calendarConfig.timeZone"
                     :eventColor="calendarConfig.eventColor"
                     :eventTextColor="calendarConfig.eventTextColor"
 
@@ -125,7 +124,7 @@ import getDayData from '@/utils/lunarUtils.js'
 export default {
     data: () => ({
         events:[
-            { title: '15:00见客户', date: '2020-02-13',className:'event-style',textColor: 'white'},
+            { title: '19:00见客户', date: '2020-02-13',className:'event-style',textColor: 'white'},
             { title: '市场调研', start: '2020-02-13' ,end:'2020-02-18',className:'event-style',textColor: 'white'},
             { title: '晚上同学聚会', date: '2020-02-19',className:'event-style',textColor: 'white'},
             { title: '加班', start: '2020-02-01',end:'2020-02-03' ,className:'event-style',url:'http://www.baidu.com' ,textColor: 'white'}
@@ -212,5 +211,46 @@ export default {
 
 <style rel="stylesheet/scss" lang="scss">
 
+    .shaky{
+        -webkit-animation: icon-bounce 0.6s infinite linear;
+        -moz-animation: icon-bounce 0.6s infinite linear;
+        -o-animation: icon-bounce 0.6s infinite linear;
+        animation: icon-bounce 0.6s infinite linear ;
+    }
+    @keyframes icon-bounce {
+        0%, 100% {
+            -moz-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
 
+        25% {
+            -moz-transform: rotate(3deg);
+            -ms-transform: rotate(5deg);
+            -webkit-transform: rotate(3deg);
+            transform: rotate(3deg);
+        }
+
+        50% {
+            -moz-transform: rotate(-3deg);
+            -ms-transform: rotate(-3deg);
+            -webkit-transform: rotate(-3deg);
+            transform: rotate(-3deg);
+        }
+
+        75% {
+            -moz-transform: rotate(1deg);
+            -ms-transform: rotate(1deg);
+            -webkit-transform: rotate(1deg);
+            transform: rotate(1deg);
+        }
+
+        85% {
+            -moz-transform: rotate(-1deg);
+            -ms-transform: rotate(-1deg);
+            -webkit-transform: rotate(-1deg);
+            transform: rotate(-1deg);
+        }
+    }
 </style>
