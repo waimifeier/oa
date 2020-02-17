@@ -38,14 +38,6 @@ html{
 /*日期样式*/
 .fc-ltr .fc-dayGrid-view .fc-day-top .fc-day-number {
   float: right;
-/*  height: 28px;
-  background-color: #f1f3fa;
-  width: 28px;
-  text-align: center;
-  line-height: 28px;
-  border-radius: 50%;
-  margin: 5px;*/
-
   font-size: 11px;
 }
 /*今天的日期样式*/
@@ -86,6 +78,7 @@ html{
   text-decoration: underline;
   color:#fb648a;
 }
+
 /*日历事件样式*/
 .event-style{
   color: #fff;
