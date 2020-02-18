@@ -3,8 +3,6 @@
         <span class="title">字典管理</span>
 
         <v-sheet>
-
-
             <div class="d-flex">
                 <v-list-item>
                     <v-list-item-avatar>
