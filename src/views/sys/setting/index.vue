@@ -14,8 +14,6 @@
                 </v-chip-group>
             </div>
         </v-sheet>
-
-
         <v-row dense >
             <v-col cols="12" md="4" sm="6" xl="3">
                 <v-card dark color="#1F7087">
@@ -141,7 +139,6 @@
                 </v-col>
 
             </v-row>
-
         <v-row dense>
             <v-col md="3">
                 <v-card flat hover>
@@ -236,7 +233,6 @@
 
             </v-col>
         </v-row>
-
         <div class="d-flex">
             <v-sheet width="280">
                 <v-hover v-slot:default="{ hover }">
