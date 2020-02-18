@@ -43,7 +43,7 @@
                     外出签合同
                 </v-chip>
 
-                <v-chip small close class="ma-2 fc-event shaky" color="red" text-color="white" style="display: inline-block;">
+                <v-chip small class="ma-2 fc-event shaky" color="red" text-color="white" style="display: inline-block;">
                     发工资
                 </v-chip>
 
