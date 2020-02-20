@@ -57,8 +57,8 @@
 
 
         <template v-for="sh in menuData">
-            <v-subheader :key="sh.id"> {{sh.subheader}}</v-subheader>
-            <template v-for="item in sh.list">
+            <v-subheader :key="sh.id"> {{sh.name}}</v-subheader>
+            <template v-for="item in sh.children">
                 <v-list-group
                         :key="item.id"
                         v-if="item.children"
@@ -68,7 +68,7 @@
                 >
                     <template v-slot:activator>
                         <v-list-item-icon><v-icon small v-text="item.icon"></v-icon></v-list-item-icon>
-                        <v-list-item-title v-text="item.title"></v-list-item-title>
+                        <v-list-item-title v-text="item.name"></v-list-item-title>
                     </template>
 
                     <v-list-item
@@ -78,7 +78,7 @@
                             :key="subItem.id"
                     >
                         <v-list-item-content>
-                            <v-list-item-title class="caption" v-text="subItem.title"></v-list-item-title>
+                            <v-list-item-title class="caption" v-text="subItem.name"></v-list-item-title>
                         </v-list-item-content>
                     </v-list-item>
                 </v-list-group>
@@ -86,7 +86,7 @@
                         <v-list-item-icon>
                             <v-icon small>{{item.icon}}</v-icon>
                         </v-list-item-icon>
-                        <v-list-item-title v-text="item.title"></v-list-item-title>
+                        <v-list-item-title v-text="item.name"></v-list-item-title>
                     </v-list-item>
             </template>
 

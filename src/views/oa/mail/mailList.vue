@@ -1,37 +1,71 @@
 <template>
   <div class="app-container container">
-      <span class="title">通讯录</span>
-      <v-card flat width="300">
-          <v-sheet class="pa-4 primary lighten-2">
+      <div class="d-flex justify-space-between">
+          <span class="title">通讯录</span>
+          <div style="width: 300px;">
               <v-text-field
-                      v-model="search"
-                      label="搜索部门名称"
-                      dark
-                      rounded
-                      dense
-                      flat
-                      solo-inverted
-                      hide-details
-                      clearable
-                      clear-icon="mdi-close-circle-outline"
+                            single-line
+                            filled
+                            rounded
+                            dense
+                            clearable
+                            placeholder="搜索联系人"
+                            prepend-inner-icon="mdi-magnify"
+                            hide-details
+                            color="grey darken-1"
+                            clear-icon="mdi-close-circle-outline"
               ></v-text-field>
-          </v-sheet>
-          <v-treeview
-                  :search="search"
-                  dense
-                  transition
-                  activatable
-                  open-on-click
-                  open-all
-                  :items="items"
-          >
-              <template v-slot:prepend="{ item, open }">
-                  <v-icon small color="primary">
-                      {{ item.code==='COMPANY' ? 'mdi-home-analytics' : 'mdi-lan' }}
-                  </v-icon>
-              </template>
-          </v-treeview>
-      </v-card>
+          </div>
+      </div>
+
+      <v-sheet class="mt-2">
+          <v-tabs slider-size="1">
+              <v-tabs-slider></v-tabs-slider>
+              <v-tab>全部</v-tab>
+              <v-tab-item style="width: 400px;">
+                  <v-hover
+                          v-slot:default="{ hover }"
+                          v-for="item in all" :key="item.id"
+                  >
+                      <v-list-item :key="item.id">
+                          <v-list-item-avatar>
+                              <v-img :src="item.avatar"></v-img>
+                          </v-list-item-avatar>
+                          <v-list-item-content>
+                              <v-list-item-title class="overline" v-text="item.name"></v-list-item-title>
+                              <v-list-item-subtitle class="caption" v-text="item.tell"></v-list-item-subtitle>
+                          </v-list-item-content>
+                          <v-list-item-icon v-if="hover">
+                              <v-tooltip left>
+                                  <template v-slot:activator="{ on }">
+                                      <v-btn icon small v-on="on">
+                                          <v-icon small>mdi-content-copy</v-icon>
+                                      </v-btn>
+                                  </template>
+                                  复制
+                              </v-tooltip>
+                          </v-list-item-icon>
+                      </v-list-item>
+                  </v-hover>
+              </v-tab-item>
+
+              <v-tab>部门</v-tab>
+              <v-tab-item>
+                  <v-list-item>
+                      <v-list-item-avatar>
+                          <v-img src="https://cdn.vuetifyjs.com/images/lists/1.jpg"></v-img>
+                      </v-list-item-avatar>
+                      <v-list-item-content>
+                          <v-list-item-title class="overline">财务部</v-list-item-title>
+                          <v-list-item-subtitle class="caption">云南公司</v-list-item-subtitle>
+                      </v-list-item-content>
+                      <v-list-item-icon>
+                          <v-icon>mdi-content-copy</v-icon>
+                      </v-list-item-icon>
+                  </v-list-item>
+              </v-tab-item>
+          </v-tabs>
+      </v-sheet>
   </div>
 </template>
 
@@ -43,25 +77,14 @@ export default {
             company:'',
             department:''
         },
-        items: [
-            {
-                id: 1,
-                name: '昆明怡泰祥珠宝有限公司',
-                code:'COMPANY',
-                children: [
-                    {
-                        id: 2,
-                        name: '销售部',
-                        code:'DEPARTMENT' ,
-                        children:[
-                            { id: 5, name: '销售一组', code:'DEPARTMENT'},
-                            { id: 6, name: '销售二组', code:'DEPARTMENT'},
-                        ]
-                    },
-                    { id: 3, name: '人事部', code:'DEPARTMENT'},
-                    { id: 4, name: '财务部',  code:'DEPARTMENT'},
-                ],
-            }
+        all: [
+            {id:1,avatar:'https://cdn.vuetifyjs.com/images/lists/1.jpg',name:'张三', tell:'1929923932'},
+            {id:2,avatar:'https://cdn.vuetifyjs.com/images/lists/2.jpg',name:'李司棋', tell:'1529923242'},
+            {id:3,avatar:'https://cdn.vuetifyjs.com/images/lists/3.jpg',name:'王刚', tell:'1479923932'},
+            {id:4,avatar:'https://cdn.vuetifyjs.com/images/lists/4.jpg',name:'五私', tell:'1829923952'},
+            {id:5,avatar:'https://cdn.vuetifyjs.com/images/lists/5.jpg',name:'刘得华', tell:'1479923932'},
+            {id:6,avatar:'https://cdn.vuetifyjs.com/images/lists/2.jpg',name:'张三丰', tell:'1599923999'},
+            {id:7,avatar:'https://cdn.vuetifyjs.com/images/lists/4.jpg',name:'张无忌', tell:'13822929332'},
         ],
     }),
 }
