@@ -1,9 +1,32 @@
 <template>
-    <v-row>
-        <v-col cols="12" md="3" class="hidden-sm-and-down">
-            <v-card class="mx-auto" loader-height="1" flat  width="240" min-height="400">
-                <v-list nav dense flat>
-                    <v-list-item two-line>
+    <div class="app-container container">
+        <div class="d-flex justify-space-between">
+            <span class="title">账号列表</span>
+            <div style="width: 300px;">
+                <v-text-field
+                        single-line
+                        filled
+                        rounded
+                        dense
+                        clearable
+                        placeholder="搜索账号、昵称、手机号..."
+                        prepend-inner-icon="mdi-magnify"
+                        hide-details
+                        color="grey darken-1"
+                        clear-icon="mdi-close-circle-outline"
+                ></v-text-field>
+            </div>
+        </div>
+        <v-chip-group column active-class="primary--text" mandatory class="hidden-md-and-up">
+            <v-chip pill class="caption">全部</v-chip>
+            <v-chip pill class="caption">已禁用</v-chip>
+            <v-chip pill class="caption">待分配</v-chip>
+            <v-chip pill class="caption">已删除</v-chip>
+        </v-chip-group>
+        <v-sheet class="d-flex mt-2">
+            <v-card flat loader-height="1" width="260" min-height="400" class="mr-5 hidden-sm-and-down pa-0">
+                <v-list nav dense flat class="pa-0">
+                    <v-list-item two-line class="pa-0">
                         <v-list-item-avatar>
                             <v-btn icon>
                                 <v-icon :size="30" color="primary">mdi-account-multiple-plus</v-icon>
@@ -15,9 +38,9 @@
                         </v-list-item-content>
                     </v-list-item>
 
-                    <v-subheader> 账号状态  </v-subheader>
-                    <v-list-item-group color="primary" v-model="accountState" group="23">
-                        <v-list-item>
+                    <v-subheader class="pa-0"> 账号状态  </v-subheader>
+                    <v-list-item-group color="primary" v-model="accountState" group="23" class="pa-0">
+                        <v-list-item class="pa-0">
                             <v-list-item-icon>
                                 <v-icon :size="20">mdi-account-supervisor</v-icon>
                             </v-list-item-icon>
@@ -26,8 +49,8 @@
                                 <v-badge left content="132" color="success" offset-x="10" offset-y="20"></v-badge>
                             </v-list-item-icon>
 
-                        </v-list-item>
-                        <v-list-item>
+                        </v-list-item >
+                        <v-list-item class="pa-0">
                             <v-list-item-icon>
                                 <v-icon :size="20">mdi-account-arrow-right</v-icon>
                             </v-list-item-icon>
@@ -36,7 +59,7 @@
                                 <v-badge left content="5" color="teal" offset-x="10" offset-y="20"></v-badge>
                             </v-list-item-icon>
                         </v-list-item>
-                        <v-list-item>
+                        <v-list-item class="pa-0">
                             <v-list-item-icon>
                                 <v-icon :size="20">mdi-account-cancel</v-icon>
                             </v-list-item-icon>
@@ -47,7 +70,7 @@
                         </v-list-item>
 
                         <v-subheader> 回收站 </v-subheader>
-                        <v-list-item>
+                        <v-list-item class="pa-0">
                             <v-list-item-icon>
                                 <v-icon :size="20">mdi-account-off</v-icon>
                             </v-list-item-icon>
@@ -59,44 +82,14 @@
                     </v-list-item-group>
                 </v-list>
             </v-card>
-        </v-col>
-        <v-col cols="12" md="9" sm="12">
-
-            <!--        <div style="border-radius:36px; border: 1px solid #ddd; width: 320px;text-align: center;padding: 2px;">-->
-            <!--            <v-btn-toggle rounded dense borderless color="teal" >-->
-            <!--                <v-btn outlined rounded  min-width="80">全部</v-btn>-->
-            <!--                <v-btn outlined rounded min-width="80"> 已禁用</v-btn>-->
-            <!--                <v-btn outlined rounded min-width="80">待分配</v-btn>-->
-            <!--                <v-btn outlined rounded min-width="80">已删除</v-btn>-->
-            <!--            </v-btn-toggle>-->
-            <!--        </div>-->
-            <v-btn color="info" @click="handlerClick">
-                click
-            </v-btn>
-
-            <v-card-title>
-                账号列表
-                <v-spacer></v-spacer>
-                <v-text-field
-                        single-line
-                        filled
-                        rounded
-                        dense
-                        clearable
-                        placeholder="搜索账号、昵称、手机号"
-                        prepend-inner-icon="mdi-magnify"
-                        hide-details
-                        color="grey darken-1"
-                        clear-icon="mdi-close-octagon-outline"
-                ></v-text-field>
-            </v-card-title>
             <v-data-table
+                     style="width: 100%;"
                     :headers="headers"
                     :items="desserts"
                     :items-per-page="5"
             ></v-data-table>
-        </v-col>
-    </v-row>
+        </v-sheet>
+    </div>
 </template>
 
 <script>

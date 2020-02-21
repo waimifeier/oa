@@ -1,6 +1,22 @@
 <template>
     <div class="app-container container">
-        <span class="title">文件管理</span>
+        <div class="d-flex justify-space-between">
+            <span class="title">文件管理</span>
+            <div style="width: 300px;" class="hidden-sm-and-down">
+                <v-text-field
+                        single-line
+                        filled
+                        rounded
+                        dense
+                        clearable
+                        placeholder="搜索文件名..."
+                        prepend-inner-icon="mdi-magnify"
+                        hide-details
+                        color="grey darken-1"
+                        clear-icon="mdi-close-circle-outline"
+                ></v-text-field>
+            </div>
+        </div>
         <v-row>
             <v-col md="3" class="hidden-sm-and-down pa-0">
                 <v-card flat width="225">
