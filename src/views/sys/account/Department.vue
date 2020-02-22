@@ -1,6 +1,6 @@
 <template>
     <div class="app-container container">
-        <span class="title">部门管理</span>
+        <span class="subtitle-1 font-weight-bold">部门管理</span>
         <v-card flat width="300">
             <v-sheet class="pa-4 primary lighten-1">
                 <v-text-field

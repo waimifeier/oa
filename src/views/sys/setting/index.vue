@@ -1,6 +1,6 @@
 <template>
     <div class="app-container container">
-        <span class="title">系统配置</span>
+        <span class="subtitle-1 font-weight-bold">系统配置</span>
         <v-sheet color="transparent" md="5">
             <div class="d-flex justify-space-between">
                 <v-chip-group color="primary" mandatory >

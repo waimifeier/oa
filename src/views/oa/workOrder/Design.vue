@@ -1,6 +1,6 @@
 <template>
     <div class="app-container container">
-        <span class="title">流程设计</span>
+        <span class="subtitle-1 font-weight-bold">流程设计</span>
 
         <v-row>
             <v-col cols="12" md="4" xs="12">

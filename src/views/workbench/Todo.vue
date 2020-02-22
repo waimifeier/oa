@@ -1,7 +1,7 @@
 <template>
     <div class="app-container container">
         <div class="d-flex justify-space-between">
-            <span class="title">代办事项</span>
+            <span class="subtitle-1 font-weight-bold">代办事项</span>
             <div style="width: 300px;">
                 <v-menu
                         v-model="modal"

@@ -1,6 +1,6 @@
 <template>
     <div class="app-container container">
-        <span class="title">字典管理</span>
+        <span class="subtitle-1 font-weight-bold">字典管理</span>
 
         <v-sheet>
             <div class="d-flex">

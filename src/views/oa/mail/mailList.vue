@@ -1,7 +1,7 @@
 <template>
   <div class="app-container container">
       <div class="d-flex justify-space-between">
-          <span class="title">通讯录</span>
+          <span class="subtitle-1 font-weight-bold">通讯录</span>
           <div style="width: 300px;">
               <v-text-field
                             single-line

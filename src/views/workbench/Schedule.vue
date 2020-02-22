@@ -1,6 +1,6 @@
 <template>
     <div class="app-container container">
-        <span class="title">工作计划</span>
+        <span class="subtitle-1 font-weight-bold">工作计划</span>
         <v-sheet class="d-flex" >
             <v-card flat class="mr-6 hidden-sm-and-down d-none" width="260">
                 <v-sheet class="pa-5">

@@ -1,6 +1,7 @@
 export default [
     {
-        id:1,
+        "id":1,
+        "icon":"mdi-folder-open",
         "name":"办公",
         "children":[
             {
@@ -39,6 +40,7 @@ export default [
     },
     {
         id:32,
+        "icon":"mdi-folder-open",
         "name":"系统管理",
         "children":[
             {
