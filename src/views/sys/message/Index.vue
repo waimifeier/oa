@@ -1,6 +1,6 @@
 <template>
     <div class="app-container container">
-        <div class="d-flex align-center justify-space-between mb-2">
+        <div class="d-flex align-center justify-space-between mb-1">
             <div>
                 <span class="subtitle-1 font-weight-bold">消息中心</span>
                 <span class="caption ml-3">|</span>
