@@ -18,10 +18,10 @@
             </div>
         </div>
         <v-chip-group column active-class="primary--text" mandatory class="hidden-md-and-up">
-            <v-chip pill class="caption">全部</v-chip>
-            <v-chip pill class="caption">已禁用</v-chip>
-            <v-chip pill class="caption">待分配</v-chip>
-            <v-chip pill class="caption">已删除</v-chip>
+            <v-chip pill small class="caption">全部</v-chip>
+            <v-chip pill small class="caption">已禁用</v-chip>
+            <v-chip pill small class="caption">待分配</v-chip>
+            <v-chip pill small class="caption">已删除</v-chip>
         </v-chip-group>
         <v-sheet class="d-flex mt-2 justify-space-between">
             <v-card flat loader-height="1" width="260" min-height="400" class="mr-5 hidden-sm-and-down">

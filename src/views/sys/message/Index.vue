@@ -2,9 +2,8 @@
     <div class="app-container container">
         <div class="d-flex align-center justify-space-between mb-1">
             <div>
-                <span class="subtitle-1 font-weight-bold">消息中心</span>
-                <span class="caption ml-3">|</span>
-                <v-btn text small @click="filterContainer = !filterContainer">
+                <span class="subtitle-1 font-weight-bold mr-6">消息中心</span>
+                <v-btn text small @click="filterContainer = !filterContainer" color="primary">
                     筛选 <v-icon right v-text=" filterContainer ? 'mdi-chevron-down' :'mdi-chevron-up'"></v-icon>
                 </v-btn>
             </div>
@@ -30,11 +29,12 @@
                             clear-icon="mdi-close-circle-outline"
                     ></v-text-field>
                 </div>
-                <v-chip-group color="primary" mandatory >
-                    <v-chip pill class="caption">所有/11</v-chip>
-                    <v-chip pill class="caption">已发送/10</v-chip>
-                    <v-chip pill class="caption">待发送/1</v-chip>
-                </v-chip-group>
+                <v-btn-toggle color="primary" borderless dense rounded>
+                    <v-btn class="caption">所有/11</v-btn>
+                    <v-btn class="caption">已发送/10</v-btn>
+                    <v-btn class="caption">待发送/1</v-btn>
+                    <v-btn class="caption">草稿/1</v-btn>
+                </v-btn-toggle>
             </div>
 
 
@@ -97,7 +97,7 @@
             </div>
         </v-sheet>-->
 
-        <div class="fill-height"  style="width: 100%;">
+        <div class="fill-height mt-2"  style="width: 100%;">
             <v-sheet class="d-none">
                 <div class="d-flex justify-space-between">
                     <v-chip-group color="primary" mandatory >

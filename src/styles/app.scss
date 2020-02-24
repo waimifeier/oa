@@ -65,12 +65,11 @@ html{
 }
 /*今天的背景色*/
 .fc-unthemed td.fc-today {
-  background: transparent !important;
+  background: #f3f6f8 !important;
 }
 
 /*农历或者节日的样式*/
 .fc-day.fc-widget-content .lunar{
-  float: left;
   font-size: 12px;
   padding:2px;
 }

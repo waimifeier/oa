@@ -37,9 +37,9 @@
             </div>
         </div>
         <v-chip-group color="primary" mandatory >
-            <v-chip pill class="caption">工单审核</v-chip>
-            <v-chip pill class="caption">工作提醒</v-chip>
-            <v-chip pill class="caption"></v-chip>
+            <v-chip pill small class="caption">工单审核</v-chip>
+            <v-chip pill small class="caption">工作提醒</v-chip>
+            <v-chip pill small class="caption"></v-chip>
         </v-chip-group>
 
         <button id="button" aria-describedby="tooltip">My button</button>

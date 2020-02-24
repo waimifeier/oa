@@ -164,7 +164,6 @@ export default {
                 text = lunarDayName
             }
 
-            console.log(text)
             event.el.innerHTML = `<span class="${iSsolar ? 'lunar solar' :'lunar'}">${text}</span>`
         },
 
