@@ -2,7 +2,7 @@
     <div class="app-container container">
         <div class="d-flex justify-space-between">
             <span class="subtitle-1 font-weight-bold">文件管理</span>
-            <div style="width: 300px;" class="hidden-sm-and-down">
+            <div style="width: 200px;" class="hidden-sm-and-down">
                 <v-text-field
                         single-line
                         filled

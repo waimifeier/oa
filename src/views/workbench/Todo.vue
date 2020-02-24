@@ -2,7 +2,7 @@
     <div class="app-container container">
         <div class="d-flex justify-space-between">
             <span class="subtitle-1 font-weight-bold">代办事项</span>
-            <div style="width: 300px;">
+            <div style="width: 200px;">
                 <v-menu
                         v-model="modal"
                         :close-on-content-click="false"

@@ -1,6 +1,10 @@
 @charset "utf-8";
 @import '~vuetify/src/styles/styles.sass';
 
+.v-input__icon{
+  height: 16px !important;
+}
+
 html{
   overflow-y: auto !important
 }

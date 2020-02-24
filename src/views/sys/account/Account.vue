@@ -2,7 +2,7 @@
     <div class="app-container container">
         <div class="d-flex justify-space-between align-center">
             <span class="subtitle-1 font-weight-bold">账号列表</span>
-            <div style="width: 300px;">
+            <div style="width: 260px;">
                 <v-text-field
                         single-line
                         filled
