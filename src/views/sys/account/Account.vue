@@ -25,19 +25,36 @@
         </v-chip-group>
         <v-sheet class="d-flex mt-2 justify-space-between">
             <v-card flat loader-height="1" width="260" min-height="400" class="mr-5 hidden-sm-and-down">
+                <v-card class="pa-2" :color="theme.isDark ? '' : 'indigo accent-3'" flat dark>
+                    <div class="d-flex justify-space-between">
+                        <v-img src="../../../assets/svg/undraw_friends_online_klj6.svg" width="70" contain/>
+                        <v-list-item dense>
+                            <v-list-item-content>
+                                <v-list-item-title class="caption font-weight-black"> 账号状态 </v-list-item-title>
+                                <v-list-item-subtitle class="caption">系统当前在线 2 人。</v-list-item-subtitle>
+                            </v-list-item-content>
+                            <v-list-item-action>
+                                <v-menu offset-y>
+                                    <template v-slot:activator="{ on }">
+                                        <v-btn icon small v-on="on"><v-icon small class="white--text">mdi-chevron-down-circle</v-icon></v-btn>
+                                    </template>
+                                    <v-list dense>
+                                        <v-list-item>
+                                            <v-list-item-title class="caption">创建日程</v-list-item-title>
+                                        </v-list-item>
+                                        <v-list-item>
+                                            <v-list-item-content>
+                                                <v-list-item-title class="caption">管理日程</v-list-item-title>
+                                                <v-list-item-subtitle class="caption" >删除我的日程</v-list-item-subtitle>
+                                            </v-list-item-content>
+                                        </v-list-item>
+                                    </v-list>
+                                </v-menu>
+                            </v-list-item-action>
+                        </v-list-item>
+                    </div>
+                </v-card>
                 <v-list nav dense flat >
-                    <v-list-item two-line >
-                        <v-list-item-avatar>
-                            <v-btn icon>
-                                <v-icon :size="30" color="primary">mdi-account-multiple-plus</v-icon>
-                            </v-btn>
-                        </v-list-item-avatar>
-                        <v-list-item-content>
-                            <v-list-item-title class="caption">新增账号 </v-list-item-title>
-                            <v-list-item-subtitle class="caption">系统当前在线 2 人</v-list-item-subtitle>
-                        </v-list-item-content>
-                    </v-list-item>
-
                     <v-subheader > 账号状态  </v-subheader>
                     <v-list-item-group color="primary" v-model="accountState" group="23" >
                         <v-list-item >
