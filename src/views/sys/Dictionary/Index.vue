@@ -9,7 +9,7 @@
         </div>
 
         <v-card flat class="mt-8 mx-auto">
-            <v-sheet class="v-sheet--offset mx-auto" color="cyan" elevation="0" dark>
+            <v-sheet class="v-sheet--offset mx-auto" color="primary" elevation="0" dark>
                 <div class="d-flex align-center">
                      <span class="ml-2">
                          <v-img aspect-ratio="1" contain src="../../../assets/svg/undraw_Bibliophile_hwqc.svg" width="80" height="80"></v-img>

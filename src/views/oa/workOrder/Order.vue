@@ -59,7 +59,8 @@
             <v-chip-group column active-class="primary--text" mandatory v-model="state">
                 <v-chip class="caption">所有</v-chip>
                 <v-chip class="caption">待审核</v-chip>
-                <v-chip class="caption">处理中</v-chip><v-chip class="caption">已经完成</v-chip>
+                <v-chip class="caption">处理中</v-chip>
+                <v-chip class="caption">已经完成</v-chip>
                 <v-chip class="caption">已驳回</v-chip>
             </v-chip-group>
             <div>
@@ -74,8 +75,8 @@
         </div>
 
         <v-row>
-                <v-col md="3" v-for="(item,index) in 3" :key="index">
-                    <v-card>
+            <v-col md="3" v-for="(item,index) in 3" :key="index">
+                <v-card flat :color="theme.isDark ? '' : '#FFF'">
                         <v-list-item>
                             <v-list-item-avatar>
                                 <v-avatar size="30" color="red lighten-2" class="white--text"> 急 </v-avatar>
@@ -128,8 +129,8 @@
 
                         </v-card-actions>
                     </v-card>
-                </v-col>
-            </v-row>
+            </v-col>
+        </v-row>
     </div>
 
 </template>
@@ -137,6 +138,7 @@
 <script>
     export default {
         name: "Order",
+        inject: ['theme'],
         data:()=>({
             timeState:0,
             state:0,
