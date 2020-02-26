@@ -3,7 +3,7 @@
         <div class="d-flex align-center justify-space-between mb-1">
             <div>
                 <span class="subtitle-1 font-weight-bold mr-6">消息中心</span>
-                <v-btn small text class="caption" color="primary">草稿/1</v-btn>
+                <v-btn small text class="caption" color="primary">草稿 (0)</v-btn>
             </div>
             <div>
                 <v-btn text small @click="filterContainer = !filterContainer" color="primary">
@@ -42,11 +42,11 @@
                     </div>
                 </v-expand-transition>
                 <v-card flat :color="theme.isDark ? '' : '#FFF'" class="d-flex">
-                    <span class="caption font-weight-bold py-1 text-center" style="flex: 1">标题</span>
-                    <span class="caption font-weight-bold py-1 text-center"  style="flex: 1">创建者</span>
-                    <span class="caption font-weight-bold py-1 text-center"  style="flex: 1">发送状态</span>
-                    <span class="caption font-weight-bold py-1 text-center"  style="flex: 1">发送时间</span>
-                    <span class="caption font-weight-bold py-1 text-center"  style="flex: 1">操作</span>
+                    <span class="caption font-weight-bold py-2 text-center" style="flex: 1">标题</span>
+                    <span class="caption font-weight-bold py-2 text-center"  style="flex: 1">创建者</span>
+                    <span class="caption font-weight-bold py-2 text-center"  style="flex: 1">发送状态</span>
+                    <span class="caption font-weight-bold py-2 text-center"  style="flex: 1">发送时间</span>
+                    <span class="caption font-weight-bold py-2 text-center"  style="flex: 1">操作</span>
                 </v-card>
 
                 <v-card flat :color="theme.isDark ? '' : '#FFF'" class="d-flex mt-1 align-center" v-for="item in messageList" :key="item.id">

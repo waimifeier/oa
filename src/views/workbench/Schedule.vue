@@ -1,8 +1,8 @@
 <template>
     <div class="app-container container">
         <span class="subtitle-1 font-weight-bold">工作计划</span>
-        <v-sheet class="d-flex" >
-            <v-card flat class="mr-6 hidden-sm-and-down d-none" width="260">
+        <v-sheet class="d-flex">
+            <v-card flat class="mr-6 hidden-sm-and-down d-none" width="300">
                 <v-sheet class="pa-5">
                     <v-img :aspect-ratio="16/9" contain   src="../../assets/svg/undraw_events_2p66.svg" />
                 </v-sheet>
@@ -19,43 +19,52 @@
                 </v-card-actions>
              </v-card>
 
-            <v-card flat id="external-events" class="mr-6 hidden-sm-and-down" width="260">
-                <v-list dense flat>
-                    <v-list-item>
-                        <v-list-item-content>
-                            <v-list-item-title>添加日程</v-list-item-title>
-                            <v-list-item-subtitle>拖动日程到日历完成计划安排</v-list-item-subtitle>
-                        </v-list-item-content>
-                        <v-list-item-icon>
-                            <v-btn icon> <v-icon :size="30" color="primary">mdi-calendar-plus</v-icon></v-btn>
-                        </v-list-item-icon>
-                    </v-list-item>
-                </v-list>
 
-                <v-subheader>列表
-                    <v-btn icon><v-icon small color="red">mdi-calendar-minus</v-icon></v-btn>
-                    <v-btn icon><v-icon small color="primary">mdi-calendar-check-outline</v-icon></v-btn>
-                </v-subheader>
-                <v-chip small close class="ma-2 fc-event shaky" color="primary" text-color="white" style="display: inline-block;">
-                    开早会
-                </v-chip>
-                <v-chip small close class="ma-2 fc-event shaky" color="pink" text-color="white" style="display: inline-block;">
-                    外出签合同
+            <v-card flat id="external-events" class="mr-6 hidden-sm-and-down" width="300">
+                <v-card class="pa-1" :color="theme.isDark ? '' : 'indigo accent-3'" flat dark>
+                    <div class="d-flex justify-space-between">
+                        <v-img src="../../assets/svg/undraw_events_2p66.svg" width="60" contain/>
+                        <v-list-item dense>
+                            <v-list-item-content>
+                                <v-list-item-title class="caption font-weight-black">我的日程</v-list-item-title>
+                                <v-list-item-subtitle class="caption">拖动日程到日历完成计划安排。</v-list-item-subtitle>
+                            </v-list-item-content>
+                            <v-list-item-action>
+                                <v-menu offset-y>
+                                    <template v-slot:activator="{ on }">
+                                        <v-btn icon small v-on="on"><v-icon small class="white--text">mdi-chevron-down-circle</v-icon></v-btn>
+                                    </template>
+                                    <v-list dense>
+                                        <v-list-item @click="eventDialog=!eventDialog">
+                                            <v-list-item-title class="caption">创建日程</v-list-item-title>
+                                        </v-list-item>
+                                        <v-list-item @click="isEditor=!isEditor">
+                                            <v-list-item-content>
+                                                <v-list-item-title class="caption">管理日程</v-list-item-title>
+                                                <v-list-item-subtitle class="caption" >删除我的日程</v-list-item-subtitle>
+                                            </v-list-item-content>
+                                        </v-list-item>
+                                    </v-list>
+                                </v-menu>
+                            </v-list-item-action>
+                        </v-list-item>
+                    </div>
+                </v-card>
+                <v-chip v-for="item in eventsList" :key="item.id"
+                        small :close="isEditor" class="ma-2" :class="isEditor? '' : 'fc-event'" color="cyan" text-color="white" style="display: inline-block;">
+                    {{item.title}}
                 </v-chip>
 
-                <v-chip small class="ma-2 fc-event shaky" color="red" text-color="white" style="display: inline-block;">
-                    发工资
-                </v-chip>
-
-                <v-card-actions>
-                    完成
+                <v-card-actions class="mt-8" style="justify-content: center" v-if="isEditor">
+                    <v-btn outlined small color="primary"  @click="isEditor=!isEditor"> 取消 </v-btn>
+                    <v-btn outlined small color="primary"  @click="saveSlefEvents()"> 完成 </v-btn>
                 </v-card-actions>
             </v-card>
 
             <v-card flat style="flex: 3" color="transparent" >
                 <div class="d-flex justify-space-between">
                     <v-chip-group column active-class="primary--text" mandatory>
-                        <v-chip @click="changeView('list')"><v-icon size="18">mdi-calendar-text-outline</v-icon></v-chip>
+                     <!--   <v-chip @click="changeView('list')"><v-icon size="18">mdi-calendar-text-outline</v-icon></v-chip>-->
                         <v-chip @click="changeView('dayGridMonth')"><v-icon size="18">mdi-calendar-month-outline</v-icon></v-chip>
                         <v-chip @click="changeView('dayGridWeek')"><v-icon size="18">mdi-calendar-range-outline</v-icon></v-chip>
                         <v-chip @click="changeView('dayGridDay')"><v-icon size="18">mdi-calendar-minus</v-icon></v-chip>
@@ -115,6 +124,39 @@
                     />
             </v-card>
          </v-sheet>
+
+        <v-dialog v-model="eventDialog" width="400" >
+            <v-card>
+                <v-card-title class="subtitle-1"  primary-title>
+                    新建日程
+                </v-card-title>
+
+                <v-card-text>
+                    <v-form ref="form" v-model="valid" lazy-validation  >
+                        <v-text-field
+                                v-model="name"
+                                :counter="10"
+                                :rules="nameRules"
+                                label="我的日程名称"
+                                required
+                        ></v-text-field>
+                        <v-subheader> 颜色 </v-subheader>
+
+                        <div>
+                            <span></span>
+                        </div>
+                    </v-form>
+                </v-card-text>
+
+                <v-divider></v-divider>
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="primary" text @click="eventDialog = false">
+                        保存
+                    </v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
     </div>
 </template>
 
@@ -125,6 +167,7 @@ import  { Draggable } from '@fullcalendar/interaction';
 import calendarConfig from '@/config/calendar.js'
 import getDayData from '@/utils/lunarUtils.js'
 export default {
+    inject: ['theme'],
     data: () => ({
         events:[
             { title: '19:00见客户', date: '2020-02-13',className:'event-style',textColor: 'white', description: 'description for All Day Event',},
@@ -134,7 +177,16 @@ export default {
         ],
         calendarConfig:calendarConfig,
         title:'',
+        isEditor:false,
 
+        eventsList:[
+            {id:1, title:'外出签合同'},
+            {id:2, title:'加班'},
+            {id:3, title:'开早会'},
+            {id:4, title:'发工资'}
+        ],
+
+        eventDialog:false
     }),
 
     methods:{
@@ -225,6 +277,10 @@ export default {
 
         handlerEventRender(info){
             console.log(info.event.extendedProps.description)
+        },
+
+        saveSlefEvents(){
+            this.isEditor = !this.isEditor;
         }
     },
     mounted(){

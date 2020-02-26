@@ -33,8 +33,8 @@
                             </v-btn>
                         </v-list-item-avatar>
                         <v-list-item-content>
-                            <v-list-item-title>新增账号 </v-list-item-title>
-                            <v-list-item-subtitle>系统当前在线 2 人</v-list-item-subtitle>
+                            <v-list-item-title class="caption">新增账号 </v-list-item-title>
+                            <v-list-item-subtitle class="caption">系统当前在线 2 人</v-list-item-subtitle>
                         </v-list-item-content>
                     </v-list-item>
 
@@ -94,6 +94,7 @@
 
 <script>
     export default {
+        inject: ['theme'],
         data: () => ({
             accountState:0,
 

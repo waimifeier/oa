@@ -17,18 +17,22 @@
                 ></v-text-field>
             </div>
         </div>
-        <div class="d-flex">
-            <v-card flat width="240" class="hidden-sm-and-down">
-                <v-card-subtitle>系统占用 892M/128G
-                    <v-progress-linear
-                            color="teal"
-                            rounded
-                            stream
-                            height="2"
-                            value="100"
-                            v-model="valueDeterminate"
-                    ></v-progress-linear>
-                </v-card-subtitle>
+
+        <v-sheet class="d-flex">
+            <v-card flat width="240" class="hidden-sm-and-down mr-8">
+                <v-card class="pa-1" :color="theme.isDark ? '' : 'indigo accent-3'" flat dark>
+                    <div class="d-flex justify-space-between">
+                        <v-img src="../../../assets/svg/undraw_folder_39kl.svg" width="60" contain/>
+                        <v-list-item dense>
+                            <v-list-item-content>
+                                <v-list-item-title class="caption font-weight-black">系统占用 892M/128G</v-list-item-title>
+                                <v-list-item-subtitle class="caption">
+                                    <v-progress-linear color="white" value="33" rounded stream buffer-value="0" striped style="width: 130px;"></v-progress-linear>
+                                </v-list-item-subtitle>
+                            </v-list-item-content>
+                        </v-list-item>
+                    </div>
+                </v-card>
                 <v-list dense flat>
                     <v-list-item-group color="primary">
                         <v-list-item>
@@ -93,6 +97,7 @@
                     </v-list-item-group>
                 </v-list>
             </v-card>
+
             <div style="width: 100%;">
                 <v-toolbar extended flat dense color="transparent" class="pa-0">
                     <v-btn color="primary" depressed small>
@@ -137,13 +142,14 @@
                 </v-toolbar>
                 <EmptyContent></EmptyContent>
             </div>
-        </div>
+        </v-sheet>
     </div>
 </template>
 
 <script>
 import EmptyContent from '@/components/empty_content/EmptyContent.vue'
 export default {
+    inject: ['theme'],
     components:{EmptyContent},
     data: () => ({
         valueDeterminate:13,
