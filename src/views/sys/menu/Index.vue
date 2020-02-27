@@ -7,7 +7,7 @@
                 添加菜单
             </v-btn>
         </div>
-        <div class="d-flex justify-space-between">
+        <div class="d-flex">
             <v-card flat min-width="300">
                 <v-card class="pa-2" :color="theme.isDark ? '' : 'indigo accent-3'" flat dark>
                     <div class="d-flex justify-space-between">
@@ -49,40 +49,82 @@
                         open-on-click
                         :items="items"
                 >
-                    <template v-slot:prepend="{ item, open }">
-                        <v-icon small color="primary" v-text="item.icon">
-                        </v-icon>
+                    <template v-slot:prepend="{ item, oen }">
+                        <v-icon small color="primary" v-text="item.icon"></v-icon>
                     </template>
+                    <template v-slot:append="{ item, open }">
+                        <v-btn small icon color="pink accent-1" class="d-none show-close-btn">
+                            <v-icon small>mdi-close-circle-outline</v-icon>
+                        </v-btn>
+                    </template>
+
                 </v-treeview>
             </v-card>
 
-            <v-card class="ml-8" min-width="400">
+
+            <div class="ml-8" style="width: 100%;">
+                <v-alert
+                        text
+                        outlined
+                        dense
+                        type="primary"
+                        border="left"
+                >
+                 <span class="caption">  当前路径: 工作/工作计划 </span>
+                </v-alert>
+
+            <v-card flat class="mt-2 align-self-start" width="500" height="500" :color="theme.isDark ? '' : '#FFF'">
                 <v-list-item>
                     <v-list-item-avatar>
                         <v-avatar color="grey lighten-3">
-                            <v-icon>mdi-account-circle</v-icon>
+                            <v-icon small>mdi-account-circle</v-icon>
                         </v-avatar>
                     </v-list-item-avatar>
                     <v-list-item-content>
                         <v-list-item-title class="caption font-weight-black">首页</v-list-item-title>
-                        <v-list-item-subtitle class="caption">用户首页模块</v-list-item-subtitle>
+                        <v-list-item-subtitle class="caption">类型：资源模块</v-list-item-subtitle>
                     </v-list-item-content>
                     <v-list-item-action>
-                        <v-btn icon small v-on="on" color="primary"><v-icon small>mdi-square-edit-outline</v-icon></v-btn>
+                        <v-btn icon small color="primary"><v-icon small>mdi-square-edit-outline</v-icon></v-btn>
                     </v-list-item-action>
                 </v-list-item>
 
                 <div class="d-flex justify-space-around">
-                    <div class="elevation-5">
-                        路由
+                    <div class="d-flex flex-column pa-4 link-card" style="width: 120px;">
+                        <v-icon color="primary">mdi-shield-key-outline</v-icon>
+                        <span class="caption my-3 text-center"> user:list </span>
+                        <span class="caption font-weight-black text-center">权限码</span>
                     </div>
-                    <div class="elevation-5">
-                        权限码
+                    <div class="d-flex flex-column pa-4 link-card" style="width: 120px;">
+                        <v-icon color="orange darken-1">mdi-link-variant</v-icon>
+                        <span class="caption my-3 text-center"> /user/list </span>
+                        <span class="caption font-weight-black text-center">路由</span>
                     </div>
                 </div>
-            </v-card>
-        </div>
 
+                <v-card-text>
+                    <div class="d-flex mx-4 my-2">
+                        <span class="caption" style="width: 80px;">上级菜单:</span>
+                        <span class="caption"> 办公 </span>
+                    </div>
+                    <div class="d-flex mx-4 my-2">
+                        <span class="caption" style="width: 80px;">创建时间:</span>
+                        <span class="caption">2020-02-23 18:00</span>
+                    </div>
+                    <div class="d-flex mx-4 my-2">
+                        <span class="caption" style="width: 80px;">描述:</span>
+                        <span class="caption">数据测试</span>
+                    </div>
+
+                    <div class="d-flex mx-4 my-2">
+                        <span class="caption" style="width: 80px;">序号:</span>
+                        <span class="caption"> 1 </span>
+                    </div>
+                </v-card-text>
+
+            </v-card>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -99,9 +141,18 @@ export default {
         },
         items: menuList,
     }),
+    methods:{
+
+    }
 }
 </script>
 
 <style scoped>
+.link-card{
+    box-shadow: 6px 11px 41px -28px #a99de7;
+}
 
+.v-treeview-node:hover .show-close-btn{
+   display: block;
+}
 </style>

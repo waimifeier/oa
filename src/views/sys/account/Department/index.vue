@@ -7,12 +7,11 @@
                 添加部门
             </v-btn>
         </div>
-
         <div class="d-flex justify-space-between">
             <v-card flat min-width="300">
                 <v-card class="pa-2" :color="theme.isDark ? '' : 'indigo accent-3'" flat dark>
                     <div class="d-flex justify-space-between">
-                        <v-img src="../../../assets/svg/undraw_career_development_oqcb.svg" width="60" contain/>
+                        <v-img src="../../../../assets/svg/undraw_career_development_oqcb.svg" width="60" contain/>
                         <v-list-item dense>
                             <v-list-item-content>
                                 <v-list-item-title class="caption font-weight-black">部门节点树</v-list-item-title>
@@ -61,16 +60,23 @@
                 </v-treeview>
             </v-card>
 
-            <v-card width="100%" class="ml-8" flat>
-                asdfasdf s
+            <v-card width="100%" class="ml-8 d-flex" flat>
+                <ColumnChart></ColumnChart>
+                <div class="mx-6">
+                    <v-divider vertical></v-divider>
+                </div>
+                <PieChart></PieChart>
             </v-card>
         </div>
     </div>
 </template>
 
 <script>
+    import PieChart from './chart/pie-chart.vue'
+    import ColumnChart from './chart/column-chart.vue'
     export default {
         inject: ['theme'],
+        components:{PieChart,ColumnChart},
         data: () => ({
             hidenSearch:false,
             search:"",
@@ -100,7 +106,7 @@
             ],
         }),
 
-        created() {
+        mounted() {
 
         }
     }

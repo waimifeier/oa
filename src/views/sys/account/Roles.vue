@@ -1,69 +1,11 @@
 <template>
-    <v-sheet
-            :color="`grey ${theme.isDark ? 'darken-2' : 'lighten-4'}`"
-            class="px-3 pt-3 pb-12"
-    >
-        <v-container>
-            <v-row>
-                <v-col
-                        cols="12"
-                        md="4"
-                >
-                    <v-boilerplate
-                            class="mb-6"
-                            type="card-avatar, article, actions"
-                    ></v-boilerplate>
-
-                    <v-boilerplate type="date-picker"></v-boilerplate>
-                </v-col>
-
-                <v-col
-                        cols="12"
-                        md="4"
-                >
-                    <v-boilerplate
-                            class="mb-6"
-                            type="article, actions"
-                    ></v-boilerplate>
-
-                    <v-boilerplate
-                            class="mb-6"
-                            type="table-heading, list-item-two-line, image, table-tfoot"
-                    ></v-boilerplate>
-                </v-col>
-
-                <v-col
-                        cols="12"
-                        md="4"
-                >
-                    <v-boilerplate
-                            class="mb-6"
-                            type="list-item-avatar, divider, list-item-three-line, card-heading, image, actions"
-                    ></v-boilerplate>
-
-                    <v-boilerplate type="list-item-avatar-three-line, image, article"></v-boilerplate>
-                </v-col>
-            </v-row>
-        </v-container>
-    </v-sheet>
+    <div class="app-container container">
+        asdfs
+    </div>
 </template>
 <script>
-    export default {
-        inject: ['theme'],
-        components: {
-            VBoilerplate: {
-                functional: true,
-                render (h, { data, props, children }) {
-                    return h('v-skeleton-loader', {
-                        ...data,
-                        props: {
-                            boilerplate: true,
-                            elevation: 2,
-                            ...props,
-                        },
-                    }, children)
-                },
-            },
-        },
-    }
+export default {
+    inject: ['theme'],
+
+}
 </script>

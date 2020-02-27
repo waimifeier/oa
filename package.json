@@ -18,6 +18,8 @@
     "@mdi/font": "^4.9.95",
     "@popperjs/core": "^2.0.6",
     "TagCloud": "^2.0.2",
+    "apexcharts": "^3.16.0",
+    "vue-apexcharts": "^1.5.2",
     "axios": "^0.19.1",
     "core-js": "^3.4.4",
     "element-ui": "^2.13.0",

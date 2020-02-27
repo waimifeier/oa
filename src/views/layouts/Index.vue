@@ -11,7 +11,7 @@
                 overflow
         >
 
-            <v-toolbar elevation="0" :style="{backgroundColor: $vuetify.theme.dark ? '#272727':'#fff'}">
+            <v-toolbar elevation="0" :color="$vuetify.theme.dark ? '#272727':'#fff'">
                 <v-btn icon>
                     <v-img contain src="https://wpimg.wallstcn.com/69a1c46c-eb1c-4b46-8bd4-e9e686ef5251.png" width="32px" height="32"/>
                 </v-btn>

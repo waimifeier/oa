@@ -31,7 +31,7 @@ const routes = [
       { path: 'menu', component: () => import('../views/sys/menu/Index.vue') },
       { path: 'message', component: () => import('../views/sys/message/Index.vue') },
       { path: 'account', component: () => import('../views/sys/account/Account.vue') },
-      { path: 'department', component: () => import('../views/sys/account/Department.vue') },
+      { path: 'department', component: () => import('../views/sys/account/Department') },
       { path: 'roles', component: () => import('../views/sys/account/Roles.vue') },
       { path: 'setting', component: () => import('../views/sys/setting') },
     ]

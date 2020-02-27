@@ -11,6 +11,8 @@ Vue.use(VuetifyConfirm, { vuetify })
 
 import VuetifyDialog from 'vuetify-dialog'
 import 'vuetify-dialog/dist/vuetify-dialog.css'
+import VueApexCharts from 'vue-apexcharts'
+Vue.component('apexchart', VueApexCharts)
 
 Vue.use(VuetifyDialog, {
   context: {
