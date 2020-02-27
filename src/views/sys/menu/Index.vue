@@ -56,8 +56,30 @@
                 </v-treeview>
             </v-card>
 
-            <v-card width="100%" class="ml-8" flat>
-                asdfasdf s
+            <v-card class="ml-8" min-width="400">
+                <v-list-item>
+                    <v-list-item-avatar>
+                        <v-avatar color="grey lighten-3">
+                            <v-icon>mdi-account-circle</v-icon>
+                        </v-avatar>
+                    </v-list-item-avatar>
+                    <v-list-item-content>
+                        <v-list-item-title class="caption font-weight-black">首页</v-list-item-title>
+                        <v-list-item-subtitle class="caption">用户首页模块</v-list-item-subtitle>
+                    </v-list-item-content>
+                    <v-list-item-action>
+                        <v-btn icon small v-on="on" color="primary"><v-icon small>mdi-square-edit-outline</v-icon></v-btn>
+                    </v-list-item-action>
+                </v-list-item>
+
+                <div class="d-flex justify-space-around">
+                    <div class="elevation-5">
+                        路由
+                    </div>
+                    <div class="elevation-5">
+                        权限码
+                    </div>
+                </div>
             </v-card>
         </div>
 

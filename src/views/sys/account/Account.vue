@@ -2,27 +2,17 @@
     <div class="app-container container">
         <div class="d-flex justify-space-between align-center">
             <span class="subtitle-1 font-weight-bold">账号列表</span>
-            <div style="width: 260px;">
-                <v-text-field
-                        single-line
-                        filled
-                        rounded
-                        dense
-                        clearable
-                        placeholder="搜索账号、昵称、手机号..."
-                        prepend-inner-icon="mdi-magnify"
-                        hide-details
-                        color="grey darken-1"
-                        clear-icon="mdi-close-circle-outline"
-                ></v-text-field>
+            <div>
+                <v-btn text small @click="filterSearch = !filterSearch" color="primary">
+                    筛选 <v-icon right v-text=" filterSearch ? 'mdi-chevron-down' :'mdi-chevron-up'"></v-icon>
+                </v-btn>
+                <v-btn color="primary" small rounded>
+                    <v-icon left>mdi-plus</v-icon>
+                    创建账号
+                </v-btn>
             </div>
         </div>
-        <v-chip-group column active-class="primary--text" mandatory class="hidden-md-and-up">
-            <v-chip pill small class="caption">全部</v-chip>
-            <v-chip pill small class="caption">已禁用</v-chip>
-            <v-chip pill small class="caption">待分配</v-chip>
-            <v-chip pill small class="caption">已删除</v-chip>
-        </v-chip-group>
+
         <v-sheet class="d-flex mt-2 justify-space-between">
             <v-card flat loader-height="1" width="260" min-height="400" class="mr-5 hidden-sm-and-down">
                 <v-card class="pa-2" :color="theme.isDark ? '' : 'indigo accent-3'" flat dark>
@@ -57,28 +47,28 @@
                 <v-list nav dense flat >
                     <v-subheader > 账号状态  </v-subheader>
                     <v-list-item-group color="primary" v-model="accountState" group="23" >
-                        <v-list-item >
+                        <v-list-item>
                             <v-list-item-icon>
-                                <v-icon :size="20">mdi-account-supervisor</v-icon>
+                                <v-icon :size="18">mdi-account-supervisor</v-icon>
                             </v-list-item-icon>
                             <v-list-item-title class="caption">全部</v-list-item-title>
                             <v-list-item-icon>
                                 <v-badge left content="132" color="success" offset-x="10" offset-y="20"></v-badge>
                             </v-list-item-icon>
 
-                        </v-list-item >
-                        <v-list-item >
+                        </v-list-item>
+                        <v-list-item>
                             <v-list-item-icon>
-                                <v-icon :size="20">mdi-account-arrow-right</v-icon>
+                                <v-icon :size="18">mdi-account-arrow-right</v-icon>
                             </v-list-item-icon>
                             <v-list-item-title class="caption"> 待分配 </v-list-item-title>
                             <v-list-item-icon>
                                 <v-badge left content="5" color="teal" offset-x="10" offset-y="20"></v-badge>
                             </v-list-item-icon>
                         </v-list-item>
-                        <v-list-item >
+                        <v-list-item>
                             <v-list-item-icon>
-                                <v-icon :size="20">mdi-account-cancel</v-icon>
+                                <v-icon :size="18">mdi-account-cancel</v-icon>
                             </v-list-item-icon>
                             <v-list-item-title class="caption"> 已禁用 </v-list-item-title>
                             <v-list-item-icon>
@@ -87,9 +77,9 @@
                         </v-list-item>
 
                         <v-subheader> 回收站 </v-subheader>
-                        <v-list-item >
+                        <v-list-item>
                             <v-list-item-icon>
-                                <v-icon :size="20">mdi-account-off</v-icon>
+                                <v-icon :size="18">mdi-account-off</v-icon>
                             </v-list-item-icon>
                             <v-list-item-title class="caption"> 已删除 </v-list-item-title>
                             <v-list-item-icon>
@@ -99,12 +89,37 @@
                     </v-list-item-group>
                 </v-list>
             </v-card>
-            <v-data-table
-                    style="width: 100%; "
-                    :headers="headers"
-                    :items="desserts"
-                    :items-per-page="5"
-            ></v-data-table>
+            <div style="width: 100%;" class="mt-2">
+                <v-expand-transition>
+                    <div class="d-flex align-center justify-space-between" v-if="filterSearch">
+                        <div style="width: 260px;" class="ml-2">
+                            <v-text-field
+                                    single-line
+                                    filled
+                                    rounded
+                                    dense
+                                    clearable
+                                    placeholder="搜索账号、昵称、手机号..."
+                                    prepend-inner-icon="mdi-magnify"
+                                    hide-details
+                                    color="grey darken-1"
+                                    clear-icon="mdi-close-circle-outline"
+                            ></v-text-field>
+                        </div>
+                        <v-chip-group column active-class="primary--text" mandatory class="hidden-md-and-up">
+                            <v-chip pill class="caption">全部</v-chip>
+                            <v-chip pill class="caption">已禁用</v-chip>
+                            <v-chip pill class="caption">待分配</v-chip>
+                            <v-chip pill class="caption">已删除</v-chip>
+                        </v-chip-group>
+                    </div>
+                </v-expand-transition>
+                <v-data-table
+                        :headers="headers"
+                        :items="desserts"
+                        :items-per-page="5"
+                ></v-data-table>
+            </div>
         </v-sheet>
     </div>
 </template>
@@ -114,7 +129,7 @@
         inject: ['theme'],
         data: () => ({
             accountState:0,
-
+            filterSearch:'',
             headers: [
                 {
                     text: '账号 ',
