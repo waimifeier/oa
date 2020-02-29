@@ -49,7 +49,7 @@
                     <v-list-item-group color="primary" v-model="accountState" group="23" >
                         <v-list-item>
                             <v-list-item-icon>
-                                <v-icon :size="18">mdi-account-supervisor</v-icon>
+                                <v-icon :size="18" color="deep-purple accent-2">mdi-account-supervisor</v-icon>
                             </v-list-item-icon>
                             <v-list-item-title class="caption">全部</v-list-item-title>
                             <v-list-item-icon>
@@ -59,7 +59,7 @@
                         </v-list-item>
                         <v-list-item>
                             <v-list-item-icon>
-                                <v-icon :size="18">mdi-account-arrow-right</v-icon>
+                                <v-icon :size="18" color="orange darken-1">mdi-account-arrow-right</v-icon>
                             </v-list-item-icon>
                             <v-list-item-title class="caption"> 待分配 </v-list-item-title>
                             <v-list-item-icon>
@@ -68,7 +68,7 @@
                         </v-list-item>
                         <v-list-item>
                             <v-list-item-icon>
-                                <v-icon :size="18">mdi-account-cancel</v-icon>
+                                <v-icon :size="18" color="blue-grey lighten-3">mdi-account-cancel</v-icon>
                             </v-list-item-icon>
                             <v-list-item-title class="caption"> 已禁用 </v-list-item-title>
                             <v-list-item-icon>
@@ -79,7 +79,7 @@
                         <v-subheader> 回收站 </v-subheader>
                         <v-list-item>
                             <v-list-item-icon>
-                                <v-icon :size="18">mdi-account-off</v-icon>
+                                <v-icon :size="18" color="red lighten-1">mdi-account-off</v-icon>
                             </v-list-item-icon>
                             <v-list-item-title class="caption"> 已删除 </v-list-item-title>
                             <v-list-item-icon>
