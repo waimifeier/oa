@@ -60,41 +60,37 @@
                 </v-treeview>
             </v-card>
             <v-card width="100%" class="ml-8 d-flex flex-column align-self-start" flat :color="theme.isDark ? '' : '#FFF'">
-                <v-carousel height="120" show-arrows-on-hover hide-delimiter-background hide-delimiters>
-                    <v-carousel-item
-                            v-for="(slide, i) in slides"
-                            :key="i"
-                    >
-                        <v-sheet height="100%"  :color="theme.isDark ? '' : '#FFF'">
-                            <v-row class="fill-height"
-                                    align="center"
-                                    justify="center"
-                            >
-                                <v-avatar tile color="blue">
-                                    <img
-                                            :src="slide.avatar"
-                                            alt="John"
-                                    >
-                                </v-avatar>
-                            </v-row>
-                        </v-sheet>
-                    </v-carousel-item>
-                </v-carousel>
+                <div class="d-flex mt-2 pa-3">
+                    <div style="width: 100%;" class="align-self-center d-flex">
 
-                <div class="d-flex mt-2">
-                    <div style="width: 100%;">
-                        <span class="caption font-weight-bold mr-6">部门管理</span>
-                        <MiniBar></MiniBar>
+                        <div class="d-flex flex-column justify-center">
+                            <v-icon color="#acbdce" size="30">mdi-account-tie</v-icon>
+                            <span class="caption" style="color:#acbdce">负责人</span>
+                            <span class="caption font-weight-bold text-center">爱丽丝</span>
+                        </div>
+
+                        <div class="d-flex flex-column justify-center">
+                            <v-icon color="#acbdce" size="30">mdi-cellphone</v-icon>
+                            <span class="caption" style="color:#acbdce"> 部门数量 </span>
+                            <span class="caption font-weight-bold">12</span>
+                        </div>
+
                     </div>
+
                     <div class="ma-6">
                         <v-divider vertical></v-divider>
                     </div>
-                    <div class="align-self-center pa-3">
-                        <span class="caption font-weight-bold mr-6">性别占比</span>
+
+                    <div class="align-self-center">
+                        <span class="caption font-weight-bold mr-6">男女占比</span>
                         <PieChart></PieChart>
                     </div>
                 </div>
             </v-card>
+
+
+            <span class="caption font-weight-bold mr-6">人数分配</span>
+            <MiniBar></MiniBar>
 
         </div>
     </div>
@@ -105,7 +101,7 @@
     import MiniBar from './chart/mini-bar.vue'
     export default {
         inject: ['theme'],
-        components:{MiniBar,PieChart},
+        components:{PieChart,MiniBar},
         data: () => ({
             hidenSearch:false,
             search:"",
@@ -132,16 +128,6 @@
                         { id: 4, name: '财务部',  code:'DEPARTMENT'},
                     ],
                 }
-            ],
-
-            slides: [
-                {id:1,avatar:'https://cdn.vuetifyjs.com/images/lists/1.jpg',name:'张三', tell:'1929923932',workAge:'1.2',department: '财务部'},
-                {id:2,avatar:'https://cdn.vuetifyjs.com/images/lists/2.jpg',name:'李司棋', tell:'1529923242',workAge:'4.5',department: '财务部'},
-                {id:3,avatar:'https://cdn.vuetifyjs.com/images/lists/3.jpg',name:'王刚', tell:'1479923932',workAge:'0.2',department: '财务部'},
-                {id:4,avatar:'https://cdn.vuetifyjs.com/images/lists/4.jpg',name:'五私', tell:'1829923952',workAge:'5.2',department: '财务部'},
-                {id:5,avatar:'https://cdn.vuetifyjs.com/images/lists/5.jpg',name:'刘得华', tell:'1479923932',workAge:'1.2',department: '财务部'},
-                {id:6,avatar:'https://cdn.vuetifyjs.com/images/lists/2.jpg',name:'张三丰', tell:'1599923999',workAge:'4.5',department: '财务部'},
-                {id:7,avatar:'https://cdn.vuetifyjs.com/images/lists/4.jpg',name:'张无忌', tell:'13822929332',workAge:'0.8',department: '财务部'},
             ],
         }),
 

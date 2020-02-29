@@ -73,7 +73,7 @@
                  <span class="caption">  当前路径: 工作/工作计划 </span>
                 </v-alert>
 
-            <v-card flat class="mt-2 align-self-start" width="500" height="500" :color="theme.isDark ? '' : '#FFF'">
+            <v-card flat class="mt-2 align-self-start" width="500" height="500">
                 <v-list-item>
                     <v-list-item-avatar>
                         <v-avatar color="grey lighten-3">

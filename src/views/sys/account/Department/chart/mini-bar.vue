@@ -1,5 +1,5 @@
 <template>
-    <apexchart type="bar" height="40" width="120" :options="chartOptions5" :series="series5"></apexchart>
+    <apexchart type="bar" height="50" width="120" :options="chartOptions5" :series="series5"></apexchart>
 </template>
 
 <script>
@@ -40,7 +40,7 @@
                     y: {
                         title: {
                             formatter: function (seriesName,cfg) {
-                                return cfg.w.config.labels[cfg.dataPointIndex]
+                                return cfg.w.config.labels[cfg.dataPointIndex] +'(人)';
                             }
                         }
                     },
