@@ -17,6 +17,11 @@ html{
 .v-label{
   font-size: 12px;
 }
+/*步骤条字体大小*/
+.v-application--is-ltr .v-stepper__label {
+  text-align: left;
+  font-size: 12px;
+}
 
 .app-container{
   padding:0 12px;

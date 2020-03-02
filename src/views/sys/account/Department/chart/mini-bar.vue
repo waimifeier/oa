@@ -7,7 +7,7 @@
         inject: ['theme'],
         data:()=>({
             series5: [{
-                data: [19, 42, 42, 23, 32, 40, 8, 23]
+                data: [19, 20, 42, 23, 32, 40, 4, 23]
             }],
             chartOptions5: {
                 chart: {
