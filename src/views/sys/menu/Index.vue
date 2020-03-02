@@ -15,7 +15,7 @@
                         <v-list-item dense>
                             <v-list-item-content>
                                 <v-list-item-title class="caption font-weight-black">菜单列表</v-list-item-title>
-                                <v-list-item-subtitle class="caption">配置系统菜单资源。</v-list-item-subtitle>
+                                <v-list-item-subtitle class="caption"> 配置系统菜单资源。</v-list-item-subtitle>
                             </v-list-item-content>
                             <v-list-item-action>
                                 <v-btn icon small @click="hidenSearch=!hidenSearch">
@@ -53,7 +53,7 @@
                         <v-icon small color="primary" v-text="item.icon"></v-icon>
                     </template>
                     <template v-slot:append="{ item, open }">
-                        <v-btn small icon color="pink accent-1" class="d-none show-close-btn">
+                        <v-btn small icon color="pink accent-1" class="show-close-btn" @click="removeNode(item)">
                             <v-icon small>mdi-close-circle-outline</v-icon>
                         </v-btn>
                     </template>
@@ -67,7 +67,7 @@
                         text
                         outlined
                         dense
-                        type="primary"
+                        color="primary"
                         border="left"
                 >
                  <span class="caption">  当前路径: 工作/工作计划 </span>
@@ -103,23 +103,29 @@
                 </div>
 
                 <v-card-text>
-                    <div class="d-flex mx-4 my-2">
+                    <div class="d-flex ma-4">
                         <span class="caption" style="width: 80px;">上级菜单:</span>
                         <span class="caption"> 办公 </span>
                     </div>
-                    <div class="d-flex mx-4 my-2">
+                    <div class="d-flex ma-4">
                         <span class="caption" style="width: 80px;">创建时间:</span>
                         <span class="caption">2020-02-23 18:00</span>
                     </div>
-                    <div class="d-flex mx-4 my-2">
+                    <div class="d-flex ma-4">
                         <span class="caption" style="width: 80px;">描述:</span>
                         <span class="caption">数据测试</span>
                     </div>
-
-                    <div class="d-flex mx-4 my-2">
+                    <div class="d-flex ma-4">
                         <span class="caption" style="width: 80px;">序号:</span>
                         <span class="caption"> 1 </span>
                     </div>
+                    <div class="d-flex ma-4 ">
+                        <span class="caption" style="width: 80px;">是否显示:</span>
+                        <span class="caption pa-0">
+                            <v-switch disabled v-model="switch1" color="indigo darken-3" class="ma-0 pa-0"></v-switch>
+                        </span>
+                    </div>
+
                 </v-card-text>
 
             </v-card>
@@ -142,7 +148,16 @@ export default {
         items: menuList,
     }),
     methods:{
-
+        removeNode(node){
+            this.$dialog.confirm({
+              text: `是否删除菜单[${node.name}] ${node.children && node.children.length>0? ',及其子菜单' : ''}`,
+              actions: ['否', '是'],
+              title:'警告'
+            }).then(()=>{
+                // console.log(node.id)
+                alert(node.id)
+            })
+        }
     }
 }
 </script>
@@ -151,8 +166,11 @@ export default {
 .link-card{
     box-shadow: 6px 11px 41px -28px #a99de7;
 }
-
-.v-treeview-node:hover .show-close-btn{
+.show-close-btn{
+    display: none;
+    transition: all .3s;
+}
+.v-treeview-node__root:hover .show-close-btn{
    display: block;
 }
 </style>

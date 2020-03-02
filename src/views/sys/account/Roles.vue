@@ -43,16 +43,19 @@
                         </div>
                     </v-expand-transition>
                 </v-card>
-                <v-list dense  :color="theme.isDark ? '' : '#FFF'">
-                    <v-list-item v-for="item in rolesList" :key="item.id" class="mt-4 card-border">
-                        <v-list-item-content>
-                            <v-list-item-title class="caption" v-text="item.name"></v-list-item-title>
-                            <v-list-item-subtitle class="caption" v-text="item.description"></v-list-item-subtitle>
-                        </v-list-item-content>
-                        <v-list-item-action>
-                            <v-list-item-subtitle class="caption" v-text="item.code"></v-list-item-subtitle>
-                        </v-list-item-action>
-                    </v-list-item>
+                <v-list dense mav flat v-model="roleActive">
+                    <v-list-item-group color="primary" v-model="roleActive" group="23" >
+                        <v-list-item v-for="item in rolesList" :key="item.id" class="mb-1 card-border">
+                            <v-list-item-content>
+                                <v-list-item-title class="caption" v-text="item.name"></v-list-item-title>
+                                <v-list-item-subtitle class="caption" v-text="item.description"></v-list-item-subtitle>
+                            </v-list-item-content>
+                            <v-list-item-action>
+                                <v-list-item-subtitle class="caption" v-text="item.code"></v-list-item-subtitle>
+                            </v-list-item-action>
+                        </v-list-item>
+                    </v-list-item-group>
+
                     <v-pagination
                             circle
                             class="mt-1"
@@ -107,6 +110,8 @@ export default {
         hidenSearch:false,
         search:'',
         page: 1,
+
+        roleActive:1,
         rolesList:[
             {id:1, name:'管理员', code:'ADMIN',description:'用于系统管理,配置，等系统所有权限'},
             {id:2, name:'人事经理', code:'DES',description:'审核，人员管理，日程'},
@@ -117,6 +122,8 @@ export default {
             {id:8, name:'管理员', code:'ADMIN',description:'用于系统管理,配置，等系统所有权限'},
             {id:7, name:'人事经理', code:'DES',description:'审核，人员管理，日程'},
             {id:6, name:'人事专员', code:'ADMIN',description:'人员管理'},
+            {id:10, name:'人事经理', code:'DES',description:'审核，人员管理，日程'},
+            {id:9, name:'人事专员', code:'ADMIN',description:'人员管理'},
         ]
 
     }),
