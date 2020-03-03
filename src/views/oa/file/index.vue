@@ -10,7 +10,7 @@
                         dense
                         clearable
                         placeholder="搜索文件名..."
-                        prepend-inner-icon="mdi-magnify"
+                        prepend-inner-icon="mdi-file-search-outline"
                         hide-details
                         color="grey darken-1"
                         clear-icon="mdi-close-circle-outline"

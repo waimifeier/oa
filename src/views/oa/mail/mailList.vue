@@ -10,7 +10,7 @@
                             dense
                             clearable
                             placeholder="搜索联系人"
-                            prepend-inner-icon="mdi-magnify"
+                            prepend-inner-icon="mdi-account-search"
                             hide-details
                             color="grey darken-1"
                             clear-icon="mdi-close-circle-outline"

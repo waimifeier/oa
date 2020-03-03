@@ -4,7 +4,7 @@
             <span class="subtitle-1 font-weight-bold">账号列表</span>
             <div>
                 <v-btn text small @click="filterSearch = !filterSearch" color="primary">
-                    筛选 <v-icon right v-text=" filterSearch ? 'mdi-chevron-down' :'mdi-chevron-up'"></v-icon>
+                    筛选 <v-icon right v-text=" filterSearch ? 'mdi-chevron-up' :'mdi-chevron-down'"></v-icon>
                 </v-btn>
                 <v-btn color="primary" small rounded @click="addAccount(null)">
                     <v-icon left>mdi-plus</v-icon>
@@ -100,7 +100,7 @@
                                     dense
                                     clearable
                                     placeholder="搜索账号、昵称、手机号..."
-                                    prepend-inner-icon="mdi-magnify"
+                                    prepend-inner-icon="mdi-account-search"
                                     hide-details
                                     color="grey darken-1"
                                     clear-icon="mdi-close-circle-outline"
@@ -141,9 +141,15 @@
                             v-model="valid"
                             lazy-validation
                     >
-                        <v-text-field
-                                :rules="[v => !!v || '登陆账号不能为空']"
-                                v-model="accountParams.account" dense outlined single-line clearable label="请输入登陆账号"></v-text-field>
+                         <v-row>
+                             <v-col>
+                                 adsfasd
+                                 <v-text-field
+                                         :rules="[v => !!v || '登陆账号不能为空']"
+                                         v-model="accountParams.account" dense outlined single-line clearable label="请输入登陆账号"></v-text-field>
+                             </v-col>
+                         </v-row>
+
 
                         <v-text-field
                                 :rules="[v => !!v || '姓名不能为空']"
@@ -158,20 +164,18 @@
 
                         <v-btn small text class="caption" @click="dialogHidden = !dialogHidden">
                             更多设置
-                            <v-icon right small v-text=" dialogHidden ? 'mdi-chevron-down' :'mdi-chevron-up'"></v-icon>
+                            <v-icon right small v-text=" dialogHidden ? 'mdi-chevron-up' :'mdi-chevron-down'"></v-icon>
                         </v-btn>
-                        <v-expand-transition>
-                            <div class="d-flex align-center justify-space-between" v-if="dialogHidden" style="background: #f6f7fb;border-radius: 5px;">
-                                <div style="width: 260px;" class="ml-2">
-                                    <v-chip-group dense column active-class="primary--text" v-model="accountParams.gender" >
-                                        <v-chip small value="male"> <v-icon small left color="#169ffe">mdi-gender-male</v-icon> 男</v-chip>
-                                        <v-chip small value="female" ><v-icon small left color="#f16d84">mdi-gender-female</v-icon> 女</v-chip>
-                                    </v-chip-group>
-                                </div>
-                            </div>
-                        </v-expand-transition>
                     </v-form>
                 </v-card-text>
+                <v-expand-transition>
+                    <v-card-text v-if="dialogHidden" style="background: #f6f7fb;border-radius: 5px;">
+                        <v-chip-group dense column active-class="primary--text" v-model="accountParams.gender" >
+                            <v-chip small value="male"> <v-icon small left color="#169ffe">mdi-gender-male</v-icon> 男</v-chip>
+                            <v-chip small value="female" ><v-icon small left color="#f16d84">mdi-gender-female</v-icon> 女</v-chip>
+                        </v-chip-group>
+                    </v-card-text>
+                </v-expand-transition>
                 <v-divider></v-divider>
                 <v-card-actions>
                     <v-spacer></v-spacer>

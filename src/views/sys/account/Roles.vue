@@ -21,7 +21,7 @@
                             </v-list-item-content>
                             <v-list-item-action>
                                 <v-btn icon small @click="hidenSearch=!hidenSearch">
-                                    <v-icon small v-text=" hidenSearch ? 'mdi-chevron-down' :'mdi-chevron-up'"></v-icon>
+                                    <v-icon small v-text=" hidenSearch ? 'mdi-chevron-up' :'mdi-chevron-down'"></v-icon>
                                 </v-btn>
                             </v-list-item-action>
                         </v-list-item>
@@ -66,6 +66,8 @@
                 </v-list>
 
             </v-card>
+
+
             <v-card width="100%" class="ml-5 d-flex flex-column align-self-start" flat :color="theme.isDark ? '' : '#FFF'">
                 阿斯顿发送到
             </v-card>

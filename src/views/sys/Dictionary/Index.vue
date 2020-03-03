@@ -8,8 +8,8 @@
             </v-btn>
         </div>
 
-        <v-card flat class="mt-8 mx-auto">
-            <v-sheet class="v-sheet--offset mx-auto" color="primary" elevation="0" dark>
+
+            <v-sheet class=" mx-auto" color="primary" elevation="0" dark>
                 <div class="d-flex align-center">
                      <span class="ml-2">
                          <v-img aspect-ratio="1" contain src="../../../assets/svg/undraw_Bibliophile_hwqc.svg" width="80" height="80"></v-img>
@@ -37,117 +37,55 @@
                 </div>
             </v-sheet>
 
-            <v-data-table
-                :headers="headers"
-                :items="desserts"
-                :items-per-page="5"
-            ></v-data-table>
+            <v-card flat :color="theme.isDark ? '' : '#FFF'" class="d-flex mt-1">
+                <span class="caption font-weight-bold py-2 text-center" style="flex: 1">字典码</span>
+                <span class="caption font-weight-bold py-2 text-center"  style="flex: 1">值</span>
+                <span class="caption font-weight-bold py-2 text-center"  style="flex: 1">描述</span>
+                <span class="caption font-weight-bold py-2 text-center"  style="flex: 1">创建时间</span>
+                <span class="caption font-weight-bold py-2 text-center"  style="flex: 1">操作</span>
+            </v-card>
 
-        </v-card>
+            <v-card flat :color="theme.isDark ? '' : '#FFF'" class="d-flex mt-1 align-center" v-for="item in dictionaryList" :key="item.id">
+                <span class="caption py-1 text-center" style="flex: 1">{{item.title}}</span>
+                <span class="caption py-1 text-center" style="flex: 1">{{item.author}}</span>
+                <span class="caption py-1 text-center" style="flex: 1">{{item.state}}</span>
+                <span class="caption py-1 text-center" style="flex: 1">{{item.time}}</span>
+                <span class="caption py-1 text-center" style="flex: 1">
+                        <v-btn small text color="red">修改</v-btn>
+                </span>
+            </v-card>
+
+            <v-pagination
+                    circle
+                    class="mt-1"
+                    v-model="page"
+                    :length="15"
+                    :total-visible="7"
+            ></v-pagination>
+
+
     </div>
 </template>
 
 <script>
     export default {
-        data () {
-            return {
-                headers: [
-                    {
-                        text: '字典码',
-                        align: 'left',
-                        sortable: false,
-                        value: 'name',
-                    },
-                    { text: '描述', value: 'calories' },
-                    { text: '值', value: 'fat' },
-                    { text: 'Carbs (g)', value: 'carbs' },
-                    { text: 'Protein (g)', value: 'protein' },
-                    { text: 'Iron (%)', value: 'iron' },
-                ],
-                desserts: [
-                    {
-                        name: '描述',
-                        calories: 159,
-                        fat: 6.0,
-                        carbs: 24,
-                        protein: 4.0,
-                        iron: '1%',
-                    },
-                    {
-                        name: 'Ice cream sandwich',
-                        calories: 237,
-                        fat: 9.0,
-                        carbs: 37,
-                        protein: 4.3,
-                        iron: '1%',
-                    },
-                    {
-                        name: 'Eclair',
-                        calories: 262,
-                        fat: 16.0,
-                        carbs: 23,
-                        protein: 6.0,
-                        iron: '7%',
-                    },
-                    {
-                        name: 'Cupcake',
-                        calories: 305,
-                        fat: 3.7,
-                        carbs: 67,
-                        protein: 4.3,
-                        iron: '8%',
-                    },
-                    {
-                        name: 'Gingerbread',
-                        calories: 356,
-                        fat: 16.0,
-                        carbs: 49,
-                        protein: 3.9,
-                        iron: '16%',
-                    },
-                    {
-                        name: 'Jelly bean',
-                        calories: 375,
-                        fat: 0.0,
-                        carbs: 94,
-                        protein: 0.0,
-                        iron: '0%',
-                    },
-                    {
-                        name: 'Lollipop',
-                        calories: 392,
-                        fat: 0.2,
-                        carbs: 98,
-                        protein: 0,
-                        iron: '2%',
-                    },
-                    {
-                        name: 'Honeycomb',
-                        calories: 408,
-                        fat: 3.2,
-                        carbs: 87,
-                        protein: 6.5,
-                        iron: '45%',
-                    },
-                    {
-                        name: 'Donut',
-                        calories: 452,
-                        fat: 25.0,
-                        carbs: 51,
-                        protein: 4.9,
-                        iron: '22%',
-                    },
-                    {
-                        name: 'KitKat',
-                        calories: 518,
-                        fat: 26.0,
-                        carbs: 65,
-                        protein: 7,
-                        iron: '6%',
-                    },
-                ],
-            }
-        },
+        inject: ['theme'],
+        data:()=>({
+            page:1,
+            dictionaryList:[
+                {id:1,title:'授权地址' , describe:'www.baidu.com',time:'2018-01-21', author:'授权地址',state:'授权地址'},
+                {id:2,title:'放假通知' , describe:'放假通知',time:'2018-01-21', author:'admin',state:'已发送'},
+                {id:3,title:'放假通知' , describe:'放假通知',time:'2018-01-21', author:'admin',state:'已发送'},
+                {id:4,title:'放假通知' , describe:'放假通知',time:'2018-01-21', author:'admin',state:'待发送'},
+                {id:5,title:'放假通知' , describe:'放假通知',time:'2018-01-21', author:'admin',state:'已发送'},
+
+                {id:11,title:'放假通知' , describe:'放假通知',time:'2018-01-21', author:'admin',state:'已发送'},
+                {id:12,title:'放假通知' , describe:'放假通知',time:'2018-01-21', author:'admin',state:'已发送'},
+                {id:13,title:'放假通知' , describe:'放假通知',time:'2018-01-21', author:'admin',state:'已发送'},
+                {id:14,title:'放假通知' , describe:'放假通知',time:'2018-01-21', author:'admin',state:'待发送'},
+                {id:15,title:'放假通知' , describe:'放假通知',time:'2018-01-21', author:'admin',state:'已发送'},
+            ]
+        })
     }
 </script>
 

@@ -7,7 +7,7 @@
             </div>
             <div>
                 <v-btn text small @click="filterContainer = !filterContainer" color="primary">
-                    筛选 <v-icon right v-text=" filterContainer ? 'mdi-chevron-down' :'mdi-chevron-up'"></v-icon>
+                    筛选 <v-icon right v-text=" filterContainer ? 'mdi-chevron-up' :'mdi-chevron-down'"></v-icon>
                 </v-btn>
                 <v-btn color="primary" small rounded @click="addMessage(null)">
                     <v-icon left>mdi-plus</v-icon>
@@ -28,7 +28,7 @@
                                     dense
                                     clearable
                                     placeholder="搜索消息标题..."
-                                    prepend-inner-icon="mdi-magnify"
+                                    prepend-inner-icon="mdi-comment-search-outline"
                                     hide-details
                                     color="grey darken-1"
                                     clear-icon="mdi-close-circle-outline"
@@ -58,6 +58,14 @@
                         <v-btn small text color="red">取消</v-btn>
                     </span>
                 </v-card>
+
+                <v-pagination
+                        circle
+                        class="mt-1"
+                        v-model="page"
+                        :length="15"
+                        :total-visible="7"
+                ></v-pagination>
             </div>
 
             <v-card flat class="pa-0 hidden-sm-and-down ml-5" width="365" :color="theme.isDark ? '' : '#FFF'">
@@ -148,6 +156,7 @@ export default {
     data:()=>({
         filterContainer:false,
         dialog:false,
+        page:2,
         messageTemplate:[
             {id:1,name:'放假通知' , describe:'放假通知',time:'',},
             {id:2,name:'员工公告' , describe: '员工手册员工手册员工手册员工手册员工手册' },
