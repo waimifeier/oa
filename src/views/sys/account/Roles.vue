@@ -43,7 +43,7 @@
                         </div>
                     </v-expand-transition>
                 </v-card>
-                <v-list dense mav flat v-model="roleActive">
+                <v-list dense mav flat :color="theme.isDark ? '' : '#FFF'">
                     <v-list-item-group color="primary" v-model="roleActive" group="23" >
                         <v-list-item v-for="item in rolesList" :key="item.id" class="mb-1 card-border">
                             <v-list-item-content>
@@ -67,14 +67,12 @@
 
             </v-card>
             <v-card width="100%" class="ml-5 d-flex flex-column align-self-start" flat :color="theme.isDark ? '' : '#FFF'">
-
+                阿斯顿发送到
             </v-card>
-
-
 
             <v-dialog v-model="dialog" persistent max-width="450px">
                 <v-card>
-                    <v-toolbar dark flat color="primary">
+                    <v-toolbar dense dark flat color="primary">
                         <v-card-title color="primary" class="subtitle-2 font-weight-bold">添加角色</v-card-title>
                     </v-toolbar>
                     <v-card-text>
@@ -137,7 +135,7 @@ export default {
 </script>
 
 <style>
-    .card-border{
+    .card-border——{
         box-shadow: rgba(36, 46, 66, 0.06) 0 4px 8px 0;
         cursor: pointer;
         transition: all .3s ease-in-out;

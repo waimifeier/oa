@@ -1,8 +1,25 @@
 @charset "utf-8";
 @import '~vuetify/src/styles/styles.sass';
 
+button::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="file"] > input[type="button"]::-moz-focus-inner {border: 1px dotted transparent;}
+
+button:focus::-moz-focus-inner,
+input[type="reset"]:focus::-moz-focus-inner,
+input[type="button"]:focus::-moz-focus-inner,
+input[type="submit"]:focus::-moz-focus-inner,
+input[type="file"] > input[type="button"]:focus::-moz-focus-inner {padding: 3px;border-color: #F3F3F3;}
+
+
 .v-input__icon{
-  height: 16px !important;
+  height: 14px !important;
+}
+/*input 清除图标的大小*/
+.v-icon.v-icon{
+  font-size: 14px;
 }
 
 html{
@@ -22,6 +39,19 @@ html{
   text-align: left;
   font-size: 12px;
 }
+
+/*分页阴影*/
+.v-pagination__navigation{
+  outline:none;
+  box-shadow: none !important;
+  font-size: 12px;
+}
+.v-pagination__item{
+  outline:none;
+  box-shadow: none !important;
+  font-size: 12px;
+}
+
 
 .app-container{
   padding:0 12px;

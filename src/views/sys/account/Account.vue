@@ -6,7 +6,7 @@
                 <v-btn text small @click="filterSearch = !filterSearch" color="primary">
                     筛选 <v-icon right v-text=" filterSearch ? 'mdi-chevron-down' :'mdi-chevron-up'"></v-icon>
                 </v-btn>
-                <v-btn color="primary" small rounded>
+                <v-btn color="primary" small rounded @click="addAccount(null)">
                     <v-icon left>mdi-plus</v-icon>
                     创建账号
                 </v-btn>
@@ -121,6 +121,65 @@
                 ></v-data-table>
             </div>
         </v-sheet>
+
+        <v-dialog v-model="dialog" persistent max-width="450px">
+            <v-card :color="theme.isDark ? '' : '#FFF'">
+                <v-card-title color="primary" class="subtitle-2 font-weight-bold">添加员工</v-card-title>
+                <v-card-text class="mt-2">
+                  <!--  <v-stepper vertical value="2">
+                        <v-stepper-header flat class="elevation-0 px-0">
+                            <v-stepper-step step="1">基本信息</v-stepper-step>
+                            <v-divider></v-divider>
+                            <v-stepper-step step="2">
+                                关联权限
+                                <small>选择菜单资源</small>
+                            </v-stepper-step>
+                        </v-stepper-header>
+                    </v-stepper>-->
+                    <v-form
+                            ref="form"
+                            v-model="valid"
+                            lazy-validation
+                    >
+                        <v-text-field
+                                :rules="[v => !!v || '登陆账号不能为空']"
+                                v-model="accountParams.account" dense outlined single-line clearable label="请输入登陆账号"></v-text-field>
+
+                        <v-text-field
+                                :rules="[v => !!v || '姓名不能为空']"
+                                v-model="accountParams.nickname" dense outlined single-line clearable label="请输入姓名"></v-text-field>
+
+                        <v-text-field
+                                :rules="[v => !!v || '密码不能为空']" type="password"
+                                v-model="accountParams.password" dense outlined single-line clearable label="请输入密码"></v-text-field>
+
+                        <v-text-field :rules="[v => !!v || '请再次输入密码']" type="password"
+                                       v-model="accountParams.repassword" dense outlined single-line clearable label="请再次输入密码"></v-text-field>
+
+                        <v-btn small text class="caption" @click="dialogHidden = !dialogHidden">
+                            更多设置
+                            <v-icon right small v-text=" dialogHidden ? 'mdi-chevron-down' :'mdi-chevron-up'"></v-icon>
+                        </v-btn>
+                        <v-expand-transition>
+                            <div class="d-flex align-center justify-space-between" v-if="dialogHidden" style="background: #f6f7fb;border-radius: 5px;">
+                                <div style="width: 260px;" class="ml-2">
+                                    <v-chip-group dense column active-class="primary--text" v-model="accountParams.gender" >
+                                        <v-chip small value="male"> <v-icon small left color="#169ffe">mdi-gender-male</v-icon> 男</v-chip>
+                                        <v-chip small value="female" ><v-icon small left color="#f16d84">mdi-gender-female</v-icon> 女</v-chip>
+                                    </v-chip-group>
+                                </div>
+                            </div>
+                        </v-expand-transition>
+                    </v-form>
+                </v-card-text>
+                <v-divider></v-divider>
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn text small @click="dialog = false"> 取 消 </v-btn>
+                    <v-btn small dark depressed color="#66bccb" class="white-text" @click="dialog = false"> 下一步 </v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
     </div>
 </template>
 
@@ -128,6 +187,19 @@
     export default {
         inject: ['theme'],
         data: () => ({
+            valid:false,
+            dialog:false,
+
+            dialogHidden:false,
+            accountParams:{
+                id:1,
+                account:'',
+                nickname:'',
+                password:'',
+                repassword:'',
+                gender:'' ,
+            },
+
             accountState:0,
             filterSearch:'',
             headers: [
@@ -229,6 +301,9 @@
         mounted() {
         },
         methods:{
+            addAccount(){
+                this.dialog = true
+            },
             handlerClick(){
                 // this.$confirm('是否禁用当前账号？')
                 //         .then(res => {

@@ -7,8 +7,12 @@ $input-font-size:14px !default;
 $text-field-single-line-label-top:9px !default;
 $text-field-filled-full-width-outlined-single-line-slot-min-height:36px !default;
 $text-field-outlined-rounded-slot-padding:0 12px !default;
+$text-field-outlined-fieldset-border:1px solid currentColor !default;
+
+
 $treeview-node-height-dense:34px !default;
 $treeview-label-font-size:11px !default;
+
 
 $stepper-elevation:0 !default; // 步骤条海拔0
 $stepper-header-elevation:0 !default;
@@ -20,6 +24,14 @@ $stepper-step-step-min-width:18px !default;
 $stepper-step-step-width:18px !default;
 $stepper-step-step-font-size:12px !default;
 
+
+$pagination-item-height:25px !default; // 分页条
+$pagination-item-min-width:25px !default;
+$pagination-more-height:24px !default;
+$pagination-more-width:24px !default;
+
+$pagination-navigation-height:18px !default;
+$pagination-navigation-width:18px !default;
 $shades:(
     'black': #242e42,
     'white': #f9fafc,
