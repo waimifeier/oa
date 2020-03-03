@@ -9,7 +9,7 @@
                 <v-btn text small @click="filterContainer = !filterContainer" color="primary">
                     筛选 <v-icon right v-text=" filterContainer ? 'mdi-chevron-down' :'mdi-chevron-up'"></v-icon>
                 </v-btn>
-                <v-btn color="primary" small rounded>
+                <v-btn color="primary" small rounded @click="addMessage(null)">
                     <v-icon left>mdi-plus</v-icon>
                     新建消息
                 </v-btn>
@@ -105,6 +105,40 @@
                 </div>
             </v-card>
         </div>
+
+        <v-dialog v-model="dialog" persistent max-width="450px">
+            <v-card>
+                <v-toolbar dark flat color="primary">
+                    <v-card-title color="primary" class="subtitle-2 font-weight-bold">添加系统消息</v-card-title>
+                </v-toolbar>
+                <v-card-text>
+                    <v-stepper vertical value="2">
+                        <v-stepper-header flat class="elevation-0 px-0">
+                            <v-stepper-step step="1">基本信息</v-stepper-step>
+                            <v-divider></v-divider>
+                            <v-stepper-step step="2">
+                                关联权限
+                                <small>选择菜单资源</small>
+                            </v-stepper-step>
+                        </v-stepper-header>
+                    </v-stepper>
+                    <v-text-field label="消息标题" required></v-text-field>
+                    <v-text-field label="消息内容" required></v-text-field>
+                    <v-row>
+                        <v-rol>
+                            <span class="subtitle-2">发送时间:</span>
+                            <v-text-field label="发送时间" required></v-text-field>
+
+                        </v-rol>
+                    </v-row>
+                </v-card-text>
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="primary darken-1" text @click="dialog = false"> 取 消 </v-btn>
+                    <v-btn color="primary " text @click="dialog = false"> 下一步 </v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
     </div>
 </template>
 
@@ -135,6 +169,10 @@ export default {
     methods:{
         templateManager(){
             console.log(this.theme.isDark)
+        },
+
+        addMessage(){
+            this.dialog = true
         }
     }
 }

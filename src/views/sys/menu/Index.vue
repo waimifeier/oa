@@ -125,7 +125,6 @@
                             <v-switch disabled v-model="switch1" color="indigo darken-3" class="ma-0 pa-0"></v-switch>
                         </span>
                     </div>
-
                 </v-card-text>
 
             </v-card>
