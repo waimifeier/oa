@@ -3,18 +3,14 @@
         <span class="subtitle-1 font-weight-bold">系统配置</span>
         <v-sheet color="transparent" md="5">
             <div class="d-flex justify-space-between">
-                <v-chip-group color="primary" mandatory >
-                    <v-chip pill class="caption">系统参数</v-chip>
-                    <v-chip pill class="caption">OAuth授权</v-chip>
-                    <v-chip pill class="caption">系统主题</v-chip>
-                </v-chip-group>
-                <v-chip-group color="primary" mandatory class="d-none">
-                    <v-chip pill class="caption">全部</v-chip>
-                    <v-chip pill class="caption">系统样式</v-chip>
+                <v-chip-group color="primary" mandatory v-model="requestState">
+                    <v-chip pill class="caption" value="THEME">系统主题</v-chip>
+                    <v-chip pill class="caption" value="OAUTH">OAuth授权</v-chip>
+                    <v-chip pill class="caption" value="SYS">系统参数</v-chip>
                 </v-chip-group>
             </div>
         </v-sheet>
-        <v-row dense >
+        <v-row dense v-if="requestState==='SYS'" >
             <v-col cols="12" md="4" sm="6" xl="3">
                 <v-card dark color="#1F7087">
                     <div class="d-flex flex-no-wrap justify-space-between">
@@ -139,7 +135,7 @@
                 </v-col>
 
             </v-row>
-        <v-row dense>
+        <v-row v-if="requestState==='OAUTH'" >
             <v-col md="3">
                 <v-card flat hover>
                     <v-img :aspect-ratio="16/9" v-ripple="{ center: true }"
@@ -233,7 +229,7 @@
 
             </v-col>
         </v-row>
-        <div class="d-flex">
+        <div class="d-flex" v-if="requestState==='THEME'">
             <v-sheet width="280">
                 <v-hover v-slot:default="{ hover }">
                     <v-card flat>
@@ -304,8 +300,8 @@
 
 <script>
     export default {
-        name: "index",
         data: () => ({
+            requestState:'THEME',
             items: [
                 {
                     color: '#1F7087',
@@ -327,8 +323,13 @@
                 },]
         }),
         mounted () {
-            console.log(this.$vuetify.breakpoint )
+
         },
+        watch:{
+            requestState(val){
+                console.log(val)
+            }
+        }
     }
 </script>
 

@@ -82,9 +82,6 @@
                                     <v-btn icon small v-on="on"><v-icon small class="white--text">mdi-chevron-down-circle</v-icon></v-btn>
                                 </template>
                                 <v-list dense>
-                                    <v-list-item>
-                                        <v-list-item-title class="caption">新建消息模版</v-list-item-title>
-                                    </v-list-item>
                                     <v-list-item @click="templateManager()">
                                         <v-list-item-content>
                                             <v-list-item-title class="caption">模版管理</v-list-item-title>
@@ -114,36 +111,68 @@
             </v-card>
         </div>
 
-        <v-dialog v-model="dialog" persistent max-width="450px">
+        <v-dialog v-model="dialog" persistent scrollable eager max-width="500px">
             <v-card>
-                <v-toolbar dark flat color="primary">
-                    <v-card-title color="primary" class="subtitle-2 font-weight-bold">添加系统消息</v-card-title>
+                <v-toolbar dense falt elevation="0">
+                    <v-toolbar-title class="subtitle-2">
+                        <v-icon small> mdi-email-plus-outline</v-icon>
+                        添加消息
+                    </v-toolbar-title>
+                    <v-spacer></v-spacer>
+                    <v-toolbar-items>
+                        <v-btn text small @click="dialogHidden = !dialogHidden">
+                            全体人员 <v-icon right v-text=" dialogHidden ? 'mdi-chevron-up' :'mdi-chevron-down'"></v-icon>
+                        </v-btn>
+                    </v-toolbar-items>
                 </v-toolbar>
-                <v-card-text>
-                    <v-stepper vertical value="2">
-                        <v-stepper-header flat class="elevation-0 px-0">
-                            <v-stepper-step step="1">基本信息</v-stepper-step>
-                            <v-divider></v-divider>
-                            <v-stepper-step step="2">
-                                关联权限
-                                <small>选择菜单资源</small>
-                            </v-stepper-step>
-                        </v-stepper-header>
-                    </v-stepper>
-                    <v-text-field label="消息标题" required></v-text-field>
-                    <v-text-field label="消息内容" required></v-text-field>
-                    <v-row>
-                        <v-rol>
-                            <span class="subtitle-2">发送时间:</span>
-                            <v-text-field label="发送时间" required></v-text-field>
+                <v-divider></v-divider>
+                <v-card-text class="mt-2">
+                    <v-form
+                            ref="form"
+                            v-model="valid"
+                            lazy-validation
+                    >
+                        <div class="d-flex">
+                            <span class="caption font-weight-bold" style="width: 80px;line-height: 32px;">消息标题:</span>
+                            <v-text-field
+                                    :rules="[v => !!v || '消息标题不能为空']"
+                                    v-model="messageParams.title" dense outlined single-line clearable label="请输入消息标题"></v-text-field>
+                        </div>
 
-                        </v-rol>
-                    </v-row>
+                        <div class="d-flex">
+                            <span class="caption font-weight-bold" style="width: 80px;line-height: 32px;">消息标题:</span>
+                            <v-textarea
+                                    v-model="messageParams.description"
+                                    name="input-7-1" outlined single-line clearable
+                                    label="请输入消息内容"  :rules="[v => !!v || '消息内容不能为空']"
+                            ></v-textarea>
+                        </div>
+
+                        <div class="d-flex align-center">
+                            <span class="caption font-weight-bold" style="width: 80px;line-height: 32px;">发送时间:</span>
+                            <v-radio-group :value="messageParams.senderTime===null" row class="py-0 mx-0">
+                                <v-radio label="立刻发送" value="radio-1"></v-radio>
+                                <v-radio label="自定义" value="radio-2"></v-radio>
+                            </v-radio-group>
+
+                            <v-btn small text class="caption ml-auto mt-0">
+                                <v-icon small left> mdi-calendar-outline </v-icon> 2020-02-11 11:23
+                            </v-btn>
+                        </div>
+                    </v-form>
                 </v-card-text>
+                <v-card-text v-if="dialogHidden" style="background: #f6f7fb;border-radius: 5px;">
+                    <v-chip-group dense column active-class="primary--text">
+                        <v-chip small value="male"> <v-icon small left color="#169ffe">mdi-gender-male</v-icon> 男</v-chip>
+                        <v-chip small value="female" ><v-icon small left color="#f16d84">mdi-gender-female</v-icon> 女</v-chip>
+                    </v-chip-group>
+                </v-card-text>
+
+                <v-divider></v-divider>
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn color="primary darken-1" text @click="dialog = false"> 取 消 </v-btn>
-                    <v-btn color="primary " text @click="dialog = false"> 下一步 </v-btn>
+                    <v-btn small text @click="dialog = false"> 取 消 </v-btn>
+                    <v-btn color="primary" dark small depressed @click="dialog = false"> 发送 </v-btn>
                 </v-card-actions>
             </v-card>
         </v-dialog>
@@ -152,11 +181,24 @@
 
 <script>
 export default {
-    name: "Message",
+    inject: ['theme'],
     data:()=>({
         filterContainer:false,
         dialog:false,
         page:2,
+        valid:false,
+        dialogHidden:false,
+
+        // 新增/修改消息
+        messageParams:{
+            id:1,
+            title:'' ,
+            description:'' ,
+            senderTime: '' ,  // 时间为空时者表示立即发送，否者按照指定时间发送
+
+        },
+
+
         messageTemplate:[
             {id:1,name:'放假通知' , describe:'放假通知',time:'',},
             {id:2,name:'员工公告' , describe: '员工手册员工手册员工手册员工手册员工手册' },
@@ -174,7 +216,7 @@ export default {
             {id:5,title:'放假通知' , describe:'放假通知',time:'2018-01-21', author:'admin',state:'已发送'},
         ]
     }),
-    inject: ['theme'],
+
     methods:{
         templateManager(){
             console.log(this.theme.isDark)
