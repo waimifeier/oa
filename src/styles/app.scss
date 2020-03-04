@@ -1,19 +1,6 @@
 @charset "utf-8";
 @import '~vuetify/src/styles/styles.sass';
 
-button::-moz-focus-inner,
-input[type="reset"]::-moz-focus-inner,
-input[type="button"]::-moz-focus-inner,
-input[type="submit"]::-moz-focus-inner,
-input[type="file"] > input[type="button"]::-moz-focus-inner {border: 1px dotted transparent;}
-
-button:focus::-moz-focus-inner,
-input[type="reset"]:focus::-moz-focus-inner,
-input[type="button"]:focus::-moz-focus-inner,
-input[type="submit"]:focus::-moz-focus-inner,
-input[type="file"] > input[type="button"]:focus::-moz-focus-inner {padding: 3px;border-color: #F3F3F3;}
-
-
 .v-input__icon{
   height: 16px !important;
 }
@@ -68,8 +55,8 @@ html{
 
 /*表头*/
 .fc th.fc-widget-header {
- /* background: #edf1f5;*/
-  background:#1d1d1d;
+  background: #edf1f5;
+  // background:#1d1d1d;
   font-size: 13px;
   line-height: 20px;
   padding: 10px 0;
@@ -101,13 +88,13 @@ html{
 .fc-unthemed .fc-popover,
 .fc-unthemed .fc-list-view,
 .fc-unthemed .fc-list-heading td{
-  //border-color: #f1f3fa !important;
-  border-color: #1d1d1d !important;
+  border-color: #f1f3fa !important;
+  // border-color: #1d1d1d !important;
 }
 /*今天的背景色*/
 .fc-unthemed td.fc-today {
-  // background: #f3f6f8 !important;
-  background: #1d1d1d !important;
+   background: #f3f6f8 !important;
+  // background: #1d1d1d !important;
 }
 
 /*农历或者节日的样式*/
