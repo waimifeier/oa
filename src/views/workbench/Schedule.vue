@@ -1,8 +1,8 @@
 <template>
     <div class="app-container container">
         <span class="subtitle-1 font-weight-bold">工作计划</span>
-        <v-sheet class="d-flex">
-            <v-card flat class="mr-6 hidden-sm-and-down d-none" width="300">
+        <div class="d-flex">
+            <v-card flat class="mr-6 hidden-sm-and-down" width="300" v-if="!eventsList || eventsList.length<=0">
                 <v-sheet class="pa-5">
                     <v-img :aspect-ratio="16/9" contain   src="../../assets/svg/undraw_events_2p66.svg" />
                 </v-sheet>
@@ -15,12 +15,12 @@
                     </v-list-item>
                 </v-list>
                 <v-card-actions>
-                    <v-btn text block color="primary"> 开始使用 </v-btn>
+                    <v-btn text block color="primary" @click="eventDialog=!eventDialog"> 开始使用 </v-btn>
                 </v-card-actions>
              </v-card>
 
 
-            <v-card flat id="external-events" class="mr-6 hidden-sm-and-down" width="300">
+            <v-card flat id="external-events" class="mr-6 hidden-sm-and-down" width="300" v-else>
                 <v-card class="pa-1" :color="theme.isDark ? '' : 'indigo accent-3'" flat dark>
                     <div class="d-flex justify-space-between">
                         <v-img src="../../assets/svg/undraw_events_2p66.svg" width="60" contain/>
@@ -50,8 +50,17 @@
                         </v-list-item>
                     </div>
                 </v-card>
-                <v-chip v-for="item in eventsList" :key="item.id"
-                        small :close="isEditor" class="ma-2" :class="isEditor? '' : 'fc-event'" color="cyan" text-color="white" style="display: inline-block;">
+
+                <v-chip
+                        style="display:inline-block"
+                        v-for="item in eventsList" :key="item.id"
+                        :close="isEditor"
+                        :class="isEditor? '' : 'fc-event'"
+                        :color="item.color"
+                        text-color="white"
+                        class="ma-2 caption px-2"
+                        label
+                >
                     {{item.title}}
                 </v-chip>
 
@@ -123,7 +132,7 @@
                     @eventRender="handlerEventRender"
                     />
             </v-card>
-         </v-sheet>
+         </div>
 
         <v-dialog v-model="eventDialog" width="400" >
             <v-card>
@@ -134,9 +143,7 @@
                 <v-card-text>
                     <v-form ref="form" v-model="valid" lazy-validation  >
                         <v-text-field
-                                v-model="name"
                                 :counter="10"
-                                :rules="nameRules"
                                 label="我的日程名称"
                                 required
                         ></v-text-field>
@@ -169,23 +176,26 @@ import getDayData from '@/utils/lunarUtils.js'
 export default {
     inject: ['theme'],
     data: () => ({
+        valid:false,
         events:[
-            { title: '19:00见客户', date: '2020-02-13',className:'event-style',textColor: 'white', description: 'description for All Day Event',},
-            { title: '市场调研', start: '2020-02-13' ,end:'2020-02-18',className:'event-style',textColor: 'white'},
-            { title: '晚上同学聚会', date: '2020-02-19',className:'event-style',textColor: 'white'},
-            { title: '加班', start: '2020-02-01',end:'2020-02-03' ,className:'event-style',url:'http://www.baidu.com' ,textColor: 'white'}
+            { title: '19:00见客户', date: '2020-03-13',color:'#3e51b5',textColor: 'white', description: 'description for All Day Event',},
+            { title: '市场调研', start: '2020-03-09' ,end:'2020-03-11 00:01',color:'#00bcd4',textColor: 'white'},
+            { title: '清明假期', start: '2020-04-04',end:'2020-04-07',color:'#f44335',textColor: 'white'},
+            { title: '加班', start: '2020-03-01',end:'2020-03-01' ,color:'#9c26b0',url:'http://www.baidu.com' ,textColor: 'white'}
         ],
         calendarConfig:calendarConfig,
         title:'',
         isEditor:false,
 
         eventsList:[
-            {id:1, title:'外出签合同'},
-            {id:2, title:'加班'},
-            {id:3, title:'开早会'},
-            {id:4, title:'发工资'}
+            {id:1, title:'外出签合同',color:'#109ab1'},
+            {id:2, title:'加班',color:'#4caf50'},
+            {id:3, title:'开早会',color:'#ff9800'},
+            {id:4, title:'开发项目',color:'#00bcd4'},
+            {id:5, title:'项目调试',color:'#cddc38'}
         ],
 
+        colors:['#109ab1','#e91e63','#9c26b0','#f44335','#1f96f3','#3e51b5','#00bcd4','#009688','#4caf50','#cddc38','#ff9800','#ffc104','#ffc104','#9e9e9e'],
         eventDialog:false
     }),
 
@@ -271,12 +281,16 @@ export default {
             console.log("handlerEventResize" , arg)
         },
 
+        // 外部托入
         drop: function(info) {
-            console.log(" drop " ,info)
+            let classNameList = info.draggedEl.className.split(" ");
+            let currentClassName = classNameList.filter(item => this.colors.indexOf(item)> -1)
+           // console.log(" drop " ,currentClassName[0])
+            console.log(info)
         },
 
         handlerEventRender(info){
-            console.log(info.event.extendedProps.description)
+            console.log('handlerEventRender',info)
         },
 
         saveSlefEvents(){
@@ -286,9 +300,11 @@ export default {
     mounted(){
         new Draggable(document.getElementById('external-events'),{
             itemSelector: '.fc-event',
-            eventData: function(eventEl) {
+            eventData(eventEl) {
+                let backgroundColor  = eventEl.style.backgroundColor;
                 return {
-                    title: eventEl.innerText
+                    title: eventEl.innerText,
+                    color:backgroundColor,
                 };
             }
         })
@@ -300,6 +316,16 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
+
+    .fc-event {
+        border-radius: 5px;
+        border: none;
+        cursor: move;
+        font-size: .5125rem;
+        padding: 4px;
+        margin: 1px 4px;
+        text-align: center;
+    }
 
     .shaky{
         -webkit-animation: icon-bounce 0.6s infinite linear;
@@ -346,6 +372,9 @@ export default {
 </style>
 
 <style>
+    .bg-danger {
+        background-color: #fa5c7c!important;
+    }
     .popper,
     .tooltip {
         position: absolute;

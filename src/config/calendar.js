@@ -6,16 +6,16 @@ import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
 export default {
     schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
     calendarPlugins: [ dayGridPlugin ,resourceTimelinePlugin,interactionPlugin,timeGridPlugin,listPlugin],
-    defaultView:'timeGridWeek', // 默认视图
+    defaultView:'dayGridMonth', // 默认视图
     defaultEventMinutes:60,
     locale:'zh-cn', //默认语言
-    eventColor:'#1eb4a0',      // 默认事件的背景+边框色
+    //eventColor:'#1eb4a0',      // 默认事件的背景+边框色
     eventTextColor:'#fff',
     header:false,
 
     views: {
         dayGridMonth: {
-            eventLimit: 3 ,
+            eventLimit: 2 ,
             eventTimeFormat:{
                 hour: 'numeric',
                 minute: '2-digit',

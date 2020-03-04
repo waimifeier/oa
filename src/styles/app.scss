@@ -58,17 +58,18 @@ html{
 }
 
 /*日历-外部拖动*/
-.fc-event {
+/*.fc-event {
   cursor: move;
   border:none !important;
   text-align: center;
   border-radius: 10px;
-}
+}*/
 
 
 /*表头*/
 .fc th.fc-widget-header {
-  background: #edf1f5;
+ /* background: #edf1f5;*/
+  background:#1d1d1d;
   font-size: 13px;
   line-height: 20px;
   padding: 10px 0;
@@ -100,11 +101,13 @@ html{
 .fc-unthemed .fc-popover,
 .fc-unthemed .fc-list-view,
 .fc-unthemed .fc-list-heading td{
-  border-color: #f1f3fa !important;
+  //border-color: #f1f3fa !important;
+  border-color: #1d1d1d !important;
 }
 /*今天的背景色*/
 .fc-unthemed td.fc-today {
-  background: #f3f6f8 !important;
+  // background: #f3f6f8 !important;
+  background: #1d1d1d !important;
 }
 
 /*农历或者节日的样式*/
@@ -117,13 +120,4 @@ html{
 .fc-day.fc-widget-content .solar{
   text-decoration: underline;
   color:#fb648a;
-}
-
-/*日历事件样式*/
-.event-style{
-  color: #fff;
-  background-color: #fb648a;
-  border: none;
-  border-radius: 8px !important;
-  text-align: center;
 }
