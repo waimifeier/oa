@@ -62,7 +62,7 @@
             </v-card>
 
 
-            <div class="ml-8" style="width: 100%;">
+            <div class="ml-8 hidden-sm-and-down" style="width: 100%;">
                 <v-alert
                         text
                         outlined

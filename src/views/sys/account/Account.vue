@@ -141,14 +141,11 @@
                             v-model="valid"
                             lazy-validation
                     >
-                         <v-row>
-                             <v-col>
-                                 adsfasd
-                                 <v-text-field
-                                         :rules="[v => !!v || '登陆账号不能为空']"
-                                         v-model="accountParams.account" dense outlined single-line clearable label="请输入登陆账号"></v-text-field>
-                             </v-col>
-                         </v-row>
+
+                         <v-text-field
+                                 :rules="[v => !!v || '登陆账号不能为空']"
+                                 v-model="accountParams.account" dense outlined single-line clearable label="请输入登陆账号"></v-text-field>
+
 
 
                         <v-text-field

@@ -63,7 +63,7 @@
 
             <v-card flat style="flex: 3" color="transparent" >
                 <div class="d-flex justify-space-between">
-                    <v-chip-group column active-class="primary--text" mandatory>
+                    <v-chip-group column active-class="primary--text" mandatory class="hidden-sm-and-down">
                      <!--   <v-chip @click="changeView('list')"><v-icon size="18">mdi-calendar-text-outline</v-icon></v-chip>-->
                         <v-chip @click="changeView('dayGridMonth')"><v-icon size="18">mdi-calendar-month-outline</v-icon></v-chip>
                         <v-chip @click="changeView('dayGridWeek')"><v-icon size="18">mdi-calendar-range-outline</v-icon></v-chip>

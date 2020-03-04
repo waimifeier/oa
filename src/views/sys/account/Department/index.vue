@@ -59,7 +59,7 @@
                     </template>
                 </v-treeview>
             </v-card>
-            <v-card width="100%" class="ml-5 d-flex flex-column align-self-start" flat :color="theme.isDark ? '' : '#FFF'">
+            <v-card width="100%" class="ml-5 d-flex flex-column align-self-start hidden-sm-and-down" flat :color="theme.isDark ? '' : '#FFF'">
                 <div class="d-flex mt-2 pa-3">
                     <div style="width: 100%;" class="d-flex">
                         <div class="d-flex flex-column justify-center align-center" style="width: 100px;">

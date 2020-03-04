@@ -56,7 +56,7 @@
         </div>
 
         <div class="d-flex align-center justify-space-between mb-1">
-            <v-chip-group column active-class="primary--text" mandatory v-model="state">
+            <v-chip-group column active-class="primary--text" class="hidden-sm-and-down" mandatory v-model="state">
                 <v-chip class="caption">所有</v-chip>
                 <v-chip class="caption">待审核</v-chip>
                 <v-chip class="caption">处理中</v-chip>
