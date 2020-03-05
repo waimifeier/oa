@@ -55,7 +55,7 @@
                         style="display:inline-block"
                         v-for="item in eventsList" :key="item.id"
                         :close="isEditor"
-                        :class="isEditor? '' : 'fc-event'"
+                        :class="isEditor? 'shaky' : 'fc-event'"
                         :color="item.color"
                         text-color="white"
                         class="ma-2 caption px-2"
@@ -134,33 +134,42 @@
             </v-card>
          </div>
 
-        <v-dialog v-model="eventDialog" width="400" >
-            <v-card>
-                <v-card-title class="subtitle-1"  primary-title>
-                    新建日程
-                </v-card-title>
+        <v-dialog v-model="eventDialog" width="230" persistent>
+            <v-card flat dense  :color="theme.isDark ? '' : '#FFF'" >
+                <v-textarea
+                        no-resize
+                        rows="2"
+                        v-model="messageTips.title"
+                        :counter="10"
+                        label="输入日程名称"
+                        clear-icon="mdi-close-circle-outline"
+                        :error-messages="nameErrors"
+                        @input="$v.messageTips.title.$touch()"
+                        @blur="$v.messageTips.title.$touch()"
+                        required
+                        autofocus
+                        solo
+                        flat
+                        clearable
+                        single-line
+                ></v-textarea>
 
+                <v-item-group mandatory v-model="messageTips.color" class="mb-1 pa-2">
+                    <v-item v-slot:default="{ active, toggle }" v-for="(item,index) in colors" :key="index" class="itemActive" :value="item">
+                        <v-avatar :color="item" :size="22" class="ma-1" @click="toggle" style="cursor: pointer" >
+                            <v-icon small v-if="active" color="white">mdi-check</v-icon>
+                        </v-avatar>
+                    </v-item>
+                </v-item-group>
                 <v-card-text>
-                    <v-form ref="form" v-model="valid" lazy-validation  >
-                        <v-text-field
-                                :counter="10"
-                                label="我的日程名称"
-                                required
-                        ></v-text-field>
-                        <v-subheader> 颜色 </v-subheader>
 
-                        <div>
-                            <span></span>
-                        </div>
-                    </v-form>
+                    <span class="caption pl-3 red--text d-none">请勾选颜色</span>
                 </v-card-text>
 
-                <v-divider></v-divider>
                 <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn color="primary" text @click="eventDialog = false">
-                        保存
-                    </v-btn>
+                    <v-btn text small @click="eventDialog=!eventDialog">取消</v-btn>
+                    <v-btn small text color="primary" @click="saveMessageTips()">  保存</v-btn>
                 </v-card-actions>
             </v-card>
         </v-dialog>
@@ -173,10 +182,21 @@ import FullCalendar from '@fullcalendar/vue'
 import  { Draggable } from '@fullcalendar/interaction';
 import calendarConfig from '@/config/calendar.js'
 import getDayData from '@/utils/lunarUtils.js'
+import colors from '@/config/colors.js'
+import { required, maxLength } from 'vuelidate/lib/validators'
 export default {
     inject: ['theme'],
+    validations: {
+        messageTips:{
+            title: { required, maxLength: maxLength(10) },
+            color: { required },
+        }
+    },
     data: () => ({
-        valid:false,
+        messageTips:{
+            color:'',
+            title:''
+        },
         events:[
             { title: '19:00见客户', date: '2020-03-13',color:'#3e51b5',textColor: 'white', description: 'description for All Day Event',},
             { title: '市场调研', start: '2020-03-09' ,end:'2020-03-11 00:01',color:'#00bcd4',textColor: 'white'},
@@ -186,7 +206,6 @@ export default {
         calendarConfig:calendarConfig,
         title:'',
         isEditor:false,
-
         eventsList:[
             {id:1, title:'外出签合同',color:'#109ab1'},
             {id:2, title:'加班',color:'#4caf50'},
@@ -195,7 +214,7 @@ export default {
             {id:5, title:'项目调试',color:'#cddc38'}
         ],
 
-        colors:['#109ab1','#e91e63','#9c26b0','#f44335','#1f96f3','#3e51b5','#00bcd4','#009688','#4caf50','#cddc38','#ff9800','#ffc104','#ffc104','#9e9e9e'],
+        colors,
         eventDialog:false
     }),
 
@@ -295,7 +314,37 @@ export default {
 
         saveSlefEvents(){
             this.isEditor = !this.isEditor;
+        },
+
+
+
+        saveMessageTips () {
+            this.$v.$touch()
+            if(!this.$v.$invalid){
+                this.eventsList.push({
+                    id:0,
+                    ...this.messageTips
+                })
+
+                this.eventDialog = false
+            }
+        },
+    },
+
+    watch:{
+        'messageTips.color'(val){
+            console.log(val)
         }
+    },
+
+    computed:{
+        nameErrors () {
+            const errors = []
+            if (!this.$v.messageTips.title.$dirty) return errors
+            !this.$v.messageTips.title.maxLength && errors.push('名称长度不能大于10')
+            !this.$v.messageTips.title.required && errors.push('日程名称不能为空')
+            return errors
+        },
     },
     mounted(){
         new Draggable(document.getElementById('external-events'),{
@@ -317,14 +366,13 @@ export default {
 
 <style rel="stylesheet/scss" lang="scss">
 
-    .fc-event {
-        border-radius: 5px;
-        border: none;
-        cursor: move;
-        font-size: .5125rem;
-        padding: 4px;
-        margin: 1px 4px;
-        text-align: center;
+    .itemActive{
+        -moz-transition:all .4s;
+        -webkit-transition:all .4s;
+        -o-transition:all .4s;
+    }
+    .itemActive:hover{
+        transform:scale(1.2);
     }
 
     .shaky{
@@ -371,105 +419,3 @@ export default {
     }
 </style>
 
-<style>
-    .bg-danger {
-        background-color: #fa5c7c!important;
-    }
-    .popper,
-    .tooltip {
-        position: absolute;
-        z-index: 9999;
-        background: #FFC107;
-        color: black;
-        width: 150px;
-        border-radius: 3px;
-        box-shadow: 0 0 2px rgba(0,0,0,0.5);
-        padding: 10px;
-        text-align: center;
-    }
-    .style5 .tooltip {
-        background: #1E252B;
-        color: #FFFFFF;
-        max-width: 200px;
-        width: auto;
-        font-size: .8rem;
-        padding: .5em 1em;
-    }
-    .popper .popper__arrow,
-    .tooltip .tooltip-arrow {
-        width: 0;
-        height: 0;
-        border-style: solid;
-        position: absolute;
-        margin: 5px;
-    }
-
-    .tooltip .tooltip-arrow,
-    .popper .popper__arrow {
-        border-color: #FFC107;
-    }
-    .style5 .tooltip .tooltip-arrow {
-        border-color: #1E252B;
-    }
-    .popper[x-placement^="top"],
-    .tooltip[x-placement^="top"] {
-        margin-bottom: 5px;
-    }
-    .popper[x-placement^="top"] .popper__arrow,
-    .tooltip[x-placement^="top"] .tooltip-arrow {
-        border-width: 5px 5px 0 5px;
-        border-left-color: transparent;
-        border-right-color: transparent;
-        border-bottom-color: transparent;
-        bottom: -5px;
-        left: calc(50% - 5px);
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-    .popper[x-placement^="bottom"],
-    .tooltip[x-placement^="bottom"] {
-        margin-top: 5px;
-    }
-    .tooltip[x-placement^="bottom"] .tooltip-arrow,
-    .popper[x-placement^="bottom"] .popper__arrow {
-        border-width: 0 5px 5px 5px;
-        border-left-color: transparent;
-        border-right-color: transparent;
-        border-top-color: transparent;
-        top: -5px;
-        left: calc(50% - 5px);
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-    .tooltip[x-placement^="right"],
-    .popper[x-placement^="right"] {
-        margin-left: 5px;
-    }
-    .popper[x-placement^="right"] .popper__arrow,
-    .tooltip[x-placement^="right"] .tooltip-arrow {
-        border-width: 5px 5px 5px 0;
-        border-left-color: transparent;
-        border-top-color: transparent;
-        border-bottom-color: transparent;
-        left: -5px;
-        top: calc(50% - 5px);
-        margin-left: 0;
-        margin-right: 0;
-    }
-    .popper[x-placement^="left"],
-    .tooltip[x-placement^="left"] {
-        margin-right: 5px;
-    }
-    .popper[x-placement^="left"] .popper__arrow,
-    .tooltip[x-placement^="left"] .tooltip-arrow {
-        border-width: 5px 0 5px 5px;
-        border-top-color: transparent;
-        border-right-color: transparent;
-        border-bottom-color: transparent;
-        right: -5px;
-        top: calc(50% - 5px);
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-</style>

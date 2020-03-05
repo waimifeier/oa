@@ -45,12 +45,15 @@ html{
 }
 
 /*日历-外部拖动*/
-/*.fc-event {
+.fc-event {
+  border-radius: 5px;
+  border: none;
   cursor: move;
-  border:none !important;
+  font-size: .5125rem !important;
+  padding: 3px;
+  margin: 1px 4px;
   text-align: center;
-  border-radius: 10px;
-}*/
+}
 
 
 /*表头*/

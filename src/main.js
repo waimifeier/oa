@@ -20,6 +20,8 @@ Vue.use(VuetifyDialog, {
     vuetify
   }
 })
+import Vuelidate from 'vuelidate'
+Vue.use(Vuelidate)
 
 Vue.config.productionTip = false
 import '@fullcalendar/core/main.css';

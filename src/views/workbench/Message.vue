@@ -1,12 +1,18 @@
 <template>
     <div class="app-container container">
-        消息
+       my message
     </div>
 </template>
 
 <script>
+
     export default {
-        name: "Message"
+        data() {
+            return {
+                name: '',
+                age: 0
+            }
+        }
     }
 </script>
 
