@@ -2,7 +2,7 @@
     <div class="app-container container">
         <span class="subtitle-1 font-weight-bold">工作计划</span>
         <div class="d-flex">
-            <v-card flat class="mr-6 hidden-sm-and-down" width="300" v-if="!eventsList || eventsList.length<=0">
+            <v-sheet flat class="mr-6 hidden-sm-and-down" width="300" v-if="!eventsList || eventsList.length<=0">
                 <v-sheet class="pa-5">
                     <v-img :aspect-ratio="16/9" contain   src="../../assets/svg/undraw_events_2p66.svg" />
                 </v-sheet>
@@ -17,11 +17,10 @@
                 <v-card-actions>
                     <v-btn text block color="primary" @click="eventDialog=!eventDialog"> 开始使用 </v-btn>
                 </v-card-actions>
-             </v-card>
+             </v-sheet>
 
-
-            <v-card flat id="external-events" class="mr-6 hidden-sm-and-down" width="300" v-else>
-                <v-card class="pa-1" :color="theme.isDark ? '' : 'indigo accent-3'" flat dark>
+            <div flat class="mr-6 hidden-sm-and-down" v-else style="width: 300px;">
+                <v-card class="pa-1" :color="theme.isDark ? '' : 'indigo accent-3'" flat dark >
                     <div class="d-flex justify-space-between">
                         <v-img src="../../assets/svg/undraw_events_2p66.svg" width="60" contain/>
                         <v-list-item dense>
@@ -51,35 +50,38 @@
                     </div>
                 </v-card>
 
-                <v-chip
-                        style="display:inline-block"
-                        v-for="item in eventsList" :key="item.id"
-                        :close="isEditor"
-                        :class="isEditor? 'shaky' : 'fc-event'"
-                        :color="item.color"
-                        text-color="white"
-                        class="ma-2 caption px-2"
-                        label
-                >
-                    {{item.title}}
-                </v-chip>
+                <div id="external-events">
+                    <v-chip
+                            style="display:inline-block"
+                            v-for="(item,index) in eventsList" :key="index"
+                            :close="isEditor"
+                            :class="isEditor? 'shaky' : 'fc-event'"
+                            :color="item.color"
+                            text-color="white"
+                            class="ma-2 caption px-2"
+                            label
+                    >
+                        {{item.title}}
+                    </v-chip>
+                </div>
+
 
                 <v-card-actions class="mt-8" style="justify-content: center" v-if="isEditor">
                     <v-btn outlined small color="primary"  @click="isEditor=!isEditor"> 取消 </v-btn>
                     <v-btn outlined small color="primary"  @click="saveSlefEvents()"> 完成 </v-btn>
                 </v-card-actions>
-            </v-card>
+            </div>
 
             <v-card flat style="flex: 3" color="transparent" >
                 <div class="d-flex justify-space-between">
-                    <v-chip-group column active-class="primary--text" mandatory class="hidden-sm-and-down">
+                    <v-chip-group column active-class="primary--text" mandatory class="hidden-sm-and-down" v-model="calendarParams.viewState">
                      <!--   <v-chip @click="changeView('list')"><v-icon size="18">mdi-calendar-text-outline</v-icon></v-chip>-->
                         <v-chip @click="changeView('dayGridMonth')"><v-icon size="18">mdi-calendar-month-outline</v-icon></v-chip>
                         <v-chip @click="changeView('dayGridWeek')"><v-icon size="18">mdi-calendar-range-outline</v-icon></v-chip>
                         <v-chip @click="changeView('dayGridDay')"><v-icon size="18">mdi-calendar-minus</v-icon></v-chip>
                     </v-chip-group>
-                    <span class="title align-self-center"> {{title}}</span>
-                    <v-chip-group column active-class="primary--text" mandatory>
+                    <span class="title align-self-center"> {{calendarParams.title}}</span>
+                    <v-chip-group column active-class="primary--text" mandatory v-model="calendarParams.prevState">
                         <v-chip @click="prev"><v-icon size="18">mdi-chevron-double-left</v-icon></v-chip>
                         <v-chip @click="today"><v-icon>mdi-alpha-t</v-icon></v-chip>
                         <v-chip @click="next"><v-icon size="18">mdi-chevron-double-right</v-icon></v-chip>
@@ -186,6 +188,7 @@ import colors from '@/config/colors.js'
 import { required, maxLength } from 'vuelidate/lib/validators'
 export default {
     inject: ['theme'],
+    components:{ FullCalendar },
     validations: {
         messageTips:{
             title: { required, maxLength: maxLength(10) },
@@ -193,35 +196,35 @@ export default {
         }
     },
     data: () => ({
+        colors,
+        calendarConfig,
+        draggableNode:null,
+        // 日历参数
+        calendarParams:{
+            title:'',
+            prevState:1,
+            viewState:0
+        },
+        // 消息提示参数
+        isEditor:false,
+        eventDialog:false,
         messageTips:{
             color:'',
             title:''
         },
+
         events:[
             { title: '19:00见客户', date: '2020-03-13',color:'#3e51b5',textColor: 'white', description: 'description for All Day Event',},
             { title: '市场调研', start: '2020-03-09' ,end:'2020-03-11 00:01',color:'#00bcd4',textColor: 'white'},
             { title: '清明假期', start: '2020-04-04',end:'2020-04-07',color:'#f44335',textColor: 'white'},
             { title: '加班', start: '2020-03-01',end:'2020-03-01' ,color:'#9c26b0',url:'http://www.baidu.com' ,textColor: 'white'}
         ],
-        calendarConfig:calendarConfig,
-        title:'',
-        isEditor:false,
-        eventsList:[
-            {id:1, title:'外出签合同',color:'#109ab1'},
-            {id:2, title:'加班',color:'#4caf50'},
-            {id:3, title:'开早会',color:'#ff9800'},
-            {id:4, title:'开发项目',color:'#00bcd4'},
-            {id:5, title:'项目调试',color:'#cddc38'}
-        ],
-
-        colors,
-        eventDialog:false
+        eventsList:[{id:1,title:'市场调研',color:'#f44335'}]
     }),
 
     methods:{
         datesRender(event){
             if(!this.calendarConfig.lunar) return;
-
             let [ year,month,day ] = [...event.el.dataset.date.split('-')]
             let lu = getDayData(year,month,day)
             //  月份 ，初一，阳历节日，农历节日
@@ -260,15 +263,14 @@ export default {
             this.$refs.fullCalendar.getApi().today();
             this.setHeaderTitle()
         },
-
         setHeaderTitle(){
-            this.title = this.$refs.fullCalendar.getApi().view.title;
+            this.calendarParams.title = this.$refs.fullCalendar.getApi().view.title;
         },
-
         changeView(viewName){
             this.$refs.fullCalendar.getApi().changeView(viewName);
             this.setHeaderTitle()
         },
+
         // 点击日期网格回调
         handleDateClick(arg){
             alert(arg.date+"天被点击了")
@@ -316,19 +318,38 @@ export default {
             this.isEditor = !this.isEditor;
         },
 
-
-
+        // 保存消息标签
         saveMessageTips () {
             this.$v.$touch()
-            if(!this.$v.$invalid){
-                this.eventsList.push({
-                    id:0,
-                    ...this.messageTips
-                })
+            if(this.$v.$invalid) return;
 
-                this.eventDialog = false
-            }
+            this.eventsList.push({
+                ...this.messageTips
+            });
+
+            this.eventDialog = false;
+            this.$nextTick(()=>{
+                this.initDraggable();
+            })
         },
+
+        // 初始化外部拖拽组件
+        initDraggable: function () {
+
+            let nodeEvent = document.getElementById('external-events');
+            if(!nodeEvent || this.draggableNode) return;
+
+            this.draggableNode = new Draggable(nodeEvent, {
+                itemSelector: '.fc-event',
+                eventData(eventEl) {
+                    let backgroundColor = eventEl.style.backgroundColor;
+                    return {
+                        title: eventEl.innerText,
+                        color: backgroundColor,
+                    };
+                }
+            })
+        }
     },
 
     watch:{
@@ -347,20 +368,11 @@ export default {
         },
     },
     mounted(){
-        new Draggable(document.getElementById('external-events'),{
-            itemSelector: '.fc-event',
-            eventData(eventEl) {
-                let backgroundColor  = eventEl.style.backgroundColor;
-                return {
-                    title: eventEl.innerText,
-                    color:backgroundColor,
-                };
-            }
-        })
-
+        // 初始化外部拖拽组件
+        this.initDraggable();
         this.setHeaderTitle();
     },
-    components:{ FullCalendar }
+
 }
 </script>
 
