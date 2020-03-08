@@ -38,7 +38,9 @@ html{
   box-shadow: none !important;
   font-size: 12px;
 }
-
+.v-treeview-node__toggle {
+  width: 16px;
+}
 
 .app-container{
   padding:0 12px;
