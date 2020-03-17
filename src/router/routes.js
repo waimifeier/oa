@@ -8,10 +8,10 @@ const routes = [
     component: () => import('../views/workbench/Profile.vue')
   },
   {
-    path: '/',
+    path: '',
     component: () => import('../views/layouts/Index.vue'),
     children: [
-      { path: '', component: () => import('../views/Home.vue') },
+      { path: '/', component: () => import('../views/Home.vue') },
     ]
   },
   {

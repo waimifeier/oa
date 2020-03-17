@@ -212,7 +212,6 @@ export default {
             color:'',
             title:''
         },
-
         events:[
             { title: '19:00见客户', date: '2020-03-13',color:'#3e51b5',textColor: 'white', description: 'description for All Day Event',},
             { title: '市场调研', start: '2020-03-09' ,end:'2020-03-11 00:01',color:'#00bcd4',textColor: 'white'},

@@ -54,5 +54,5 @@ export default {
             hour12: false
     },
     nowIndicator:true , // 红色标记(当前具体时间如：08:00)
-    lunar:true          // 农历
+    lunar:false,          // 农历
 }
