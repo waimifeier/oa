@@ -218,7 +218,7 @@ export default {
             { title: '清明假期', start: '2020-04-04',end:'2020-04-07',color:'#f44335',textColor: 'white'},
             { title: '加班', start: '2020-03-01',end:'2020-03-01' ,color:'#9c26b0',url:'http://www.baidu.com' ,textColor: 'white'}
         ],
-        eventsList:[{id:1,title:'市场调研',color:'#f44335'}]
+        eventsList:[]
     }),
 
     methods:{

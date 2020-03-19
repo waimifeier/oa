@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <v-sheet style="background-color:#fff; width: 600px;">
+        <v-sheet color="white" class="ma-auto" width="80%">
             <v-img
                     width="200"
                     :aspect-ratio="16/9" contain
