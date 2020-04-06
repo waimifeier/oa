@@ -213,10 +213,12 @@ export default {
             title:''
         },
         events:[
-            { title: '19:00见客户', date: '2020-03-13',color:'#3e51b5',textColor: 'white', description: 'description for All Day Event',},
-            { title: '市场调研', start: '2020-03-09' ,end:'2020-03-11 00:01',color:'#00bcd4',textColor: 'white'},
-            { title: '清明假期', start: '2020-04-04',end:'2020-04-07',color:'#f44335',textColor: 'white'},
-            { title: '加班', start: '2020-03-01',end:'2020-03-01' ,color:'#9c26b0',url:'http://www.baidu.com' ,textColor: 'white'}
+            { title: '疫情休息', start: '2020-03-02',end:'2020-03-07', color:'#ccc',textColor: 'white'},
+            { title: '修改电商bug', start: '2020-03-09',end:'2020-03-14', color:'#3e51b5',textColor: 'white'},
+            { title: '新增模块', start: '2020-03-10',end:'2020-03-13', color:'#75b59e',textColor: 'white'},
+            { title: '疫情休息', start: '2020-03-16',end:'2020-03-21', color:'#ccc',textColor: 'white'},
+            { title: '上班', start: '2020-03-23' ,end:'2020-03-28',color:'#00bcd4',textColor: 'white'},
+            { title: '清明假期', start: '2020-04-04',end:'2020-04-07',color:'#4caf50',textColor: 'white'},
         ],
         eventsList:[]
     }),
