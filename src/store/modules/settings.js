@@ -72,6 +72,10 @@ const settings = {
         FOOTER_TOGGLE: (state) => {
             state.footer = !state.footer;
         },
+        // 迷你侧边栏切换
+        NAVBAR_MINI_TOGGLE:(state) => {
+            state.navbar.mini = !state.navbar.mini;
+        }
     },
     actions: {
         // 设置语言
@@ -90,7 +94,7 @@ const settings = {
             await setVuetifyThemeDark(context.state.theme.dark);
         },
         NavbarToggle: async (context, payload) => {
-            context.commit('NAVBAR_TOGGLE', payload);
+             context.commit('NAVBAR_TOGGLE', payload);
         },
         NavbarState: async (context, payload) => {
             context.commit('NAVBAR_STATE', payload);
@@ -112,6 +116,10 @@ const settings = {
         },
         FooterToggle: async (context) => {
             context.commit('FOOTER_TOGGLE');
+        },
+
+        NavbarMiniToggle: async (context, payload) => {
+            context.commit('NAVBAR_MINI_TOGGLE', payload);
         },
     },
 };

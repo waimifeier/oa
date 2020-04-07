@@ -152,7 +152,7 @@
             },
 
             hidenVerticalNavbar(){
-                this.$store.dispatch('NavbarToggle');
+                this.$store.dispatch('NavbarMiniToggle');
             }
         },
         mounted () {
